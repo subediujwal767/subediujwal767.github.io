@@ -10,7 +10,7 @@
 
     <!-- Top Blog Title & Header Area -->
     <header style="width: 100%; max-width: 580px; margin-bottom: 32px; text-align: center; box-sizing: border-box; padding: 0 8px;">
-        <h1 style="margin: 0 0 8px 0; font-size: 2.25rem; font-weight: 900; color: #0f172a; letter-spacing: -0.03em; background: linear-gradient(135deg, #0d9488 0%, #1e293b 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        <h1 style="margin: 0 0 8px 0; font-size: 2.25rem; font-weight: 900; color: #0f172a; letter-spacing: -0.03em; background: linear-gradient(135deg, #0d9488 0%, #1e293b 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"> 
             Ujwal Tech Tricks Blog
         </h1>
         <p style="margin: 0; font-size: 15px; color: #64748b; font-weight: 500; line-height: 1.5;">
@@ -701,6 +701,132 @@
             <button onclick="closeNotification()" style="width: 100%; padding: 12px; background: #0f172a; border: none; color: #ffffff; font-weight: 700; border-radius: 12px; cursor: pointer; transition: background 0.2s;">
                 Return to Article
             </button>
+<nav>
+
+    <style>
+        /* CSS Variables - The core of our theme system */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1a1a1a;
+            --accent-color: #3498db;
+            --card-bg: #f9f9f9;
+            --border-color: #dddddd;
+        }
+
+        [data-theme='dark'] {
+            --bg-color: #121212;
+            --text-color: #f0f0f0;
+            --accent-color: #5dade2;
+            --card-bg: #1e1e1e;
+            --border-color: #333333;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.4s ease, color 0.4s ease;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        article { max-width: 800px; margin: 0 auto; }
+        .hero-img { width: 100%; border-radius: 12px; height: 350px; object-fit: cover; }
+        .meta-info { font-size: 0.9rem; color: #777; margin: 15px 0; }
+        
+        pre { background: #272822; color: #f8f8f2; padding: 15px; border-radius: 8px; overflow-x: auto; font-size: 0.9rem; }
+        .preview-box { background: var(--card-bg); padding: 30px; border-radius: 12px; text-align: center; border: 1px solid var(--border-color); margin: 25px 0; }
+        
+        .footer-stats { display: flex; justify-content: space-between; align-items: center; margin: 40px 0; padding-top: 20px; border-top: 2px solid var(--border-color); }
+        .engagement-section { background: var(--card-bg); padding: 20px; border-radius: 8px; }
+        textarea { width: 100%; height: 80px; margin: 10px 0; display: block; }
+    </style>
+</head>
+<body>
+
+<article>
+    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800" alt="Modern Web Design" class="hero-img">
+    
+    <h1>Mastering Dynamic Website Themes: A Guide to CSS Variables</h1>
+    <div class="meta-info">
+        <strong>By:</strong> Ujwal Subedi | <strong>Date:</strong> June 2, 2026 | <strong>Address:</strong> shivasataskhi, Nepal 
+    </div>
+
+    <section>
+        <h2>Introduction</h2>
+        <p>In the modern digital era, user experience (UX) is paramount. Dark mode is no longer just a visual preference; it is a vital accessibility feature that reduces eye strain and saves battery life on OLED screens. Today, we will learn how to implement a theme switcher using CSS Variables and vanilla JavaScript.</p>
+        
+        <h3>What You Will Learn</h3>
+        <ul>
+            <li>How to define global design tokens using <code>:root</code>.</li>
+            <li>How to manipulate CSS variables via JavaScript attributes.</li>
+            <li>How to persist user preferences using <code>localStorage</code>.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>The Technical Foundation</h2>
+        <h3>Understanding CSS Variables and :root</h3>
+        <p>CSS Variables (Custom Properties) allow us to define values once and reuse them. The <code>:root</code> selector refers to the highest level of the document, making these variables global.</p>
+        <pre><code>:root {
+  --bg-color: #ffffff; /* Default Light Mode */
+}
+[data-theme='dark'] {
+  --bg-color: #121212; /* Dark Mode Override */
+}</code></pre>
+        <p>By simply adding a <code>data-theme</code> attribute to our <code>&lt;html&gt;</code> tag, we override the variable values, and the entire page updates instantly.</p>
+    </section>
+
+    <section>
+        <h2>Live Preview Explanation</h2>
+        <div class="preview-box">
+            <h3>Theme Preview</h3>
+            <button onclick="toggleTheme()" id="btn-toggle">Switch Theme</button>
+            <p id="theme-status">Theme: Light Mode</p>
+        </div>
+        <p>When you click the button above, the JavaScript function switches the <code>data-theme</code> attribute. Because we defined a <code>transition</code> in our CSS, the background and text colors fade smoothly rather than snapping instantly, creating a premium feel.</p>
+    </section>
+
+    <footer class="footer-stats">
+        <span>👁️ <span id=></span> 23</span>
+        <button onclick="incrementLike()" style="background:#e74c3c; color:white; border:none; padding:10px 20px; border-radius:4px; cursor:pointer;">
+            ❤️ <span id="likes">31</span> Likes
+        </button>
+    </footer>
+
+    <
+</article>
+</nav>
+
+<script>
+    // JavaScript Logic Explained
+    function toggleTheme() {
+        const root = document.documentElement;
+        // Determine the next theme
+        const newTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        
+        // Update DOM
+        root.setAttribute('data-theme', newTheme);
+        
+        // Persist using localStorage
+        localStorage.setItem('site-theme', newTheme);
+        
+        // Update UI Text
+        document.getElementById('theme-status').innerText = "Theme: " + newTheme.charAt(0).toUpperCase() + newTheme.slice(1) + " Mode";
+    }
+
+    function incrementLike() {
+        const likes = document.getElementById('likes');
+        likes.innerText = parseInt(likes.innerText) + 1;
+    }
+
+    // Initialize on page load
+    const savedTheme = localStorage.getItem('site-theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+</script>
+
+
+
 
     
         </div>
