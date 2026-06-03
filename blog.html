@@ -704,6 +704,8 @@
 </head>
 <body>
 
+<div>
+
 <article>
     <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800" alt="Modern Web Design" class="hero-img">
     
@@ -756,38 +758,6 @@
 
     <
 </article>
-</nav>
-
-<script>
-    // JavaScript Logic Explained
-    function toggleTheme() {
-        const root = document.documentElement;
-        // Determine the next theme
-        const newTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        
-        // Update DOM
-        root.setAttribute('data-theme', newTheme);
-        
-        // Persist using localStorage
-        localStorage.setItem('site-theme', newTheme);
-        
-        // Update UI Text
-        document.getElementById('theme-status').innerText = "Theme: " + newTheme.charAt(0).toUpperCase() + newTheme.slice(1) + " Mode";
-    }
-
-    function incrementLike() {
-        const likes = document.getElementById('likes');
-        likes.innerText = parseInt(likes.innerText) + 1;
-    }
-
-    // Initialize on page load
-    const savedTheme = localStorage.getItem('site-theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-</script>
-
-
-
-
     
         </div>
     </div>
