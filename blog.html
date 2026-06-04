@@ -681,8 +681,360 @@
     </script>
 
 
+<style>
 
-<
+/* =========================
+   THEME VARIABLES
+========================= */
+
+:root{
+    --bg-color:#ffffff;
+    --text-color:#1a1a1a;
+    --card-bg:#f8f9fa;
+    --border-color:#dddddd;
+    --accent-color:#3498db;
+}
+
+[data-theme="dark"]{
+    --bg-color:#121212;
+    --text-color:#f0f0f0;
+    --card-bg:#1e1e1e;
+    --border-color:#333333;
+    --accent-color:#5dade2;
+}
+
+/* =========================
+   GLOBAL STYLES
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--bg-color);
+    color:var(--text-color);
+    font-family:Segoe UI,Arial,sans-serif;
+    line-height:1.7;
+    transition:0.4s;
+    padding:20px;
+}
+
+article{
+    max-width:850px;
+    margin:auto;
+}
+
+.hero-img{
+    width:100%;
+    height:380px;
+    object-fit:cover;
+    border-radius:12px;
+    margin-bottom:20px;
+}
+
+h1{
+    margin-bottom:10px;
+    font-size:2.2rem;
+}
+
+h2{
+    margin:30px 0 15px;
+}
+
+h3{
+    margin:20px 0 10px;
+}
+
+p{
+    margin-bottom:15px;
+}
+
+ul{
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:8px;
+}
+
+.meta-info{
+    color:#777;
+    margin-bottom:25px;
+}
+
+pre{
+    background:#272822;
+    color:#f8f8f2;
+    padding:15px;
+    border-radius:8px;
+    overflow-x:auto;
+    margin:20px 0;
+}
+
+.preview-box{
+    background:var(--card-bg);
+    border:1px solid var(--border-color);
+    padding:25px;
+    border-radius:12px;
+    text-align:center;
+    margin:25px 0;
+}
+
+button{
+    background:var(--accent-color);
+    color:white;
+    border:none;
+    padding:12px 22px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+/* =========================
+   FOOTER STATS
+========================= */
+
+.footer-stats{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:40px;
+    padding-top:20px;
+    border-top:2px solid var(--border-color);
+}
+
+.stats{
+    font-weight:600;
+}
+
+.like-btn{
+    margin-left:auto;
+    background:#e74c3c;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+.hero-img{
+    height:240px;
+}
+
+h1{
+    font-size:1.8rem;
+}
+
+.footer-stats{
+    flex-direction:row;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<article>
+
+<img
+src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200"
+alt="Modern Web Design"
+class="hero-img">
+
+<h1>Mastering Dynamic Website Themes: A Guide to CSS Variables</h1>
+
+<div class="meta-info">
+<strong>Author:</strong> Ujwal Subedi |
+<strong>Date:</strong> June 2, 2026 |
+<strong>Location:</strong> Shivasatakshi, Nepal
+</div>
+
+<section>
+
+<h2>Introduction</h2>
+
+<p>
+Dark mode has become a standard feature of modern websites and applications.
+Beyond aesthetics, it improves accessibility and can help reduce eye strain
+during extended browsing sessions.
+</p>
+
+<p>
+In this guide you'll learn how CSS Variables and JavaScript can be combined
+to create a flexible and professional theme system.
+</p>
+
+<h3>What You Will Learn</h3>
+
+<ul>
+<li>Using CSS Variables effectively.</li>
+<li>Creating light and dark themes.</li>
+<li>Persisting user preferences.</li>
+<li>Building smooth theme transitions.</li>
+<li>Improving user experience.</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>The Technical Foundation</h2>
+
+<h3>Understanding CSS Variables</h3>
+
+<p>
+CSS Variables allow developers to define reusable values globally.
+Changing a variable automatically updates every element that references it.
+</p>
+
+<pre><code>:root{
+    --bg-color:#ffffff;
+}
+
+[data-theme="dark"]{
+    --bg-color:#121212;
+}
+</code></pre>
+
+<p>
+By updating a single attribute on the HTML document, the entire website can
+switch themes instantly.
+</p>
+
+</section>
+
+<section>
+
+<h2>Theme Preview</h2>
+
+<div class="preview-box">
+
+<h3>Live Theme Switcher</h3>
+
+<button id="btn-toggle"
+onclick="toggleTheme()">
+Switch to Dark Mode
+</button>
+
+<p id="theme-status"
+style="margin-top:15px;">
+Theme: Light Mode
+</p>
+
+</div>
+
+<p>
+The transition effect is powered entirely by CSS. As variable values change,
+the browser smoothly animates the colors for a premium user experience.
+</p>
+
+</section>
+
+<section>
+
+<h2>Benefits of CSS Variables</h2>
+
+<p>
+CSS Variables make design systems more maintainable, scalable, and easier to
+customize. Instead of editing dozens of CSS rules, developers can update a
+few variables to transform an entire interface.
+</p>
+
+<p>
+This approach is widely used in modern web applications because it improves
+code organization and simplifies theme management.
+</p>
+
+</section>
+
+<div class="footer-stats">
+
+<div class="stats">
+👁️ <span id="views">240</span> Views
+</div>
+
+<button
+class="like-btn"
+onclick="incrementLike()">
+❤️ <span id="likes">312</span> Likes
+</button>
+
+</div>
+
+</article>
+
+<script>
+
+function updateThemeUI(theme){
+
+document.getElementById("theme-status").textContent =
+"Theme: " +
+theme.charAt(0).toUpperCase() +
+theme.slice(1) +
+" Mode";
+
+document.getElementById("btn-toggle").textContent =
+theme === "dark"
+? "Switch to Light Mode"
+: "Switch to Dark Mode";
+}
+
+function toggleTheme(){
+
+const root=document.documentElement;
+
+const newTheme=
+root.getAttribute("data-theme")==="dark"
+? "light"
+: "dark";
+
+root.setAttribute("data-theme",newTheme);
+
+localStorage.setItem(
+"site-theme",
+newTheme
+);
+
+updateThemeUI(newTheme);
+}
+
+function incrementLike(){
+
+const likes=
+document.getElementById("likes");
+
+likes.textContent=
+parseInt(likes.textContent,10)+1;
+}
+
+document.addEventListener(
+"DOMContentLoaded",
+()=>{
+
+const savedTheme=
+localStorage.getItem("site-theme")
+|| "light";
+
+document.documentElement.setAttribute(
+"data-theme",
+savedTheme
+);
+
+updateThemeUI(savedTheme);
+
+}
+);
+
+</script>
 
     <!-- Navigation Area -->
     <div style="width: 100%; max-width: 580px; text-align: center; margin-bottom: 40px; box-sizing: border-box;">
