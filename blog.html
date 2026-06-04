@@ -1669,6 +1669,321 @@ likes.textContent = parseInt(likes.textContent) + 1;
 
 
 
+<style>
+
+/* =========================
+   THEME VARIABLES
+========================= */
+
+:root{
+    --bg-color:#ffffff;
+    --text-color:#1a1a1a;
+    --card-bg:#f8f9fa;
+    --border-color:#dddddd;
+    --accent-color:#0ea5e9;
+}
+
+[data-theme="dark"]{
+    --bg-color:#121212;
+    --text-color:#f0f0f0;
+    --card-bg:#1e1e1e;
+    --border-color:#333333;
+    --accent-color:#38bdf8;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--bg-color);
+    color:var(--text-color);
+    font-family:Segoe UI,Arial,sans-serif;
+    line-height:1.7;
+    transition:.4s;
+    padding:20px;
+}
+
+article{
+    max-width:850px;
+    margin:auto;
+}
+
+.hero-img{
+    width:100%;
+    height:380px;
+    object-fit:cover;
+    border-radius:12px;
+    margin-bottom:20px;
+}
+
+h1{
+    font-size:2.2rem;
+    margin-bottom:10px;
+}
+
+h2{
+    margin:30px 0 15px;
+}
+
+h3{
+    margin:20px 0 10px;
+}
+
+p{
+    margin-bottom:15px;
+}
+
+ul{
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:8px;
+}
+
+.meta-info{
+    color:#777;
+    margin-bottom:25px;
+}
+
+.preview-box{
+    background:var(--card-bg);
+    border:1px solid var(--border-color);
+    padding:25px;
+    border-radius:12px;
+    text-align:center;
+    margin:25px 0;
+}
+
+button{
+    background:var(--accent-color);
+    color:#fff;
+    border:none;
+    padding:12px 22px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+/* FOOTER */
+
+.footer-stats{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:40px;
+    padding-top:20px;
+    border-top:2px solid var(--border-color);
+}
+
+.views-box{
+    font-size:18px;
+    font-weight:600;
+}
+
+.like-btn{
+    background:#e74c3c;
+    color:#fff;
+    border:none;
+    padding:12px 24px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+.like-btn:hover{
+    background:#c0392b;
+    transform:translateY(-2px);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.hero-img{ height:240px; }
+
+h1{ font-size:1.8rem; }
+
+.footer-stats{
+    flex-direction:row;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.views-box{ font-size:15px; }
+
+.like-btn{
+    padding:10px 18px;
+    font-size:14px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<article>
+
+<img
+src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200"
+alt="Technology Tips"
+class="hero-img">
+
+<h1>Simple Tech Tricks to Make Your Smartphone Faster</h1>
+
+<div class="meta-info">
+<strong>Author:</strong> Ujwal Subedi |
+<strong>Date:</strong> June 4, 2026 |
+<strong>Category:</strong> Technology & Tips
+</div>
+
+<section>
+
+<h2>Introduction</h2>
+
+<p>
+Smartphones are essential in daily life, but over time they can become slow
+and less responsive. Fortunately, a few simple tech tricks can dramatically
+improve performance without needing a new device.
+</p>
+
+<p>
+By optimizing settings and managing storage properly, you can make your phone
+feel almost brand new again.
+</p>
+
+<h3>Quick Performance Tips</h3>
+
+<ul>
+<li>Clear cache regularly to free memory.</li>
+<li>Uninstall unused apps.</li>
+<li>Disable background app refresh.</li>
+<li>Use lightweight versions of apps.</li>
+<li>Keep your software updated.</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>How These Tricks Work</h2>
+
+<p>
+Most phone slowdowns happen due to overloaded RAM, background processes, and
+storage clutter. Cleaning these improves speed and responsiveness.
+</p>
+
+<p>
+System updates also fix bugs and improve optimization, making your device more
+efficient over time.
+</p>
+
+</section>
+
+<section>
+
+<h2>Performance Boost Preview</h2>
+
+<div class="preview-box">
+
+<h3>Estimated Speed Improvement</h3>
+
+<h1 id="counter">35%</h1>
+
+<button onclick="boostSpeed()">
+Boost Now
+</button>
+
+<p style="margin-top:15px;">
+Simulated performance improvement after optimization.
+</p>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Benefits of Optimizing Your Phone</h2>
+
+<p>
+A faster phone improves productivity, reduces frustration, and enhances gaming
+and browsing experiences.
+</p>
+
+<p>
+It also extends battery life by reducing unnecessary background activity.
+</p>
+
+<p>
+Regular maintenance keeps your device running smoothly for years.
+</p>
+
+</section>
+
+<section>
+
+<h2>Final Thoughts</h2>
+
+<p>
+You don’t always need expensive upgrades. Simple habits and small tweaks can
+make a big difference in performance.
+</p>
+
+<p>
+Try these tricks regularly to keep your smartphone fast and efficient.
+</p>
+
+</section>
+
+<!-- FOOTER -->
+<div class="footer-stats">
+
+<div class="views-box">
+👁️ <span id="views">6,120</span> Views
+</div>
+
+<button class="like-btn" onclick="addLike()">
+❤️ <span id="likes">2,210</span> Likes
+</button>
+
+</div>
+
+</article>
+
+<script>
+
+function boostSpeed(){
+
+let counter = document.getElementById("counter");
+let current = parseInt(counter.textContent);
+
+if(current < 90){
+    counter.textContent = (current + 5) + "%";
+}
+
+}
+
+function addLike(){
+    let likes = document.getElementById("likes");
+    likes.textContent = parseInt(likes.textContent) + 1;
+}
+
+</script>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+
+
     <!-- Navigation Area -->
     <div style="width: 100%; max-width: 580px; text-align: center; margin-bottom: 40px; box-sizing: border-box;">
         <button onclick="history.back()" style="padding: 12px 28px; background: #0f172a; color: #ffffff; border: none; border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer; transition: background 0.2s; box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.15);">
