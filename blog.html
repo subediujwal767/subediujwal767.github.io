@@ -1896,6 +1896,274 @@ function addLike(){
 <br>
 
 
+<style>
+
+/* =========================
+   THEME VARIABLES
+========================= */
+
+:root{
+    --bg-color:#ffffff;
+    --text-color:#1a1a1a;
+    --card-bg:#f8f9fa;
+    --border-color:#dddddd;
+    --accent-color:#0ea5e9;
+}
+
+[data-theme="dark"]{
+    --bg-color:#121212;
+    --text-color:#f0f0f0;
+    --card-bg:#1e1e1e;
+    --border-color:#333333;
+    --accent-color:#38bdf8;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--bg-color);
+    color:var(--text-color);
+    font-family:Segoe UI, Arial, sans-serif;
+    line-height:1.7;
+    padding:20px;
+}
+
+article{
+    max-width:850px;
+    margin:auto;
+}
+
+.hero-img{
+    width:100%;
+    height:380px;
+    object-fit:cover;
+    border-radius:12px;
+    margin-bottom:20px;
+}
+
+h1{
+    font-size:2.2rem;
+    margin-bottom:10px;
+}
+
+h2{
+    margin:30px 0 15px;
+}
+
+h3{
+    margin:20px 0 10px;
+}
+
+p{
+    margin-bottom:15px;
+}
+
+ul{
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:8px;
+}
+
+.meta-info{
+    color:#777;
+    margin-bottom:25px;
+}
+
+.preview-box{
+    background:var(--card-bg);
+    border:1px solid var(--border-color);
+    padding:25px;
+    border-radius:12px;
+    text-align:center;
+    margin:25px 0;
+}
+
+button{
+    background:var(--accent-color);
+    color:#fff;
+    border:none;
+    padding:12px 22px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    opacity:.9;
+}
+
+.article-footer{
+    margin-top:40px;
+    padding-top:20px;
+    border-top:2px solid var(--border-color);
+    text-align:center;
+    color:#888;
+    font-size:15px;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.hero-img{
+    height:240px;
+}
+
+h1{
+    font-size:1.8rem;
+}
+
+.article-footer{
+    font-size:14px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<article>
+
+<img
+src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200"
+alt="Artificial Intelligence"
+class="hero-img">
+
+<h1>How Artificial Intelligence Is Transforming Everyday Life</h1>
+
+<div class="meta-info">
+<strong>Author:</strong> Ujwal Subedi |
+<strong>Date:</strong> June 5, 2026 |
+<strong>Category:</strong> Artificial Intelligence
+</div>
+
+<section>
+
+<h2>Introduction</h2>
+
+<p>
+Artificial Intelligence (AI) has become one of the most influential technologies of the modern era. From smartphones and online shopping to healthcare and education, AI is changing how people interact with technology every day.
+</p>
+
+<p>
+As AI systems continue to improve, they are helping individuals and businesses work more efficiently, make smarter decisions, and automate repetitive tasks.
+</p>
+
+<h3>Common Uses of AI</h3>
+
+<ul>
+<li>Voice assistants and smart speakers.</li>
+<li>Recommendation systems on streaming platforms.</li>
+<li>AI-powered customer support chatbots.</li>
+<li>Smart image and facial recognition.</li>
+<li>Automated content creation tools.</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>Why AI Is Important</h2>
+
+<p>
+Artificial Intelligence enables machines to process large amounts of information quickly and accurately. This helps organizations improve productivity and provide better services.
+</p>
+
+<p>
+AI can identify patterns, predict outcomes, and assist in solving complex problems that would otherwise require significant human effort.
+</p>
+
+</section>
+
+<section>
+
+<h2>AI Adoption Preview</h2>
+
+<div class="preview-box">
+
+<h3>Global AI Adoption Rate</h3>
+
+<h1 id="counter">50%</h1>
+
+<button onclick="increaseAI()">
+View Growth
+</button>
+
+<p style="margin-top:15px;">
+Interactive simulation of AI adoption growth worldwide.
+</p>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Benefits of Artificial Intelligence</h2>
+
+<p>
+AI improves efficiency by automating routine tasks and reducing the need for manual work. Businesses can save time, lower costs, and focus on innovation.
+</p>
+
+<p>
+Healthcare professionals use AI to support diagnostics, while educational platforms use it to create personalized learning experiences.
+</p>
+
+<p>
+As AI technology evolves, its applications continue to expand across nearly every industry.
+</p>
+
+</section>
+
+<section>
+
+<h2>The Future of AI</h2>
+
+<p>
+Experts believe AI will continue to shape the future of transportation, healthcare, communication, and business operations. New advancements are expected to make technology even more intelligent and accessible.
+</p>
+
+<p>
+Learning about AI today can help individuals and organizations prepare for the opportunities of tomorrow.
+</p>
+
+</section>
+
+
+</div>
+
+</article>
+
+<script>
+
+function increaseAI(){
+
+let counter = document.getElementById("counter");
+let current = parseInt(counter.textContent);
+
+if(current < 95){
+    counter.textContent = (current + 5) + "%";
+}
+
+}
+
+</script>
+
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+
 
     <!-- Navigation Area -->
     <div style="width: 100%; max-width: 580px; text-align: center; margin-bottom: 40px; box-sizing: border-box;">
