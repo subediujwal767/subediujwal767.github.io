@@ -2164,6 +2164,272 @@ if(current < 95){
 <br>
 
 
+<style>
+
+/* =========================
+   THEME VARIABLES
+========================= */
+
+:root{
+    --bg-color:#ffffff;
+    --text-color:#1a1a1a;
+    --card-bg:#f8f9fa;
+    --border-color:#dddddd;
+    --accent-color:#0ea5e9;
+}
+
+[data-theme="dark"]{
+    --bg-color:#121212;
+    --text-color:#f0f0f0;
+    --card-bg:#1e1e1e;
+    --border-color:#333333;
+    --accent-color:#38bdf8;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--bg-color);
+    color:var(--text-color);
+    font-family:Segoe UI, Arial, sans-serif;
+    line-height:1.7;
+    padding:20px;
+}
+
+article{
+    max-width:850px;
+    margin:auto;
+}
+
+.hero-img{
+    width:100%;
+    height:380px;
+    object-fit:cover;
+    border-radius:12px;
+    margin-bottom:20px;
+}
+
+h1{
+    font-size:2.2rem;
+    margin-bottom:10px;
+}
+
+h2{
+    margin:30px 0 15px;
+}
+
+h3{
+    margin:20px 0 10px;
+}
+
+p{
+    margin-bottom:15px;
+}
+
+ul{
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:8px;
+}
+
+.meta-info{
+    color:#777;
+    margin-bottom:25px;
+}
+
+.preview-box{
+    background:var(--card-bg);
+    border:1px solid var(--border-color);
+    padding:25px;
+    border-radius:12px;
+    text-align:center;
+    margin:25px 0;
+}
+
+button{
+    background:var(--accent-color);
+    color:#fff;
+    border:none;
+    padding:12px 22px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+button:hover{
+    opacity:.9;
+    transform:translateY(-2px);
+}
+
+.article-footer{
+    margin-top:40px;
+    padding-top:20px;
+    border-top:2px solid var(--border-color);
+    text-align:center;
+    color:#888;
+    font-size:15px;
+}
+
+@media(max-width:768px){
+
+.hero-img{
+    height:240px;
+}
+
+h1{
+    font-size:1.8rem;
+}
+
+.article-footer{
+    font-size:14px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<article>
+
+<img
+src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200"
+alt="Cybersecurity"
+class="hero-img">
+
+<h1>Essential Cybersecurity Tips to Stay Safe Online</h1>
+
+<div class="meta-info">
+<strong>Author:</strong> Ujwal Subedi |
+<strong>Date:</strong> June 5, 2026 |
+<strong>Category:</strong> Cybersecurity
+</div>
+
+<section>
+
+<h2>Introduction</h2>
+
+<p>
+As our lives become increasingly connected to the internet, cybersecurity has become more important than ever. Every day, millions of users face risks such as phishing attacks, malware infections, and data breaches.
+</p>
+
+<p>
+Learning how to protect your personal information online is a crucial skill in today's digital world.
+</p>
+
+<h3>Common Online Threats</h3>
+
+<ul>
+<li>Phishing emails and fake websites.</li>
+<li>Weak or reused passwords.</li>
+<li>Malware and ransomware attacks.</li>
+<li>Public Wi-Fi security risks.</li>
+<li>Identity theft and scams.</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>Best Security Practices</h2>
+
+<p>
+Using strong passwords and enabling two-factor authentication can significantly reduce the chances of unauthorized access to your accounts.
+</p>
+
+<p>
+Regularly updating your devices and software ensures that known security vulnerabilities are patched quickly.
+</p>
+
+</section>
+
+<section>
+
+<h2>Security Readiness Preview</h2>
+
+<div class="preview-box">
+
+<h3>Cybersecurity Protection Score</h3>
+
+<h1 id="counter">40%</h1>
+
+<button onclick="increaseSecurity()">
+Improve Security
+</button>
+
+<p style="margin-top:15px;">
+Interactive demonstration of improving cybersecurity awareness.
+</p>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Benefits of Strong Cybersecurity</h2>
+
+<p>
+Strong cybersecurity practices protect personal data, financial information, and online accounts from potential threats.
+</p>
+
+<p>
+Businesses also benefit by reducing risks, maintaining customer trust, and ensuring compliance with privacy regulations.
+</p>
+
+<p>
+A proactive approach to security helps prevent costly incidents before they occur.
+</p>
+
+</section>
+
+<section>
+
+<h2>Conclusion</h2>
+
+<p>
+Cybersecurity is a shared responsibility. By staying informed and following best practices, individuals can greatly reduce their exposure to online threats.
+</p>
+
+<p>
+Small actions today can provide stronger protection for the future.
+</p>
+
+</section>
+
+
+
+</article>
+
+<script>
+
+function increaseSecurity(){
+
+let counter = document.getElementById("counter");
+let current = parseInt(counter.textContent);
+
+if(current < 95){
+    counter.textContent = (current + 5) + "%";
+}
+
+}
+
+</script>
+br>
+<br>
+<hr>
+<br>
+<br>
+
+
 
     <!-- Navigation Area -->
     <div style="width: 100%; max-width: 580px; text-align: center; margin-bottom: 40px; box-sizing: border-box;">
