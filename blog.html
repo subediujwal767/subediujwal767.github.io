@@ -907,69 +907,68 @@ code organization and simplifies theme management.
 </article>
 
 <script>
-
 function updateThemeUI(theme){
 
-document.getElementById("theme-status").textContent =
-"Theme: " +
-theme.charAt(0).toUpperCase() +
-theme.slice(1) +
-" Mode";
+    const status = document.getElementById("theme-status");
+    const btn = document.getElementById("btn-toggle");
 
-document.getElementById("btn-toggle").textContent =
-theme === "dark"
-? "Switch to Light Mode"
-: "Switch to Dark Mode";
+    if(status){
+        status.textContent =
+            "Theme: " +
+            theme.charAt(0).toUpperCase() +
+            theme.slice(1) +
+            " Mode";
+    }
+
+    if(btn){
+        btn.textContent =
+            theme === "dark"
+            ? "Switch to Light Mode"
+            : "Switch to Dark Mode";
+    }
 }
 
 function toggleTheme(){
 
-const root=document.documentElement;
+    const root = document.documentElement;
 
-const newTheme=
-root.getAttribute("data-theme")==="dark"
-? "light"
-: "dark";
+    const newTheme =
+        root.getAttribute("data-theme") === "dark"
+        ? "light"
+        : "dark";
 
-root.setAttribute("data-theme",newTheme);
+    root.setAttribute("data-theme", newTheme);
 
-localStorage.setItem(
-"site-theme",
-newTheme
-);
+    localStorage.setItem("site-theme", newTheme);
 
-updateThemeUI(newTheme);
+    updateThemeUI(newTheme);
 }
 
 function incrementLike(){
 
-const likes=
-document.getElementById("likes");
+    const likes = document.getElementById("likes");
 
-likes.textContent=
-parseInt(likes.textContent,10)+1;
+    if(!likes) return;
+
+    let currentLikes = parseInt(likes.textContent) || 0;
+
+    likes.textContent = currentLikes + 1;
 }
 
-document.addEventListener(
-"DOMContentLoaded",
-()=>{
+document.addEventListener("DOMContentLoaded", function(){
 
-const savedTheme=
-localStorage.getItem("site-theme")
-|| "light";
+    const savedTheme =
+        localStorage.getItem("site-theme") || "light";
 
-document.documentElement.setAttribute(
-"data-theme",
-savedTheme
-);
+    document.documentElement.setAttribute(
+        "data-theme",
+        savedTheme
+    );
 
-updateThemeUI(savedTheme);
+    updateThemeUI(savedTheme);
 
-}
-);
-
+});
 </script>
-
 <br>
 <hr>
 <br>
