@@ -3248,7 +3248,256 @@ score.textContent =
     
         </div>
     </div>
+<script>
+// ===========================
+// POST 1 - Aspect Ratio Demo
+// ===========================
+function setDemoRatio(ratio) {
+    const box = document.getElementById("ratio-demo-box");
+    const label = document.getElementById("ratio-label");
 
+    if (box) box.style.aspectRatio = ratio;
+    if (label) label.textContent = "aspect-ratio: " + ratio;
+
+    ["btn-16-9","btn-4-3","btn-1-1"].forEach(id => {
+        const btn = document.getElementById(id);
+        if(btn){
+            btn.style.background="#ffffff";
+            btn.style.color="#475569";
+        }
+    });
+
+    let active =
+        ratio === "16/9" ? "btn-16-9" :
+        ratio === "4/3" ? "btn-4-3" :
+        "btn-1-1";
+
+    const activeBtn = document.getElementById(active);
+    if(activeBtn){
+        activeBtn.style.background="#0f172a";
+        activeBtn.style.color="#ffffff";
+    }
+}
+
+// ===========================
+// POST 2 - Glass Blur Demo
+// ===========================
+function setGlassBlur(blur) {
+    const card = document.getElementById("interactive-glass-card");
+    const label = document.getElementById("blur-label");
+
+    if(card){
+        card.style.backdropFilter = `blur(${blur})`;
+        card.style.webkitBackdropFilter = `blur(${blur})`;
+    }
+
+    if(label){
+        label.textContent = `backdrop-filter: blur(${blur});`;
+    }
+
+    ["btn-blur-0","btn-blur-10","btn-blur-24"].forEach(id=>{
+        const btn=document.getElementById(id);
+        if(btn){
+            btn.style.background="#1e293b";
+            btn.style.color="#94a3b8";
+        }
+    });
+
+    let active =
+        blur === "0px" ? "btn-blur-0" :
+        blur === "10px" ? "btn-blur-10" :
+        "btn-blur-24";
+
+    const activeBtn=document.getElementById(active);
+    if(activeBtn){
+        activeBtn.style.background="#9333ea";
+        activeBtn.style.color="#ffffff";
+    }
+}
+
+// ===========================
+// POST 3 - Container Demo
+// ===========================
+function setContainerWidth(width) {
+    const container = document.getElementById("simulated-container");
+    const card = document.getElementById("simulated-card");
+
+    if(!container || !card) return;
+
+    container.style.width = width;
+
+    if(width === "340px"){
+        card.style.flexDirection = "column";
+        card.style.textAlign = "center";
+    }else{
+        card.style.flexDirection = "row";
+        card.style.textAlign = "left";
+    }
+
+    ["btn-width-full","btn-width-narrow"].forEach(id=>{
+        const btn=document.getElementById(id);
+        if(btn){
+            btn.style.background="#ffffff";
+            btn.style.color="#475569";
+        }
+    });
+
+    const activeBtn=document.getElementById(
+        width==="340px" ? "btn-width-narrow" : "btn-width-full"
+    );
+
+    if(activeBtn){
+        activeBtn.style.background="#0f172a";
+        activeBtn.style.color="#ffffff";
+    }
+}
+
+// ===========================
+// POST 4 - Color Mixer
+// ===========================
+function updateLiveColors() {
+    const r = document.getElementById("channel-red");
+    const g = document.getElementById("channel-green");
+    const b = document.getElementById("channel-blue");
+
+    if(!r || !g || !b) return;
+
+    const red = parseInt(r.value);
+    const green = parseInt(g.value);
+    const blue = parseInt(b.value);
+
+    const rgb = `rgb(${red},${green},${blue})`;
+
+    const sphere = document.getElementById("neumorphic-sphere");
+    const hexBox = document.getElementById("mixer-hex-val");
+
+    if(sphere){
+        sphere.style.background = rgb;
+    }
+
+    const hex =
+        "#" +
+        red.toString(16).padStart(2,"0") +
+        green.toString(16).padStart(2,"0") +
+        blue.toString(16).padStart(2,"0");
+
+    if(hexBox){
+        hexBox.textContent = hex.toUpperCase();
+    }
+}
+
+// ===========================
+// POST 5 - Clip Path Reveal
+// ===========================
+function updateRevealCoordinates() {
+    const slider = document.getElementById("clip-coordinate-slider");
+    const layer = document.getElementById("clip-reveal-layer");
+
+    if(!slider || !layer) return;
+
+    layer.style.clipPath =
+        `circle(60px at ${slider.value}% 50%)`;
+}
+
+// ===========================
+// AI Counter
+// ===========================
+function increaseAI() {
+    const counter = document.getElementById("counter");
+    if(!counter) return;
+
+    let value = parseInt(counter.textContent);
+
+    if(value < 100){
+        value += 5;
+        counter.textContent = value + "%";
+    }
+}
+
+// ===========================
+// Theme Toggle
+// ===========================
+function updateThemeUI(theme){
+    const status = document.getElementById("theme-status");
+    const btn = document.getElementById("btn-toggle");
+
+    if(status){
+        status.textContent =
+            "Theme: " +
+            theme.charAt(0).toUpperCase() +
+            theme.slice(1) +
+            " Mode";
+    }
+
+    if(btn){
+        btn.textContent =
+            theme === "dark"
+            ? "Switch to Light Mode"
+            : "Switch to Dark Mode";
+    }
+}
+
+function toggleTheme(){
+    const root = document.documentElement;
+
+    const newTheme =
+        root.getAttribute("data-theme")==="dark"
+        ? "light"
+        : "dark";
+
+    root.setAttribute("data-theme", newTheme);
+    localStorage.setItem("site-theme", newTheme);
+
+    updateThemeUI(newTheme);
+}
+
+// ===========================
+// Likes
+// ===========================
+function incrementLike(){
+    const likeCount = document.getElementById("like-count");
+    if(!likeCount) return;
+
+    let likes = parseInt(likeCount.textContent) || 0;
+    likeCount.textContent = likes + 1;
+}
+
+// ===========================
+// Initialize Everything
+// ===========================
+document.addEventListener("DOMContentLoaded", function(){
+
+    if(document.getElementById("ratio-demo-box")){
+        setDemoRatio("16/9");
+    }
+
+    if(document.getElementById("interactive-glass-card")){
+        setGlassBlur("10px");
+    }
+
+    if(document.getElementById("simulated-container")){
+        setContainerWidth("100%");
+    }
+
+    if(document.getElementById("channel-red")){
+        updateLiveColors();
+    }
+
+    if(document.getElementById("clip-coordinate-slider")){
+        updateRevealCoordinates();
+    }
+
+    const savedTheme =
+        localStorage.getItem("site-theme") || "light";
+
+    document.documentElement.setAttribute(
+        "data-theme",
+        savedTheme
+    );
+
+    updateThemeUI(savedTheme);
+});
+</script>
     
 </body>
 </html>
