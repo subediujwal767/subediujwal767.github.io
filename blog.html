@@ -1,4 +1,4 @@
-*
+,*
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2429,6 +2429,432 @@ if(current < 95){
 <br>
 <br>
 
+
+<style>
+
+/* =========================
+   THEME VARIABLES
+========================= */
+
+:root{
+    --bg-color:#ffffff;
+    --text-color:#1a1a1a;
+    --card-bg:#f8f9fa;
+    --border-color:#e5e7eb;
+    --accent-color:#0ea5e9;
+    --accent-hover:#0284c7;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--bg-color);
+    color:var(--text-color);
+    font-family:'Segoe UI',sans-serif;
+    line-height:1.8;
+    padding:20px;
+}
+
+article{
+    max-width:900px;
+    margin:auto;
+}
+
+/* Hero Section */
+
+.hero{
+    width:100%;
+    height:420px;
+    border-radius:14px;
+    overflow:hidden;
+    margin-bottom:25px;
+}
+
+.hero img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* Typography */
+
+h1{
+    font-size:2.4rem;
+    margin-bottom:12px;
+}
+
+h2{
+    margin-top:35px;
+    margin-bottom:15px;
+    color:var(--accent-color);
+}
+
+h3{
+    margin-top:20px;
+    margin-bottom:10px;
+}
+
+p{
+    margin-bottom:16px;
+}
+
+ul{
+    padding-left:25px;
+    margin-bottom:20px;
+}
+
+li{
+    margin-bottom:8px;
+}
+
+/* Meta */
+
+.meta-info{
+    color:#6b7280;
+    margin-bottom:30px;
+    font-size:15px;
+}
+
+/* Card */
+
+.card{
+    background:var(--card-bg);
+    border:1px solid var(--border-color);
+    border-radius:12px;
+    padding:25px;
+    margin:20px 0;
+}
+
+/* Monitor Box */
+
+.cloud-box{
+    text-align:center;
+}
+
+.cloud-box h1{
+    font-size:4rem;
+    color:var(--accent-color);
+    margin:15px 0;
+}
+
+button{
+    background:var(--accent-color);
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+button:hover{
+    background:var(--accent-hover);
+    transform:translateY(-2px);
+}
+
+/* Code Block */
+
+pre{
+    background:#111827;
+    color:#e5e7eb;
+    padding:20px;
+    border-radius:10px;
+    overflow:auto;
+    margin-top:15px;
+}
+
+code{
+    font-family:Consolas, monospace;
+}
+
+/* Footer */
+
+.footer{
+    margin-top:40px;
+    padding-top:20px;
+    border-top:1px solid var(--border-color);
+    text-align:center;
+    color:#6b7280;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .hero{
+        height:240px;
+    }
+
+    h1{
+        font-size:1.8rem;
+    }
+
+    .cloud-box h1{
+        font-size:3rem;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<article>
+
+    <!-- Hero Image -->
+
+    <div class="hero">
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200"
+             alt="Cloud Computing">
+    </div>
+
+    <h1>Understanding Cloud Computing: The Foundation of Modern Applications</h1>
+
+    <div class="meta-info">
+        <strong>Author:</strong> Ujwal Subedi |
+        <strong>Date:</strong> June 6, 2026 |
+        <strong>Category:</strong> Cloud Computing
+    </div>
+
+    <!-- Introduction -->
+
+    <section>
+
+        <h2>Introduction</h2>
+
+        <p>
+            Cloud Computing has revolutionized how businesses build,
+            deploy, and scale applications. Instead of maintaining
+            expensive physical servers, organizations can access
+            computing resources on demand through cloud platforms.
+        </p>
+
+        <p>
+            Today, cloud services power everything from startup websites
+            to enterprise applications serving millions of users worldwide.
+        </p>
+
+        <h3>Popular Cloud Services</h3>
+
+        <ul>
+            <li>Virtual Servers</li>
+            <li>Cloud Storage</li>
+            <li>Databases</li>
+            <li>AI & Machine Learning Services</li>
+            <li>Serverless Computing</li>
+            <li>Content Delivery Networks (CDNs)</li>
+        </ul>
+
+    </section>
+
+    <!-- Why Cloud Matters -->
+
+    <section>
+
+        <h2>Why Cloud Computing Matters</h2>
+
+        <p>Traditional infrastructure often requires:</p>
+
+        <ul>
+            <li>❌ Expensive hardware</li>
+            <li>❌ Physical maintenance</li>
+            <li>❌ Limited scalability</li>
+            <li>❌ High upfront costs</li>
+        </ul>
+
+        <p>Cloud computing offers:</p>
+
+        <ul>
+            <li>✅ Pay-as-you-go pricing</li>
+            <li>✅ Automatic scaling</li>
+            <li>✅ Global availability</li>
+            <li>✅ Faster deployment</li>
+        </ul>
+
+    </section>
+
+    <!-- Service Models -->
+
+    <section>
+
+        <h2>Cloud Service Models</h2>
+
+        <h3>Infrastructure as a Service (IaaS)</h3>
+
+        <p>
+            Provides virtual machines, networking,
+            and storage resources.
+        </p>
+
+        <h3>Platform as a Service (PaaS)</h3>
+
+        <p>
+            Developers focus on writing code while the
+            platform manages infrastructure.
+        </p>
+
+        <h3>Software as a Service (SaaS)</h3>
+
+        <p>
+            Users access software applications directly
+            through the internet.
+        </p>
+
+    </section>
+
+    <!-- Interactive Demo -->
+
+    <section>
+
+        <h2>Cloud Resource Monitor</h2>
+
+        <div class="card cloud-box">
+
+            <h3>Server Utilization</h3>
+
+            <h1 id="usage">45%</h1>
+
+            <button onclick="scaleServer()">
+                Scale Resources
+            </button>
+
+            <p style="margin-top:15px;">
+                Simulates cloud auto-scaling based on demand.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Code Example -->
+
+    <section>
+
+        <h2>Sample Auto Scaling Logic</h2>
+
+<pre><code>function scaleServer(){
+
+let usage =
+document.getElementById("usage");
+
+let current =
+parseInt(usage.textContent);
+
+if(current &lt; 95){
+    usage.textContent =
+    (current + 5) + "%";
+}
+
+}</code></pre>
+
+    </section>
+
+    <!-- Benefits -->
+
+    <section>
+
+        <h2>Benefits of Cloud Computing</h2>
+
+        <h3>Scalability</h3>
+        <p>
+            Resources can increase or decrease according
+            to application demand.
+        </p>
+
+        <h3>Reliability</h3>
+        <p>
+            Modern cloud platforms provide high uptime
+            and redundancy.
+        </p>
+
+        <h3>Security</h3>
+        <p>
+            Advanced monitoring and protection help
+            secure applications and data.
+        </p>
+
+        <h3>Cost Efficiency</h3>
+        <p>
+            Businesses only pay for the resources
+            they actually use.
+        </p>
+
+    </section>
+
+    <!-- Real World -->
+
+    <section>
+
+        <h2>Real-World Applications</h2>
+
+        <ul>
+            <li>Video Streaming Platforms</li>
+            <li>E-commerce Websites</li>
+            <li>Mobile Applications</li>
+            <li>Online Gaming</li>
+            <li>Artificial Intelligence Systems</li>
+            <li>Enterprise Software</li>
+        </ul>
+
+        <p>
+            Cloud infrastructure has become the backbone
+            of modern digital services worldwide.
+        </p>
+
+    </section>
+
+    <!-- Conclusion -->
+
+    <section>
+
+        <h2>Conclusion</h2>
+
+        <p>
+            Cloud Computing has transformed the technology
+            landscape by providing scalable, flexible,
+            and cost-effective infrastructure.
+        </p>
+
+        <p>
+            Understanding cloud technology is an essential
+            skill for developers, students, and businesses
+            preparing for the future.
+        </p>
+
+    </section>
+
+</article>
+
+<script>
+
+function scaleServer(){
+
+    let usage =
+    document.getElementById("usage");
+
+    let current =
+    parseInt(usage.textContent);
+
+    if(current < 95){
+
+        usage.textContent =
+        (current + 5) + "%";
+
+    }
+
+}
+
+</script>
+
+<br>
+<br>
+<hr>
+<br>
+<br>
 
 
     <!-- Navigation Area -->
