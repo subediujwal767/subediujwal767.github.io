@@ -3,12 +3,13 @@
 ========================= */
 
 :root{
-    --bg:#050505;
+    --bg:#070707;
     --text:#ffffff;
+    --muted:#b8b8b8;
     --accent:#00f2fe;
     --secondary:#7000ff;
-    --card:rgba(255,255,255,.05);
-    --border:rgba(255,255,255,.1);
+    --card:rgba(255,255,255,0.05);
+    --border:rgba(255,255,255,0.12);
 }
 
 /* =========================
@@ -26,36 +27,63 @@ html{
 }
 
 body{
+    font-family:'Plus Jakarta Sans',sans-serif;
     background:var(--bg);
     color:var(--text);
-    font-family:'Plus Jakarta Sans',sans-serif;
     overflow-x:hidden;
 }
 
 /* =========================
-   3. ANIMATED BLOBS
+   3. PARTICLE SYSTEM LAYER
+========================= */
+
+#particles{
+    position:fixed;
+    inset:0;
+    z-index:-5;
+    overflow:hidden;
+}
+
+.particle{
+    position:absolute;
+    width:3px;
+    height:3px;
+    border-radius:50%;
+    background:rgba(0,242,254,0.7);
+    animation:floatParticle linear infinite;
+    opacity:0.6;
+}
+
+@keyframes floatParticle{
+    from{
+        transform:translateY(100vh);
+    }
+    to{
+        transform:translateY(-10vh);
+    }
+}
+
+/* =========================
+   4. BACKGROUND BLOBS
 ========================= */
 
 .blob-c{
     position:fixed;
     inset:0;
-    z-index:-1;
-    filter:blur(90px);
+    z-index:-4;
+    filter:blur(100px);
 }
 
 .shape-blob{
     position:absolute;
-    width:400px;
-    height:400px;
+    width:450px;
+    height:450px;
     border-radius:50%;
     opacity:.25;
-    animation:floatBlob 18s infinite alternate ease-in-out;
-}
-
-.shape-blob{
     background:var(--secondary);
     top:-10%;
     left:-10%;
+    animation:blobMove 20s infinite alternate ease-in-out;
 }
 
 .shape-blob.one{
@@ -63,48 +91,64 @@ body{
     top:30%;
     right:-10%;
     left:auto;
+    animation-duration:24s;
 }
 
 .shape-blob.two{
+    background:var(--secondary);
     bottom:-10%;
     left:20%;
+    animation-duration:28s;
 }
 
-@keyframes floatBlob{
+@keyframes blobMove{
     from{
         transform:translate(0,0) scale(1);
     }
     to{
-        transform:translate(120px,180px) scale(1.2);
+        transform:translate(180px,140px) scale(1.3);
     }
 }
 
 /* =========================
-   4. LAYOUT
+   5. BACKGROUND GLOW
 ========================= */
 
-.container{
-    width:min(1200px,90%);
-    margin:auto;
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-6;
+    background:
+    radial-gradient(circle at 20% 20%, rgba(0,242,254,.12), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(112,0,255,.12), transparent 40%);
+    animation:bgMove 12s infinite alternate ease-in-out;
 }
 
-.section{
-    margin:70px 0;
-}
-
-.section-title{
-    font-size:2rem;
-    margin-bottom:25px;
+@keyframes bgMove{
+    from{transform:scale(1);}
+    to{transform:scale(1.2);}
 }
 
 /* =========================
-   5. NAVBAR
+   6. CONTAINER
+========================= */
+
+.container{
+    width:min(1200px,92%);
+    margin:auto;
+}
+
+/* =========================
+   7. NAVBAR
 ========================= */
 
 nav{
     height:90px;
     display:flex;
     align-items:center;
+    justify-content:space-between;
+    animation:fadeDown 1s ease;
 }
 
 .logo{
@@ -117,24 +161,27 @@ nav{
 }
 
 /* =========================
-   6. HERO
+   8. HERO SECTION
 ========================= */
 
 .hero{
-    min-height:85vh;
+    min-height:90vh;
     display:flex;
     align-items:center;
     justify-content:space-between;
     gap:60px;
 }
 
+/* LEFT */
 .hero-content{
     flex:1;
+    animation:slideLeft 1s ease;
 }
 
 .hero h1{
-    font-size:clamp(3rem,7vw,5rem);
+    font-size:clamp(2.8rem,7vw,5rem);
     line-height:1.1;
+    margin-bottom:20px;
 }
 
 .hero h1 span{
@@ -142,38 +189,76 @@ nav{
 }
 
 .hero-desc{
-    margin-top:20px;
+    color:var(--muted);
     font-size:1.1rem;
-    color:#d4d4d4;
+    line-height:1.8;
     max-width:650px;
 }
 
+/* =========================
+   PROFILE IMAGE
+========================= */
+
 .hero-image{
-    flex:0 0 320px;
+    flex:0 0 340px;
+    animation:slideRight 1s ease, float 5s infinite ease-in-out;
 }
 
 .hero-image img{
     width:100%;
-    border-radius:30px;
+    border-radius:28px;
     border:2px solid var(--border);
-    transition:.5s;
+    box-shadow:
+        0 0 25px rgba(0,242,254,.25),
+        0 0 80px rgba(112,0,255,.25);
+    transition:.4s;
 }
 
 .hero-image img:hover{
-    transform:scale(1.05);
+    transform:scale(1.05) rotate(1deg);
 }
+
+/* =========================
+   TYPING TEXT
+========================= */
+
+.typing{
+    color:var(--accent);
+    font-weight:700;
+    border-right:3px solid var(--accent);
+    white-space:nowrap;
+    overflow:hidden;
+    display:inline-block;
+    padding-right:5px;
+    animation:blink .7s infinite;
+}
+
+@keyframes blink{
+    50%{border-color:transparent;}
+}
+
+/* =========================
+   STATS
+========================= */
 
 .stats{
     display:flex;
     gap:20px;
-    margin-top:30px;
+    margin-top:35px;
 }
 
 .stat{
     background:var(--card);
     border:1px solid var(--border);
     padding:20px 25px;
-    border-radius:20px;
+    border-radius:18px;
+    backdrop-filter:blur(10px);
+    transition:.3s;
+    animation:pulse 3s infinite;
+}
+
+.stat:hover{
+    transform:translateY(-8px);
 }
 
 .stat h3{
@@ -181,7 +266,21 @@ nav{
 }
 
 /* =========================
-   7. ABOUT
+   SECTIONS
+========================= */
+
+.section{
+    margin:60px 0;
+    animation:fadeUp 1s ease;
+}
+
+.section-title{
+    font-size:2rem;
+    margin-bottom:25px;
+}
+
+/* =========================
+   ABOUT CARD
 ========================= */
 
 .about-card{
@@ -189,49 +288,46 @@ nav{
     border:1px solid var(--border);
     border-radius:24px;
     padding:35px;
-    line-height:1.8;
+    backdrop-filter:blur(12px);
+    line-height:1.9;
+    transition:.3s;
+}
+
+.about-card:hover{
+    transform:translateY(-8px);
 }
 
 .about-card h3{
     color:var(--accent);
-    margin-bottom:15px;
-}
-
-.about-info{
-    margin-top:20px;
-    display:grid;
-    gap:10px;
 }
 
 /* =========================
-   8. EXPERTISE
+   GRID CARDS
 ========================= */
 
 .bento{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
     gap:20px;
 }
 
 .card{
     background:var(--card);
     border:1px solid var(--border);
-    border-radius:24px;
+    border-radius:22px;
     padding:30px;
-    transition:.4s;
+    backdrop-filter:blur(10px);
+    transition:.35s;
+    animation:cardFloat 6s infinite ease-in-out;
 }
 
 .card:hover{
-    transform:translateY(-8px);
-}
-
-.card h3{
-    color:var(--accent);
-    margin-bottom:10px;
+    transform:translateY(-10px);
+    border-color:var(--accent);
 }
 
 /* =========================
-   9. PROJECTS
+   PROJECT LINKS
 ========================= */
 
 .projects{
@@ -242,52 +338,130 @@ nav{
 
 .project-link{
     text-decoration:none;
-    color:white;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+    color:var(--text);
     background:var(--card);
     border:1px solid var(--border);
-    border-radius:20px;
     padding:25px 30px;
+    border-radius:18px;
+    display:flex;
+    justify-content:space-between;
+    position:relative;
+    overflow:hidden;
     transition:.3s;
 }
 
 .project-link:hover{
-    background:white;
-    color:black;
+    background:#fff;
+    color:#000;
     transform:translateX(10px);
 }
 
+.project-link::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);
+    transition:.6s;
+}
+
+.project-link:hover::before{
+    left:100%;
+}
+
 /* =========================
-   10. FOOTER
+   FOOTER
 ========================= */
 
 footer{
     text-align:center;
     padding:40px 0;
-    color:#999;
+    color:#888;
 }
 
 /* =========================
-   11. MOBILE
+   ANIMATIONS
 ========================= */
 
-@media(max-width:768px){
+@keyframes slideLeft{
+    from{opacity:0;transform:translateX(-80px);}
+    to{opacity:1;transform:translateX(0);}
+}
+
+@keyframes slideRight{
+    from{opacity:0;transform:translateX(80px);}
+    to{opacity:1;transform:translateX(0);}
+}
+
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(40px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes fadeDown{
+    from{opacity:0;transform:translateY(-40px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+    100%{transform:translateY(0);}
+}
+
+@keyframes cardFloat{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+    100%{transform:translateY(0);}
+}
+
+@keyframes pulse{
+    0%{box-shadow:0 0 0 rgba(0,242,254,0);}
+    50%{box-shadow:0 0 20px rgba(0,242,254,.25);}
+    100%{box-shadow:0 0 0 rgba(0,242,254,0);}
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
 
 .hero{
     flex-direction:column-reverse;
     text-align:center;
+    padding:50px 0;
     min-height:auto;
-    padding:40px 0;
 }
 
 .hero-image{
-    width:230px;
+    width:240px;
+}
+
+.hero-desc{
+    margin:auto;
 }
 
 .stats{
     justify-content:center;
 }
 
+}
+
+@media(max-width:600px){
+
+.hero h1{
+    font-size:2.5rem;
+}
+
+.section-title{
+    font-size:1.7rem;
+}
+
+.about-card,
+.card{
+    padding:22px;
+}
 }
