@@ -3174,6 +3174,314 @@ score.textContent =
 <br>
 
 
+<style>
+
+/* =========================
+   THEME VARIABLES
+========================= */
+
+:root{
+    --bg-color:#ffffff;
+    --text-color:#1a1a1a;
+    --card-bg:#f8f9fa;
+    --border-color:#dddddd;
+    --accent-color:#6366f1;
+}
+
+[data-theme="dark"]{
+    --bg-color:#121212;
+    --text-color:#f0f0f0;
+    --card-bg:#1e1e1e;
+    --border-color:#333333;
+    --accent-color:#818cf8;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--bg-color);
+    color:var(--text-color);
+    font-family:Segoe UI, Arial, sans-serif;
+    line-height:1.8;
+    padding:20px;
+}
+
+article{
+    max-width:850px;
+    margin:auto;
+}
+
+.hero-img{
+    width:100%;
+    height:380px;
+    object-fit:cover;
+    border-radius:12px;
+    margin-bottom:20px;
+}
+
+h1{
+    font-size:2.2rem;
+    margin-bottom:10px;
+}
+
+h2{
+    margin:30px 0 15px;
+}
+
+h3{
+    margin:15px 0;
+}
+
+p{
+    margin-bottom:15px;
+}
+
+.meta-info{
+    color:#777;
+    margin-bottom:25px;
+}
+
+.preview-box{
+    background:var(--card-bg);
+    border:1px solid var(--border-color);
+    padding:40px;
+    border-radius:12px;
+    margin:25px 0;
+    display:flex;
+    justify-content:center;
+}
+
+/* =========================
+   ANIMATED INPUT BOX
+========================= */
+
+.input-group{
+    position:relative;
+    width:320px;
+}
+
+.input-group input{
+    width:100%;
+    padding:18px;
+    font-size:16px;
+    border:2px solid #d1d5db;
+    border-radius:12px;
+    outline:none;
+    background:transparent;
+    color:var(--text-color);
+    transition:.3s;
+}
+
+.input-group label{
+    position:absolute;
+    left:15px;
+    top:18px;
+    background:var(--card-bg);
+    padding:0 8px;
+    color:#6b7280;
+    transition:.3s;
+    pointer-events:none;
+}
+
+.input-group input:focus{
+    border-color:var(--accent-color);
+    box-shadow:0 0 20px rgba(99,102,241,.25);
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label{
+    top:-11px;
+    left:12px;
+    font-size:13px;
+    color:var(--accent-color);
+    font-weight:600;
+}
+
+.code-box{
+    background:#111827;
+    color:#f3f4f6;
+    padding:20px;
+    border-radius:10px;
+    overflow:auto;
+    margin:20px 0;
+    font-size:14px;
+}
+
+@media(max-width:768px){
+
+.hero-img{
+    height:230px;
+}
+
+h1{
+    font-size:1.8rem;
+}
+
+.input-group{
+    width:100%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<article>
+
+<img
+src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200"
+alt="HTML CSS Form Design"
+class="hero-img">
+
+<h1>Create an Animated Floating Label Input Box Using HTML & CSS</h1>
+
+<div class="meta-info">
+<strong>Author:</strong> Ujwal Subedi |
+<strong>Date:</strong> June 7, 2026 |
+<strong>Category:</strong> HTML & CSS Forms
+</div>
+
+<section>
+
+<h2>Introduction</h2>
+
+<p>
+Modern websites often use floating labels instead of traditional form labels.
+This technique saves space, looks professional, and provides a better user experience.
+</p>
+
+<p>
+In this tutorial, you'll learn how to create a beautiful animated text input field using only HTML and CSS.
+</p>
+
+</section>
+
+<section>
+
+<h2>Live Preview</h2>
+
+<div class="preview-box">
+
+<div class="input-group">
+    <input type="text" required>
+    <label>Your Name</label>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>HTML Code</h2>
+
+<div class="code-box">
+
+&lt;div class="input-group"&gt;
+
+    &lt;input type="text" required&gt;
+
+    &lt;label&gt;Your Name&lt;/label&gt;
+
+&lt;/div&gt;
+
+</div>
+
+<p>
+The structure contains an input field and a label. The label will animate when the input gains focus.
+</p>
+
+</section>
+
+<section>
+
+<h2>CSS Code</h2>
+
+<div class="code-box">
+
+.input-group input:focus + label,
+.input-group input:valid + label{
+
+    top:-11px;
+    font-size:13px;
+    color:#6366f1;
+
+}
+
+</div>
+
+<p>
+This selector targets the label when the input is focused or contains text. The label moves upward and becomes smaller.
+</p>
+
+</section>
+
+<section>
+
+<h2>Code Explanation</h2>
+
+<p>
+The input field starts with the label positioned inside it. When users click inside the textbox, the border receives a glowing effect and the label smoothly moves above the input field.
+</p>
+
+<p>
+If text is entered, the label remains at the top, making it easy for users to remember what information belongs in the field.
+</p>
+
+</section>
+
+<section>
+
+<h2>Preview Explanation</h2>
+
+<p>
+Try clicking inside the textbox above. You'll notice the label animates upward while the border glows with a modern effect. This design is commonly used in login forms, registration pages, contact forms, and professional web applications.
+</p>
+
+</section>
+
+<section>
+
+<h2>Benefits of Floating Labels</h2>
+
+<ul>
+<li>Modern and professional appearance.</li>
+<li>Improves form usability.</li>
+<li>Saves screen space.</li>
+<li>Works on mobile devices.</li>
+<li>No JavaScript required.</li>
+<li>Easy to customize.</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>Conclusion</h2>
+
+<p>
+Floating label input fields are a simple yet effective UI improvement. By combining HTML structure with CSS transitions, you can create professional-looking forms that enhance user experience and make websites feel more modern.
+</p>
+
+</section>
+
+</article>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+
+
+
+
     <!-- Navigation Area -->
     <div style="width: 100%; max-width: 580px; text-align: center; margin-bottom: 40px; box-sizing: border-box;">
         <button onclick="history.back()" style="padding: 12px 28px; background: #0f172a; color: #ffffff; border: none; border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer; transition: background 0.2s; box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.15);">
