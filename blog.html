@@ -56,6 +56,21 @@
 .post-card {
   animation: fadeInUp 0.6s ease-out forwards;
 }
+/* Button interaction */
+.read-more-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  border-radius: 50px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.post-card:hover .read-more-btn {
+  background: #0056b3;
+  transform: translateX(5px); /* Button nudges on hover */
+}
+
 
 </style>
 
