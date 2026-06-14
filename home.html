@@ -35,15 +35,7 @@
             filter: brightness(1.2);
         }
         
-/* FULL-WIDTH FOOTER SYSTEM */
 
-/* Apply this to your main body wrapper or the container holding all sections */
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ensures the page is at least the height of the screen */
-    margin: 0;
-}
 
 /* This allows the main content area to expand and push the footer down */
 .main-content { 
@@ -59,85 +51,80 @@ body {
     text-align: center;
 }
 
-    footer { 
-        width: 100vw;
-        position: relative;
-        left: 50%;
-        right: 50%;
-        margin-left: -50vw;
-        margin-right: -50vw;
-        background: rgba(255, 255, 255, 0.75); 
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border-top: 1px solid rgba(0, 210, 255, 0.15);
-        padding: 30px 0;
-        margin-top: 60px;
-    }
+    
+footer {
+    width: 100%;
+    margin-top: auto;
 
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border-top: 1px solid rgba(0, 210, 255, 0.15);
+    padding: 30px 0;
+}
+
+.footer-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-left {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    color: #64748b;
+}
+
+.footer-left a {
+    color: #0284c7;
+    text-decoration: none;
+}
+
+.footer-left a:hover {
+    text-decoration: underline;
+}
+
+.footer-right {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.footer-icon.fb { background: #1877f2; }
+.footer-icon.yt { background: #ff0000; }
+
+/* MOBILE */
+@media (max-width: 600px) {
+    header h1 { font-size: 2rem; }
+
+    .socials {
+        flex-direction: column;
+        align-items: center;
+    }
 
     .footer-inner {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 0 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 20px;
+        flex-direction: column;
+        text-align: center;
     }
-
-    .footer-left {
-        color: #64748b;
-        font-size: 0.95rem;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        flex-wrap: wrap;
-    }
-
-    .footer-left a {
-        color: #0284c7;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.2s ease;
-    }
-
-    .footer-left a:hover {
-        text-decoration: underline;
-        color: #0369a1;
-    }
-
-    .footer-right {
-        display: flex;
-        gap: 15px;
-    }
-
-    .footer-icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        color: white;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .footer-icon:hover {
-        transform: translateY(-3px);
-    }
-
-    .footer-icon.fb { 
-        background: #1877f2; 
-        box-shadow: 0 4px 10px rgba(24, 119, 242, 0.3);
-    }
-    .footer-icon.yt { 
-        background: #ff0000; 
-        box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
-    }
-
-    #topBtn { position: fixed; bottom: 20px; right: 20px; border-radius: 50%; width: 50px; height: 50px; display: none; background: #00d2ff; color: white; border: none; cursor: pointer; z-index: 1001; }
-
+}
+ 
     /* MEDIA QUERIES FOR LAPTOP/DESKTOP */
    
 
