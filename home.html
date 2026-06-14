@@ -36,34 +36,19 @@
         }
         
 
-
-/* This allows the main content area to expand and push the footer down */
-.main-content { 
-    flex: 1; 
-}
-
-/* Update your footer CSS to be static/relative */
-.footer-inner {
-    position: static; /* Removes the absolute/fixed overlap */
-    width: 100%;
-    margin-top: 20px; /* Adds space between your last section and the footer */
-    padding: 20px 0;
-    text-align: center;
-}
-
-    
 footer {
     width: 100%;
     margin-top: auto;
 
     background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 
-    border-top: 1px solid rgba(0, 210, 255, 0.15);
-    padding: 30px 0;
+    border-top: 1px solid rgba(0, 210, 255, 0.18);
+    padding: 28px 0;
 }
 
+/* container */
 .footer-inner {
     max-width: 900px;
     margin: 0 auto;
@@ -73,78 +58,79 @@ footer {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 18px;
 }
 
+/* left side text */
 .footer-left {
     display: flex;
-    gap: 12px;
+    align-items: center;
+    gap: 10px;
     flex-wrap: wrap;
+
     color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.4;
 }
 
+/* links (KEEP SAME COLOR) */
 .footer-left a {
     color: #0284c7;
     text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s ease;
 }
 
 .footer-left a:hover {
     text-decoration: underline;
+    opacity: 0.85;
 }
 
+/* right icons */
 .footer-right {
     display: flex;
-    gap: 15px;
+    gap: 14px;
 }
 
+/* icon buttons */
 .footer-icon {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+
     color: white;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.footer-icon:hover {
+    transform: translateY(-3px) scale(1.05);
 }
 
 .footer-icon.fb { background: #1877f2; }
 .footer-icon.yt { background: #ff0000; }
 
-/* MOBILE */
+/* MOBILE FIX */
 @media (max-width: 600px) {
-    header h1 { font-size: 2rem; }
-
-    .socials {
-        flex-direction: column;
-        align-items: center;
-    }
 
     .footer-inner {
         flex-direction: column;
         text-align: center;
     }
-}
- 
-    /* MEDIA QUERIES FOR LAPTOP/DESKTOP */
-   
 
-    /* MEDIA QUERIES FOR MOBILE */
-    @media (max-width: 600px) {
-        header h1 { font-size: 2rem; }
-        ul { grid-template-columns: 1fr; } 
-        nav { border-radius: 20px; } 
-        .social a { width: 100%; text-align: center; } 
-        .footer-inner {
-            flex-direction: column-reverse;
-            text-align: center;
-        }
-        .footer-left {
-            flex-direction: column;
-            gap: 8px;
-        }
-        .footer-left span:nth-of-type(2) {
-            display: none; /* Hide vertical separator bar on mobile */
-        }
+    .footer-left {
+        justify-content: center;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .footer-right {
+        justify-content: center;
+    }
+}
+
     }
     </style>
 </head>
