@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Home Page | Ujwal Subedi</title>
     <style>
-        /* Global Animations */
+        /* 1. Global Styles & Animations */
+        * { box-sizing: border-box; cursor: default; }
+        
         @keyframes bgGradient {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -22,130 +24,150 @@
             50% { box-shadow: 0 0 40px rgba(0, 255, 255, 0.4); }
         }
 
-        * { cursor: default; box-sizing: border-box; }
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+        }
+/* Container to center the photo */
+.profile-container {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+/* The Square Wrapper */
+.square-photo-wrapper {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 20px; /* Slight rounding for a modern square look */
+    padding: 3px; /* Creates the border thickness */
+    background: linear-gradient(135deg, #00f2fe, #ff00c1);
+    animation: pulseGlow 3s ease-in-out infinite;
+    transition: transform 0.4s ease;
+}
+
+/* The Image */
+.square-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 18px; /* Slightly tighter than the wrapper */
+    display: block;
+}
+
+/* Hover Effect: Scale up and sharpen */
+.square-photo-wrapper:hover {
+    transform: scale(1.05);
+    animation: none; /* Stop pulsing on hover */
+    box-shadow: 0 0 30px rgba(0, 242, 254, 0.6);
+}
+
+/* Keyframes for the 'Breathing' Animation */
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 10px rgba(0, 242, 254, 0.3); }
+    50% { box-shadow: 0 0 25px rgba(255, 0, 193, 0.6); }
+}
+
+        body {
+            background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e);
+            background-size: 400% 400%;
+            animation: bgGradient 15s ease infinite;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 2. Main Wrapper - Pushes footer down */
+        .page-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px;
+        }
+
+        /* 3. Cards & Icons */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            animation: glow 4s infinite;
+        }
 
         .card:hover {
-            transform: scale(1.03) translateY(-5px) !important;
-            background: rgba(255, 255, 255, 0.1) !important;
-            border: 1px solid rgba(0, 255, 255, 0.5) !important;
+            transform: scale(1.03) translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 255, 255, 0.5);
         }
 
         .social-icon:hover {
             transform: scale(1.2) rotate(15deg);
             filter: brightness(1.2);
         }
+
+        /* 4. Footer Styling */
+        footer {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(0, 210, 255, 0.18);
+            padding: 28px 0;
+            margin-top: auto;
+        }
+
+        .footer-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .footer-left { display: flex; align-items: center; gap: 10px; color: #64748b; font-size: 0.95rem; }
+        .footer-left a { color: #0284c7; text-decoration: none; font-weight: 500; }
+        .footer-right { display: flex; gap: 14px; }
         
+        .footer-icon {
+            width: 42px; height: 42px; border-radius: 50%; display: flex;
+            align-items: center; justify-content: center; color: white;
+            transition: transform 0.2s ease;
+        }
+        .footer-icon:hover { transform: translateY(-3px) scale(1.05); }
+        .footer-icon.fb { background: #1877f2; }
+        .footer-icon.yt { background: #ff0000; }
 
-footer {
-    width: 100%;
-    margin-top: auto;
-
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-
-    border-top: 1px solid rgba(0, 210, 255, 0.18);
-    padding: 28px 0;
-}
-
-/* container */
-.footer-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 20px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 18px;
-}
-
-/* left side text */
-.footer-left {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-
-    color: #64748b;
-    font-size: 0.95rem;
-    line-height: 1.4;
-}
-
-/* links (KEEP SAME COLOR) */
-.footer-left a {
-    color: #0284c7;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.2s ease;
-}
-
-.footer-left a:hover {
-    text-decoration: underline;
-    opacity: 0.85;
-}
-
-/* right icons */
-.footer-right {
-    display: flex;
-    gap: 14px;
-}
-
-/* icon buttons */
-.footer-icon {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: white;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.footer-icon:hover {
-    transform: translateY(-3px) scale(1.05);
-}
-
-.footer-icon.fb { background: #1877f2; }
-.footer-icon.yt { background: #ff0000; }
-
-/* MOBILE FIX */
-@media (max-width: 600px) {
-
-    .footer-inner {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .footer-left {
-        justify-content: center;
-        flex-direction: column;
-        gap: 6px;
-    }
-
-    .footer-right {
-        justify-content: center;
-    }
-}
-
-    }
+        @media (max-width: 600px) {
+            .footer-inner { flex-direction: column; text-align: center; }
+            .footer-left { flex-direction: column; gap: 6px; }
+        }
     </style>
 </head>
-<body style="margin: 0; min-height: 100vh; font-family: 'Segoe UI', sans-serif; background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e); background-size: 400% 400%; animation: bgGradient 15s ease infinite; color: white; display: flex; flex-direction: column; align-items: center; padding: 50px 20px;">
+<body>
 
-    <header style="text-align: center; margin-bottom: 60px; animation: float 6s ease-in-out infinite;">
-        <h1 style="font-size: 3.5rem; margin: 0; background: linear-gradient(to right, #00f2fe, #7c3aed, #ff00c1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));">
-            Welcome, Audience!
-        </h1>
-        <p style="font-size: 1.2rem; color: #a5b4fc; margin-top: 10px; letter-spacing: 2px;">Step into the Digital Universe of Mr. Ujwal Subedi</p>
-    </header>
+    <div class="page-content">
+        <header style="text-align: center; margin-bottom: 60px; animation: float 6s ease-in-out infinite;">
+            <h1 style="font-size: 3.5rem; margin: 0; background: linear-gradient(to right, #00f2fe, #7c3aed, #ff00c1); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Welcome, Audience!
+            </h1>
+            <p style="color: #a5b4fc; margin-top: 10px; letter-spacing: 2px;">Step into the Digital Universe of Mr. Ujwal Subedi</p>
+        </header>
+                                <div class="profile-container">
+    <div class="square-photo-wrapper">
+        <img src="pro.png" alt="Profile" class="square-img">
+    </div>
+</div>
 
-    <main style="max-width: 900px; width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-        
-        <section class="card" onclick="triggerMagic('about')" style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); transition: all 0.4s ease; animation: glow 4s infinite;">
+        <main style="max-width: 900px; width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+           <section class="card" onclick="triggerMagic('about')" style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); transition: all 0.4s ease; animation: glow 4s infinite;">
             <h2 style="color: #00f2fe; border-bottom: 2px solid #00f2fe; display: inline-block; padding-bottom: 5px;">About Me</h2>
             <p style="line-height: 1.8; color: #cbd5e1; margin-top: 20px;">
                 I am a passionate creator and developer dedicated to pushing the boundaries of what's possible online. 
@@ -153,50 +175,30 @@ footer {
             </p>
         </section>
 
-        <section class="card" onclick="triggerMagic('page')" style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); transition: all 0.4s ease; animation: glow 4s infinite 1s;">
+             <section class="card" onclick="triggerMagic('page')" style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); transition: all 0.4s ease; animation: glow 4s infinite 1s;">
             <h2 style="color: #ff00c1; border-bottom: 2px solid #ff00c1; display: inline-block; padding-bottom: 5px;">The Project</h2>
             <p style="line-height: 1.8; color: #cbd5e1; margin-top: 20px;">
                 This page serves as a hub for my latest experiments in web design. It is built using modern CSS architectures 
                 to demonstrate that "Perfect Code" can also be beautiful and highly interactive.
             </p>
         </section>
+        </main>
 
-    </main>
+      
 
-    <div style="margin-top: 80px; display: flex; gap: 40px; align-items: center;">
-        
-        <a href="https://www.youtube.com/@Mr.ujwalsubedi" target="_blank" class="social-icon" style="text-decoration: none; transition: all 0.3s ease;">
-            <div style="background: #ff0000; width: 70px; height: 70px; border-radius: 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(255,0,0,0.3);">
-                <svg width="40" height="40" fill="white" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
-            </div>
-            <p style="color: white; text-align: center; margin-top: 10px; font-weight: bold; font-size: 0.8rem;">YOUTUBE</p>
-        </a>
-
-        <a href="https://www.facebook.com/Mr.ujwalsubedi" target="_blank" class="social-icon" style="text-decoration: none; transition: all 0.3s ease;">
-            <div style="background: #1877f2; width: 70px; height: 70px; border-radius: 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(24,119,242,0.3);">
-                <svg width="40" height="40" fill="white" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            </div>
-            <p style="color: white; text-align: center; margin-top: 10px; font-weight: bold; font-size: 0.8rem;">FACEBOOK</p>
-        </a>
-
+        <div id="status-msg" style="margin-top: 50px; color: #00f2fe; font-family: monospace; opacity: 0; transition: opacity 0.5s;">
+            System: Analyzing...
+        </div>
     </div>
 
-    <div id="status-msg" style="margin-top: 50px; color: #00f2fe; font-family: monospace; opacity: 0; transition: opacity 0.5s;">
-        System: Exploring section details...
-    </div>
-            
-  
-    <!-- FULL WIDTH BREAKOUT FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-left">
-      <span>© 2026 Ujwal web development & creation</span>
-      <span>|</span>
-      <a href="privacy.html">Privacy Policy</a>
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+               <span>© 2026 Ujwal web development & creation</span>
+               <a href="privacy.html">Privacy Policy</a>
             <a href="terms.html">terms & condition</a>
-    </div>
-
-    <div class="footer-right">
+            </div>
+            <div class="footer-right">
       <!-- Facebook Link -->
       <a href="https://www.facebook.com/Mr.ujwalsubedi" target="_blank" class="footer-icon fb" aria-label="Facebook">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
@@ -211,27 +213,15 @@ footer {
       </a>
     </div>
   </div>
-</footer>
-    
+    </footer>
 
     <script>
         function triggerMagic(type) {
             const msg = document.getElementById('status-msg');
             msg.style.opacity = '1';
-            
-            if(type === 'about') {
-                msg.innerText = "System: Accessing Ujwal's personal database...";
-                msg.style.color = "#00f2fe";
-            } else {
-                msg.innerText = "System: Analyzing page architecture...";
-                msg.style.color = "#ff00c1";
-            }
-
-            setTimeout(() => {
-                msg.style.opacity = '0';
-            }, 3000);
+            msg.innerText = type === 'about' ? "System: Accessing database..." : "System: Analyzing architecture...";
+            setTimeout(() => { msg.style.opacity = '0'; }, 3000);
         }
     </script>
-
 </body>
 </html>
