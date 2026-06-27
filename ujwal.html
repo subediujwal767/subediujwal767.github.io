@@ -3,152 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skill Profile</title>
+    <title>Skill Profile | Ujwal Subedi</title>
     <style>
-        /* Keyframe for the entrance of the card */
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Keyframe for the progress bars growth */
-        @keyframes growBar {
-            from { width: 0%; }
-        }
-
-        /* Pulse animation for the profile photo */
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0px rgba(0, 123, 255, 0.4); }
-            70% { box-shadow: 0 0 0 15px rgba(0, 123, 255, 0); }
-            100% { box-shadow: 0 0 0 0px rgba(0, 123, 255, 0); }
-        }
-
-        /* Hover effect for the skill rows */
-        .skill-row {
-            transition: transform 0.3s ease;
-            cursor: default;
-        }
-        .skill-row:hover {
-            transform: translateX(10px);
-        }
+        /* 1. Reset and Layout Setup */
+        * { box-sizing: border-box; }
         
-/* FULL-WIDTH FOOTER SYSTEM */
-    footer { 
-        width: 100vw;
-        position: relative;
-        left: 50%;
-        right: 50%;
-        margin-left: -50vw;
-        margin-right: -50vw;
-        background: rgba(255, 255, 255, 0.75); 
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border-top: 1px solid rgba(0, 210, 255, 0.15);
-        padding: 30px 0;
-        margin-top: 60px;
-    }
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            font-family: 'Segoe UI', sans-serif;
+        }
 
-    .footer-inner {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 0 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
+        body {
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+            display: flex;
+            flex-direction: column; /* Allows footer to stick to bottom */
+        }
 
-    .footer-left {
-        color: #64748b;
-        font-size: 0.95rem;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        flex-wrap: wrap;
-    }
+        /* 2. Main Wrapper - Pushes footer down */
+        .main-content {
+            flex: 1; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
 
-    .footer-left a {
-        color: #0284c7;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.2s ease;
-    }
-
-    .footer-left a:hover {
-        text-decoration: underline;
-        color: #0369a1;
-    }
-
-    .footer-right {
-        display: flex;
-        gap: 15px;
-    }
-
-    .footer-icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        color: white;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .footer-icon:hover {
-        transform: translateY(-3px);
-    }
-
-    .footer-icon.fb { 
-        background: #1877f2; 
-        box-shadow: 0 4px 10px rgba(24, 119, 242, 0.3);
-    }
-    .footer-icon.yt { 
-        background: #ff0000; 
-        box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
-    }
-
-    #topBtn { position: fixed; bottom: 20px; right: 20px; border-radius: 50%; width: 50px; height: 50px; display: none; background: #00d2ff; color: white; border: none; cursor: pointer; z-index: 1001; }
-
-    /* MEDIA QUERIES FOR LAPTOP/DESKTOP */
-   
-
-    /* MEDIA QUERIES FOR MOBILE */
-    @media (max-width: 600px) {
-        header h1 { font-size: 2rem; }
-        ul { grid-template-columns: 1fr; } 
-        nav { border-radius: 20px; } 
-        .social a { width: 100%; text-align: center; } 
-        .footer-inner {
-            flex-direction: column-reverse;
+        .profile-card {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             text-align: center;
+            animation: slideUp 0.8s ease-out forwards;
         }
-        .footer-left {
-            flex-direction: column;
-            gap: 8px;
+
+        /* 3. Animations */
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes growBar { from { width: 0%; } }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0px rgba(0, 123, 255, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(0, 123, 255, 0); } 100% { box-shadow: 0 0 0 0px rgba(0, 123, 255, 0); } }
+
+        /* 4. Skills & UI Elements */
+        .skill-row { margin-bottom: 25px; transition: transform 0.3s ease; }
+        .skill-row:hover { transform: translateX(10px); }
+        .skill-bar-bg { background: #eee; border-radius: 20px; height: 10px; overflow: hidden; }
+        .skill-bar-fill { height: 100%; border-radius: 20px; animation: growBar 1.5s ease-out; }
+
+        /* 5. Footer Layout */
+        footer { 
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8); 
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(0, 210, 255, 0.2);
+            padding: 30px 0;
+            margin-top: auto;
         }
-        .footer-left span:nth-of-type(2) {
-            display: none; /* Hide vertical separator bar on mobile */
+
+        .footer-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
         }
-    }
+
+        .footer-left { color: #64748b; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; }
+        .footer-left a { color: #0284c7; text-decoration: none; font-weight: 600; }
+        
+        .footer-right { display: flex; gap: 15px; }
+        .footer-icon { 
+            display: flex; align-items: center; justify-content: center; 
+            width: 40px; height: 40px; border-radius: 50%; color: white; 
+            transition: transform 0.2s ease;
+        }
+        .footer-icon:hover { transform: translateY(-3px); }
+        .footer-icon.fb { background: #1877f2; }
+        .footer-icon.yt { background: #ff0000; }
+
+        @media (max-width: 600px) {
+            .footer-inner { flex-direction: column-reverse; text-align: center; }
+            .footer-left { flex-direction: column; }
+        }
     </style>
 </head>
-<body style="margin: 0; padding: 40px; font-family: 'Segoe UI', sans-serif; background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%); min-height: 100vh; display: flex; align-items: center; justify-content: center;">
+<body>
 
-    <section style="width: 100%; max-width: 500px; background: white; padding: 40px; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); text-align: center; animation: slideUp 0.8s ease-out forwards;">
-        
-        <div style="position: relative; display: inline-block; margin-bottom: 20px;">
-            <img src="sss.jpg" alt="Profile" 
-                 style="width: 130px; height: 130px; border-radius: 50%; object-fit: cover; border: 5px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.2); animation: pulse 2s infinite;">
-        </div>
-        
-        <h2 style="margin: 0; font-size: 1.8rem; color: #333;">Creative Developer <br> Ujwal Subedi</h2>
-        <p style="color: #007bff; font-weight: 600; margin-top: 5px; margin-bottom: 35px; letter-spacing: 1px;">SKILL MATRIX</p>
-
-        <div style="text-align: left;">
+    <main class="main-content">
+        <section class="profile-card">
+            <div style="position: relative; display: inline-block; margin-bottom: 20px;">
+                <img src="sss.jpg" alt="Profile" style="width: 130px; height: 130px; border-radius: 50%; object-fit: cover; border: 5px solid white; animation: pulse 2s infinite;">
+            </div>
             
-            <div class="skill-row" style="margin-bottom: 25px;">
+            <h2 style="margin: 0; color: #333;">Creative Developer <br> Ujwal Subedi</h2>
+            <p style="color: #007bff; font-weight: 600; margin: 5px 0 35px; letter-spacing: 1px;">SKILL MATRIX</p>
+
+            <!-- Skills -->
+            <div style="text-align: left;">
+                           <div class="skill-row" style="margin-bottom: 25px;">
                 <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem; font-weight: bold;">
                 <span>Office Package</span>
                 <span>100%</span>
@@ -213,24 +170,22 @@
 
         </div>
 
-        <button onclick="alert('Thank you for visiting! Let\'s build something great. for contact me use this phone number:9825926919 or use this email:subediujwal767@gmail.com')" 
+            <button onclick="alert('Thank you for visiting! Let\'s build something great. for contact me use this phone number:9825926919 or use this email:subediujwal767@gmail.com')" 
                 style="margin-top: 20px; background: #333; color: white; border: none; padding: 12px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
             CONTACT ME
         </button>
+        </section>
+    </main>
 
-    </section>
-    
-    <!-- FULL WIDTH BREAKOUT FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-left">
-      <span>© 2026 Ujwal web development & creation</span>
-      <span>|</span>
-      <a href="privacy.html">Privacy Policy</a>
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <span>© 2026 Ujwal web development & creation</span>
+                <span>|</span>
+               <a href="privacy.html">Privacy Policy</a>
             <a href="terms.html">terms & condition</a>
-    </div>
-    
-    <div class="footer-right">
+            </div>
+            <div class="footer-right">
       <!-- Facebook Link -->
       <a href="https://www.facebook.com/Mr.ujwalsubedi" target="_blank" class="footer-icon fb" aria-label="Facebook">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
@@ -244,13 +199,8 @@
         </svg>
       </a>
     </div>
-  </div>
-</footer>
-    <script>
-        // Optional: Trigger a console message when profile is loaded
-        window.onload = () => {
-            console.log("Skill Sheet Animated & Ready!");
-        };
-    </script>
+              
+    </footer>
+
 </body>
 </html>
