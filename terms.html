@@ -9,6 +9,43 @@
     <link rel="canonical" href="https://subediujwal767.github.io/terms.html" />
 
     <style>
+           /* 5. Footer Layout */
+        footer { 
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8); 
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(0, 210, 255, 0.2);
+            padding: 30px 0;
+            margin-top: auto;
+        }
+
+        .footer-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-left { color: #64748b; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; }
+        .footer-left a { color: #0284c7; text-decoration: none; font-weight: 600; }
+        
+        .footer-right { display: flex; gap: 15px; }
+        .footer-icon { 
+            display: flex; align-items: center; justify-content: center; 
+            width: 40px; height: 40px; border-radius: 50%; color: white; 
+            transition: transform 0.2s ease;
+        }
+        .footer-icon:hover { transform: translateY(-3px); }
+        .footer-icon.fb { background: #1877f2; }
+        .footer-icon.yt { background: #ff0000; }
+
+        @media (max-width: 600px) {
+            .footer-inner { flex-direction: column-reverse; text-align: center; }
+            .footer-left { flex-direction: column; }
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             line-height: 1.7;
