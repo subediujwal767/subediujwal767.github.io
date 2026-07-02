@@ -355,11 +355,22 @@
         }
     }
 
-    // This makes sure BOTH the typing effect AND Google load together smoothly!
+    // Runs immediately when the website loads
     window.onload = function() {
-        typeEffect(); // Runs your typing effect
+        typeEffect(); // Runs typing text
         
-        // Tells Google to get ready behind the scenes
+        const loginText = document.getElementById('login-text');
+        const userAvatar = document.getElementById('user-avatar');
+        
+        // FIX FOR PROBLEM 2: Check if user was already logged in before refreshing
+        const savedPicture = localStorage.getItem("googleUserPicture");
+        if (savedPicture) {
+            userAvatar.src = savedPicture;
+            loginText.style.display = 'none';
+            userAvatar.style.setAttribute('style', 'display: block !important'); // Forces image to show
+        }
+
+        // Initialize Google background engine
         if (typeof google !== 'undefined' && google.accounts && google.accounts.id) {
             google.accounts.id.initialize({
                 client_id: "152363843924-2q9v0m8t601te92q35jutfr8klu4o8qp.apps.googleusercontent.com",
@@ -386,22 +397,25 @@
         return JSON.parse(window.atob(base64));
     }
 
-    // 2. What happens on success
+    // 2. Fixes Problem 1 & 2: Handles successful login
     function handleCredentialResponse(response) {
         const responsePayload = decodeJwtResponse(response.credential);
         const loginText = document.getElementById('login-text');
         const userAvatar = document.getElementById('user-avatar');
 
         if (responsePayload.picture) {
+            // Fix 1: Force picture URL into image and forcefully remove any hidden styles
             userAvatar.src = responsePayload.picture;
             loginText.style.display = 'none';
-            userAvatar.classList.remove('avatar-hidden');
+            userAvatar.style.setAttribute('style', 'display: block !important'); 
+
+            // Fix 2: Save the image URL in the browser memory so it stays on refresh
+            localStorage.setItem("googleUserPicture", responsePayload.picture);
         }
     }
 
-    // 3. SAFER BUTTON CLICK EVENT
+    // 3. Button Trigger Setup
     document.getElementById('login-text').addEventListener('click', () => {
-        // Check if Google script loaded safely
         if (typeof google !== 'undefined' && google.accounts && google.accounts.id) {
             google.accounts.id.prompt((notification) => {
                 if (notification.isNotDisplayed()) {
@@ -410,11 +424,9 @@
                 }
             });
         } else {
-            console.error("Google Identity Services script hasn't loaded yet.");
             alert("The login system is still loading. Please try again in 2 seconds!");
         }
     });
 </script>
-
 </body>
 </html>
