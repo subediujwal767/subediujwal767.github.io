@@ -17,6 +17,60 @@
      crossorigin="anonymous"></script>
 </head>
   <style>
+    /* Dropdown Container */
+.auth-dropdown {
+  display: none;
+  position: absolute;
+  top: 52px;
+  right: 0;
+  background-color: white;
+  min-width: 180px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+  padding: 15px;
+  border-radius: 8px;
+  z-index: 10000;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  border: 1px solid #eee;
+}
+
+.auth-dropdown.show {
+  display: block;
+}
+
+/* Manage Google Account Link styling */
+.manage-link {
+  display: inline-block;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  color: #1a73e8;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.manage-link:hover {
+  text-decoration: underline;
+}
+
+/* Logout Button */
+.logout-btn {
+  background-color: #f1f3f4;
+  color: #3c4043;
+  border: 1px solid #dadce0;
+  padding: 8px 12px;
+  width: 100%;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 13px;
+  transition: background 0.2s;
+}
+
+.logout-btn:hover {
+  background-color: #e8eaed;
+  color: #202124;
+}
     /* Container pinned to the absolute top-right corner */
 .top-right-auth {
   position: fixed;
