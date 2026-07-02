@@ -507,6 +507,52 @@ function logoutAccount() {
     // Refresh page to completely reset layout state back to original "Login with Google"
     window.location.reload(); 
 }
+  // A. Inside your window.onload function:
+window.onload = function() {
+    typeEffect();
+    
+    const loginText = document.getElementById('login-text');
+    const avatarContainer = document.getElementById('avatar-container'); // Targets the wrapper box
+    const userAvatar = document.getElementById('user-avatar');
+    const dropdownName = document.getElementById('dropdown-user-name');
+    
+    const savedPicture = localStorage.getItem("googleUserPicture");
+    const savedName = localStorage.getItem("googleUserName");
+    
+    if (savedPicture && savedName) {
+        userAvatar.src = savedPicture;
+        dropdownName.innerText = savedName;
+        loginText.style.display = 'none';
+        avatarContainer.style.setProperty('display', 'block', 'important'); // Shows the whole container!
+    }
+
+    if (typeof google !== 'undefined' && google.accounts && google.accounts.id) {
+        google.accounts.id.initialize({
+            client_id: "152363843924-2q9v0m8t601te92q35jutfr8klu4o8qp.apps.googleusercontent.com",
+            callback: handleCredentialResponse
+        });
+    }
+};
+
+// B. Inside your handleCredentialResponse function:
+function handleCredentialResponse(response) {
+    const responsePayload = decodeJwtResponse(response.credential);
+    const loginText = document.getElementById('login-text');
+    const avatarContainer = document.getElementById('avatar-container'); // Targets the wrapper box
+    const userAvatar = document.getElementById('user-avatar');
+    const dropdownName = document.getElementById('dropdown-user-name');
+
+    if (responsePayload.picture) {
+        userAvatar.src = responsePayload.picture;
+        dropdownName.innerText = responsePayload.name;
+        
+        loginText.style.display = 'none';
+        avatarContainer.style.setProperty('display', 'block', 'important'); // Shows the whole container!
+
+        localStorage.setItem("googleUserPicture", responsePayload.picture);
+        localStorage.setItem("googleUserName", responsePayload.name);
+    }
+}
 </script>
 </body>
 </html>
