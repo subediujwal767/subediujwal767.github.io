@@ -343,7 +343,6 @@
 </footer>
 
 <button id="topBtn" onclick="topFunction()">↑</button>
-
 <script>
     const text = "Creator | Developer | Passionate Learner";
     let index = 0;
@@ -362,12 +361,12 @@
         const loginText = document.getElementById('login-text');
         const userAvatar = document.getElementById('user-avatar');
         
-        // FIX FOR PROBLEM 2: Check if user was already logged in before refreshing
+        // FIX: Check if user was already logged in before refreshing
         const savedPicture = localStorage.getItem("googleUserPicture");
         if (savedPicture) {
             userAvatar.src = savedPicture;
             loginText.style.display = 'none';
-            userAvatar.style.setAttribute('style', 'display: block !important'); // Forces image to show
+            userAvatar.style.setProperty('display', 'block', 'important'); // Corrected way to force show image
         }
 
         // Initialize Google background engine
@@ -397,19 +396,19 @@
         return JSON.parse(window.atob(base64));
     }
 
-    // 2. Fixes Problem 1 & 2: Handles successful login
+    // 2. Handles successful login
     function handleCredentialResponse(response) {
         const responsePayload = decodeJwtResponse(response.credential);
         const loginText = document.getElementById('login-text');
         const userAvatar = document.getElementById('user-avatar');
 
         if (responsePayload.picture) {
-            // Fix 1: Force picture URL into image and forcefully remove any hidden styles
+            // Force picture URL into image and show it
             userAvatar.src = responsePayload.picture;
             loginText.style.display = 'none';
-            userAvatar.style.setAttribute('style', 'display: block !important'); 
+            userAvatar.style.setProperty('display', 'block', 'important'); 
 
-            // Fix 2: Save the image URL in the browser memory so it stays on refresh
+            // Save the image URL in the browser memory so it stays on refresh
             localStorage.setItem("googleUserPicture", responsePayload.picture);
         }
     }
