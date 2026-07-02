@@ -262,16 +262,20 @@
 <div class="profile-container">
     <div class="pro-pic-square"></div>
 </div>
- <div class="top-right-auth">
+<div class="top-right-auth">
   <div id="login-text" class="google-login-btn">Login with Google</div>
   
-  <img id="user-avatar" src="" alt="User Avatar" style="display: none;">
-</div>
-
-<div id="g_id_onload"
-     data-client_id="152363843924-2q9v0m8t601te92q35jutfr8klu4o8qp.apps.googleusercontent.com"
-     data-callback="handleCredentialResponse"
-     data-auto_prompt="false">
+  <div id="avatar-container" style="display: none; position: relative;">
+    <img id="user-avatar" src="" alt="User Avatar" onclick="toggleDropdown()" style="width: 42px; height: 42px; border-radius: 50%; cursor: pointer;">
+    
+    <div id="avatar-dropdown" class="auth-dropdown">
+      <p id="dropdown-user-name" style="margin: 0; font-weight: bold; color: #333; font-size: 14px;"></p>
+      
+      <a href="https://myaccount.google.com/" target="_blank" class="manage-link">Manage Google Account</a>
+      
+      <button onclick="logoutAccount()" class="logout-btn">Log Out</button>
+    </div>
+  </div>
 </div>
 <header>
   <h1>Ujwal Subedi</h1>
