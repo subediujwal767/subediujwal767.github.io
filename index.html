@@ -485,6 +485,28 @@
             alert("The login system is still loading. Please try again in 2 seconds!");
         }
     });
+  // 1. Toggles the dropdown menu visibility when avatar is clicked
+function toggleDropdown() {
+    document.getElementById("avatar-dropdown").classList.toggle("show");
+}
+
+// 2. Closes the dropdown if you click outside of it
+window.addEventListener('click', function(e) {
+    const container = document.getElementById('avatar-container');
+    if (container && !container.contains(e.target)) {
+        document.getElementById("avatar-dropdown").classList.remove("show");
+    }
+});
+
+// 3. Clear storage and logs out completely
+function logoutAccount() {
+    // Erase memory parameters completely
+    localStorage.removeItem("googleUserPicture");
+    localStorage.removeItem("googleUserName");
+    
+    // Refresh page to completely reset layout state back to original "Login with Google"
+    window.location.reload(); 
+}
 </script>
 </body>
 </html>
