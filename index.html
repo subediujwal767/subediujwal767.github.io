@@ -17,6 +17,58 @@
      crossorigin="anonymous"></script>
 </head>
   <style>
+    /* Container pinned to the absolute top-right corner */
+.top-right-auth {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999; /* Ensures it stays on top of all other elements */
+  display: flex;
+  align-items: center;
+}
+
+/* Beautiful Google-styled blue button */
+.google-login-btn {
+  cursor: pointer;
+  background-color: #4285F4;
+  color: white;
+  padding: 10px 18px;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.google-login-btn:hover {
+  background-color: #357ae8;
+}
+
+.google-login-btn:active {
+  transform: scale(0.98);
+}
+
+/* Upgraded circular avatar styling */
+#user-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%; /* Makes it a perfect circle */
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  object-fit: cover; /* Prevents the image from stretching weirdly */
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+#user-avatar:hover {
+  transform: scale(1.05); /* Slightly pops up when hovered */
+}
+
+/* Helper class to hide the avatar initially */
+.avatar-hidden {
+  display: none !important;
+}
     /* KEYFRAMES */
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
