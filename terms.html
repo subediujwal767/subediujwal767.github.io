@@ -3,20 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms and Conditions | Ujwal Subedi</title>
+    <title>Terms and Conditions</title>
     
     <!-- Canonical Tag for SEO -->
     <link rel="canonical" href="https://subediujwal767.github.io/terms.html" />
 
     <style>
-           /* 5. Footer Layout */
+        /* CORE STRUCTURAL LAYOUT RULES */
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+        }
+        
+        html, body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.7;
+            color: #334155;
+            background-color: #f8fafc;
+        }
+
+        /* MAIN CONTENT AREA STRUT */
+        main {
+            flex: 1; /* Automatically expands vertical space to anchor the footer at base */
+            width: 100%;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        h1 {
+            color: #1e293b;
+            font-size: 2.2rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #0f172a;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin: 10px 0 16px 0;
+        }
+
+        .date {
+            font-style: italic;
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+
+        strong {
+            color: #0f172a;
+        }
+
+        /* FULL-WIDTH ACCORDION FOOTER ENGINE */
         footer { 
             width: 100%;
             background: rgba(255, 255, 255, 0.8); 
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border-top: 1px solid rgba(0, 210, 255, 0.2);
             padding: 30px 0;
-            margin-top: auto;
+            margin-top: auto; /* Absolute structural fallback placement */
         }
 
         .footer-inner {
@@ -30,114 +101,112 @@
             gap: 20px;
         }
 
-        .footer-left { color: #64748b; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; }
-        .footer-left a { color: #0284c7; text-decoration: none; font-weight: 600; }
+        .footer-left { 
+            color: #64748b; 
+            font-size: 0.9rem; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+        }
         
-        .footer-right { display: flex; gap: 15px; }
+        .footer-left a { 
+            color: #0284c7; 
+            text-decoration: none; 
+            font-weight: 600; 
+        }
+        
+        .footer-left a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer-right { 
+            display: flex; 
+            gap: 15px; 
+        }
+        
         .footer-icon { 
-            display: flex; align-items: center; justify-content: center; 
-            width: 40px; height: 40px; border-radius: 50%; color: white; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            width: 40px; 
+            height: 40px; 
+            border-radius: 50%; 
+            color: white; 
             transition: transform 0.2s ease;
         }
-        .footer-icon:hover { transform: translateY(-3px); }
+        
+        .footer-icon:hover { 
+            transform: translateY(-3px); 
+        }
+        
         .footer-icon.fb { background: #1877f2; }
         .footer-icon.yt { background: #ff0000; }
 
+        /* VIEWPORT TARGET COMPRESSION */
         @media (max-width: 600px) {
             .footer-inner { flex-direction: column-reverse; text-align: center; }
             .footer-left { flex-direction: column; }
-        }
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            line-height: 1.7;
-            color: #334155;
-            background-color: #f8fafc;
-            margin: 0;
-            padding: 40px 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
-        }
-        h1 {
-            color: #1e293b;
-            font-size: 2.2rem;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 10px;
-            margin-top: 0;
-        }
-        h2 {
-            color: #0f172a;
-            font-size: 1.4rem;
-            margin-top: 30px;
-        }
-        p {
-            margin: 10px 0;
-        }
-        .date {
-            font-style: italic;
-            color: #64748b;
-            margin-bottom: 30px;
+            .container { padding: 24px 16px; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Terms and Conditions</h1>
-    <p class="date">Last Updated: May 27, 2026</p>
+    <!-- SEMANTIC CONTAINER WRAPPER FOR ALIGNMENT -->
+    <main>
+        <div class="container">
+            <h1>Terms and Conditions</h1>
+            <p class="date">Last Updated: May 27, 2026</p>
 
-    <p>Welcome to <strong>Ujwal Subedi's Personal Blog & Portfolio</strong> (accessible via https://subediujwal767.github.io/). By accessing or using this website, you agree to comply with and be bound by the following terms and conditions. If you do not agree, please do not use this site.</p>
+            <p>Welcome to <strong>Ujwal Subedi's Personal Blog & Portfolio</strong> (accessible via https://subediujwal767.github.io/). By accessing or using this website, you agree to comply with and be bound by the following terms and conditions. If you do not agree, please do not use this site.</p>
 
-    <h2>1. Intellectual Property Rights</h2>
-    <p>Unless otherwise stated, all original content, articles, text, code layouts, and photos uploaded to this website are owned exclusively by Ujwal Subedi. You may view and read the content for personal, non-commercial use, but you may not republish, copy, or redistribute our material without explicit written consent.</p>
+            <h2>1. Intellectual Property Rights</h2>
+            <p>Unless otherwise stated, all original content, articles, text, code layouts, and photos uploaded to this website are owned exclusively by Ujwal Subedi. You may view and read the content for personal, non-commercial use, but you may not republish, copy, or redistribute our material without explicit written consent.</p>
 
-    <h2>2. User Interaction (Views & Likes)</h2>
-    <p>Our website features an interactive counter system that registers page views and allows unique users to like blog posts. By interacting with these elements, you agree not to exploit, manipulate, automate, or spam the tracking functions (such as sending fraudulent automated hits or server requests).</p>
+            <h2>2. User Interaction (Views & Likes)</h2>
+            <p>Our website features an interactive counter system that registers page views and allows unique users to like blog posts. By interacting with these elements, you agree not to exploit, manipulate, automate, or spam the tracking functions (such as sending fraudulent automated hits or server requests).</p>
 
-    <h2>3. Advertisements and Google AdSense</h2>
-    <p>We use Google AdSense to serve advertisements on our website. Google, as a third-party vendor, uses cookies to serve ads based on your prior visits to this website or other sites on the internet. Users can opt out of personalized advertising by visiting Google's Ads Settings.</p>
+            <h2>3. Advertisements and Google AdSense</h2>
+            <p>We use Google AdSense to serve advertisements on our website. Google, as a third-party vendor, uses cookies to serve ads based on your prior visits to this website or other sites on the internet. Users can opt out of personalized advertising by visiting Google's Ads Settings.</p>
 
-    <h2>4. Limitations of Liability</h2>
-    <p>The information on this website is provided on an "as-is" basis for general informational and educational purposes. While we strive to keep information accurate, we make no representations or warranties of any kind regarding completeness, accuracy, or availability. Any reliance you place on such information is strictly at your own risk.</p>
+            <h2>4. Limitations of Liability</h2>
+            <p>The information on this website is provided on an "as-is" basis for general informational and educational purposes. While we strive to keep information accurate, we make no representations or warranties of any kind regarding completeness, accuracy, or availability. Any reliance you place on such information is strictly at your own risk.</p>
 
-    <h2>5. Third-Party Links</h2>
-    <p>Our blog posts or layout elements may contain links to outside external web services or platforms (such as GitHub, social media links, or external tracking APIs). We hold no control over, or responsibility for, the content, privacy updates, or working practices of any third-party websites.</p>
+            <h2>5. Third-Party Links</h2>
+            <p>Our blog posts or layout elements may contain links to outside external web services or platforms (such as GitHub, social media links, or external tracking APIs). We hold no control over, or responsibility for, the content, privacy updates, or working practices of any third-party websites.</p>
 
-    <h2>6. Changes to These Terms</h2>
-    <p>We reserve the right to revise or modify these Terms and Conditions at any moment. Any changes will be instantly posted on this page with an updated modification date.</p>
+            <h2>6. Changes to These Terms</h2>
+            <p>We reserve the right to revise or modify these Terms and Conditions at any moment. Any changes will be instantly posted on this page with an updated modification date.</p>
 
-    <h2>7. Contact Information</h2>
-    <p>If you have any questions regarding these terms, please feel free to reach out via email:</p>
-    <p><strong>Email:</strong> subediujwal767@gmail.com</p>
-</div>
-        <footer>
+            <h2>7. Contact Information</h2>
+            <p>If you have any questions regarding these terms, please feel free to reach out via email:</p>
+            <p style="margin-bottom: 0;"><strong>Email:</strong> subediujwal767@gmail.com</p>
+        </div>
+    </main>
+
+    <!-- ACCURATE EDGE-TO-EDGE LIQUID FOOTER -->
+    <footer>
         <div class="footer-inner">
             <div class="footer-left">
                 <span>© 2026 Ujwal web development & creation</span>
-               <a href="privacy.html">Privacy Policy</a>
-            <a href="terms.html">terms & condition</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">terms & condition</a>
             </div>
             <div class="footer-right">
-      <!-- Facebook Link -->
-      <a href="https://www.facebook.com/Mr.ujwalsubedi" target="_blank" class="footer-icon fb" aria-label="Facebook">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-          <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
-        </svg>
-      </a>
-      <!-- YouTube Link -->
-      <a href="https://www.youtube.com/@Mr.ujwalsubedi" target="_blank" class="footer-icon yt" aria-label="YouTube">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-          <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.516 0-9.387.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.507 9.386.507 9.386.507s7.517 0 9.387-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-        </svg>
-      </a>
-    </div>
-              
+                <!-- Facebook Link -->
+                <a href="https://www.facebook.com/Mr.ujwalsubedi" target="_blank" class="footer-icon fb" aria-label="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                        <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
+                    </svg>
+                </a>
+                <!-- YouTube Link -->
+                <a href="https://www.youtube.com/@Mr.ujwalsubedi" target="_blank" class="footer-icon yt" aria-label="YouTube">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                        <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.516 0-9.387.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.507 9.386.507 9.386.507s7.517 0 9.387-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
     </footer>
 
 </body>
