@@ -1,15 +1,15 @@
 /* =========================
-   1. ROOT VARIABLES
+   1. ROOT VARIABLES (CONVERTED TO LIGHT THEME)
 ========================= */
 
 :root{
-    --bg:#070707;
-    --text:#ffffff;
-    --muted:#b8b8b8;
-    --accent:#00f2fe;
-    --secondary:#7000ff;
-    --card:rgba(255,255,255,0.05);
-    --border:rgba(255,255,255,0.12);
+    --bg:#ffffff;                /* Changed to crisp white */
+    --text:#111111;              /* Changed to dark gray for high readability */
+    --muted:#555555;             /* Balanced gray for descriptions */
+    --accent:#00d2ff;            /* Kept your bright accent teal */
+    --secondary:#7000ff;         /* Kept your signature purple */
+    --card:rgba(0,0,0,0.03);     /* Translucent soft tint for white background */
+    --border:rgba(0,0,0,0.08);   /* Clean, visible borders on light canvas */
 }
 
 /* =========================
@@ -49,7 +49,7 @@ body{
     width:3px;
     height:3px;
     border-radius:50%;
-    background:rgba(0,242,254,0.7);
+    background:rgba(0,210,255,0.4);
     animation:floatParticle linear infinite;
     opacity:0.6;
 }
@@ -64,7 +64,7 @@ body{
 }
 
 /* =========================
-   4. BACKGROUND BLOBS
+   4. BACKGROUND BLOBS (SOFTENED FOR WHITE BG)
 ========================= */
 
 .blob-c{
@@ -79,7 +79,7 @@ body{
     width:450px;
     height:450px;
     border-radius:50%;
-    opacity:.25;
+    opacity:.12; /* Reduced opacity so it looks pastel and smooth on white */
     background:var(--secondary);
     top:-10%;
     left:-10%;
@@ -120,8 +120,8 @@ body::before{
     inset:0;
     z-index:-6;
     background:
-    radial-gradient(circle at 20% 20%, rgba(0,242,254,.12), transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(112,0,255,.12), transparent 40%);
+    radial-gradient(circle at 20% 20%, rgba(0,210,255,.06), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(112,0,255,.06), transparent 40%);
     animation:bgMove 12s infinite alternate ease-in-out;
 }
 
@@ -165,11 +165,11 @@ nav{
 ========================= */
 
 .hero{
-    min-height:90vh;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:60px;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
 }
 
 /* LEFT */
@@ -196,7 +196,7 @@ nav{
 }
 
 /* =========================
-   PROFILE IMAGE
+   9. PROFILE IMAGE
 ========================= */
 
 .hero-image{
@@ -209,8 +209,8 @@ nav{
     border-radius:28px;
     border:2px solid var(--border);
     box-shadow:
-        0 0 25px rgba(0,242,254,.25),
-        0 0 80px rgba(112,0,255,.25);
+        0 15px 35px rgba(0,210,255,.15),
+        0 25px 60px rgba(112,0,255,.1);
     transition:.4s;
 }
 
@@ -219,7 +219,7 @@ nav{
 }
 
 /* =========================
-   TYPING TEXT
+   10. TYPING TEXT
 ========================= */
 
 .typing{
@@ -238,7 +238,7 @@ nav{
 }
 
 /* =========================
-   STATS
+   11. STATS
 ========================= */
 
 .stats{
@@ -253,12 +253,16 @@ nav{
     padding:20px 25px;
     border-radius:18px;
     backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
     transition:.3s;
     animation:pulse 3s infinite;
 }
 
 .stat:hover{
     transform:translateY(-8px);
+    background: #ffffff;
+    border-color: var(--accent);
+    box-shadow: 0 10px 25px rgba(0,210,255,0.15);
 }
 
 .stat h3{
@@ -266,7 +270,7 @@ nav{
 }
 
 /* =========================
-   SECTIONS
+   12. SECTIONS
 ========================= */
 
 .section{
@@ -280,7 +284,7 @@ nav{
 }
 
 /* =========================
-   ABOUT CARD
+   13. ABOUT CARD
 ========================= */
 
 .about-card{
@@ -289,20 +293,30 @@ nav{
     border-radius:24px;
     padding:35px;
     backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
     line-height:1.9;
     transition:.3s;
 }
 
 .about-card:hover{
     transform:translateY(-8px);
+    background: #ffffff;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
 }
 
 .about-card h3{
     color:var(--accent);
 }
 
+.about-info {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+}
+
 /* =========================
-   GRID CARDS
+   14. GRID CARDS (BENTO)
 ========================= */
 
 .bento{
@@ -317,17 +331,20 @@ nav{
     border-radius:22px;
     padding:30px;
     backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
     transition:.35s;
     animation:cardFloat 6s infinite ease-in-out;
 }
 
 .card:hover{
     transform:translateY(-10px);
+    background: #ffffff;
     border-color:var(--accent);
+    box-shadow: 0 12px 30px rgba(0,210,255,0.12);
 }
 
 /* =========================
-   PROJECT LINKS
+   15. PROJECT LINKS
 ========================= */
 
 .projects{
@@ -336,7 +353,7 @@ nav{
     gap:15px;
 }
 
-.project-link{
+.projects a{
     text-decoration:none;
     color:var(--text);
     background:var(--card);
@@ -350,13 +367,15 @@ nav{
     transition:.3s;
 }
 
-.project-link:hover{
-    background:#fff;
-    color:#000;
+.projects a:hover{
+    background:var(--accent);
+    color:#ffffff;
+    border-color:var(--accent);
     transform:translateX(10px);
+    box-shadow: 0 10px 25px rgba(0,210,255,0.25);
 }
 
-.project-link::before{
+.projects a::before{
     content:"";
     position:absolute;
     top:0;
@@ -367,22 +386,107 @@ nav{
     transition:.6s;
 }
 
-.project-link:hover::before{
+.projects a:hover::before{
     left:100%;
 }
 
 /* =========================
-   FOOTER
+   16. FULL WIDTH BREAKOUT FOOTER
 ========================= */
 
-footer{
-    text-align:center;
-    padding:40px 0;
-    color:#888;
+footer { 
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    background: rgba(245, 247, 250, 0.9); /* Premium off-white footer zone */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(0, 210, 255, 0.15);
+    padding: 30px 0;
+    margin-top: 60px;
+}
+
+.footer-inner {
+    max-width: 1200px; /* Aligned with standard desktop scale container */
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-left {
+    color: #64748b;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.footer-left a {
+    color: #0284c7;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.footer-left a:hover {
+    text-decoration: underline;
+    color: #0369a1;
+}
+
+.footer-right {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.footer-icon:hover {
+    transform: translateY(-3px);
+}
+
+.footer-icon.fb { 
+    background: #1877f2; 
+    box-shadow: 0 4px 10px rgba(24, 119, 242, 0.3);
+}
+.footer-icon.yt { 
+    background: #ff0000; 
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+}
+
+#topBtn { 
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px; 
+    border-radius: 50%; 
+    width: 50px; 
+    height: 50px; 
+    display: none; 
+    background: #00d2ff; 
+    color: white; 
+    border: none; 
+    cursor: pointer; 
+    z-index: 1001; 
 }
 
 /* =========================
-   ANIMATIONS
+   17. ANIMATIONS
 ========================= */
 
 @keyframes slideLeft{
@@ -406,162 +510,83 @@ footer{
 }
 
 @keyframes float{
-    0%{transform:translateY(0);}
-    50%{transform:translateY(-15px);}
-    100%{transform:translateY(0);}
+    0% {transform:translateY(0);}
+    50% {transform:translateY(-15px);}
+    100% {transform:translateY(0);}
 }
 
 @keyframes cardFloat{
-    0%{transform:translateY(0);}
-    50%{transform:translateY(-10px);}
-    100%{transform:translateY(0);}
+    0% {transform:translateY(0);}
+    50% {transform:translateY(-10px);}
+    100% {transform:translateY(0);}
 }
 
 @keyframes pulse{
-    0%{box-shadow:0 0 0 rgba(0,242,254,0);}
-    50%{box-shadow:0 0 20px rgba(0,242,254,.25);}
-    100%{box-shadow:0 0 0 rgba(0,242,254,0);}
+    0% {box-shadow:0 0 0 rgba(0,210,255,0);}
+    50% {box-shadow:0 0 20px rgba(0,210,255,.15);}
+    100% {box-shadow:0 0 0 rgba(0,210,255,0);}
 }
 
 /* =========================
-   RESPONSIVE
+   18. FULL SYSTEM MEDIA QUERIES (DESKTOP, LAPTOP, MOBILE)
 ========================= */
 
+/* Desktop & Laptop Enhancements (Screens broader than 901px) */
+@media(min-width: 901px) {
+    .container {
+        padding: 0 40px;
+    }
+}
+
+/* Tablet & Smaller Laptops */
 @media(max-width:900px){
+    .hero{
+        flex-direction:column-reverse;
+        text-align:center;
+        padding:50px 0;
+        min-height:auto;
+    }
 
-.hero{
-    flex-direction:column-reverse;
-    text-align:center;
-    padding:50px 0;
-    min-height:auto;
+    .hero-image{
+        width:240px;
+        flex: 0 0 240px;
+    }
+
+    .hero-desc{
+        margin:auto;
+    }
+
+    .stats{
+        justify-content:center;
+    }
 }
 
-.hero-image{
-    width:240px;
-}
-
-.hero-desc{
-    margin:auto;
-}
-
-.stats{
-    justify-content:center;
-}
-
-}
-
+/* Mobile Screens */
 @media(max-width:600px){
-
-.hero h1{
-    font-size:2.5rem;
-}
-
-.section-title{
-    font-size:1.7rem;
-}
-
-.about-card,
-.card{
-    padding:22px;
-}
-}
-/* FULL-WIDTH FOOTER SYSTEM */
-    footer { 
-        width: 100vw;
-        position: relative;
-        left: 50%;
-        right: 50%;
-        margin-left: -50vw;
-        margin-right: -50vw;
-        background: rgba(255, 255, 255, 0.75); 
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border-top: 1px solid rgba(0, 210, 255, 0.15);
-        padding: 30px 0;
-        margin-top: 60px;
+    .hero h1{
+        font-size:2.5rem;
     }
 
+    .section-title{
+        font-size:1.7rem;
+    }
+
+    .about-card,
+    .card{
+        padding:22px;
+    }
+    
     .footer-inner {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 0 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 20px;
+        flex-direction: column-reverse;
+        text-align: center;
     }
-
+    
     .footer-left {
-        color: #64748b;
-        font-size: 0.95rem;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 8px;
     }
-
-    .footer-left a {
-        color: #0284c7;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.2s ease;
+    
+    .footer-left span:nth-of-type(2) {
+        display: none; /* Auto-clean separation lines for compact viewports */
     }
-
-    .footer-left a:hover {
-        text-decoration: underline;
-        color: #0369a1;
-    }
-
-    .footer-right {
-        display: flex;
-        gap: 15px;
-    }
-
-    .footer-icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        color: white;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .footer-icon:hover {
-        transform: translateY(-3px);
-    }
-
-    .footer-icon.fb { 
-        background: #1877f2; 
-        box-shadow: 0 4px 10px rgba(24, 119, 242, 0.3);
-    }
-    .footer-icon.yt { 
-        background: #ff0000; 
-        box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
-    }
-
-    #topBtn { position: fixed; bottom: 20px; right: 20px; border-radius: 50%; width: 50px; height: 50px; display: none; background: #00d2ff; color: white; border: none; cursor: pointer; z-index: 1001; }
-
-    /* MEDIA QUERIES FOR LAPTOP/DESKTOP */
-   
-
-    /* MEDIA QUERIES FOR MOBILE */
-    @media (max-width: 600px) {
-        header h1 { font-size: 2rem; }
-        ul { grid-template-columns: 1fr; } 
-        nav { border-radius: 20px; } 
-        .social a { width: 100%; text-align: center; } 
-        .footer-inner {
-            flex-direction: column-reverse;
-            text-align: center;
-        }
-        .footer-left {
-            flex-direction: column;
-            gap: 8px;
-        }
-        .footer-left span:nth-of-type(2) {
-            display: none; /* Hide vertical separator bar on mobile */
-        }
-    }
+}
