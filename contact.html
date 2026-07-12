@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Component</title>
+    <title>Contact</title>
     <link rel="icon" type="image/png" href="pro.png">
+    
     <style>
         /* 1. Global Setup & Structural Layout */
         * {
@@ -292,7 +293,7 @@
             
             <div class="call-wrapper">
                 <p>Need urgent assistance?</p>
-                <a href="tel:+9779825926919" class="animated-call-btn">
+                <a href="tel:+9779800000000" class="animated-call-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
                         <path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.4 11.4 0 0 0 3.66.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.66 1 1 0 0 1-.24 1.02l-2.2 2.2z"/>
                     </svg>
@@ -300,22 +301,25 @@
                 </a>
             </div>
 
-            <form action="mailto:mr.ujwalsubedi@gmail.com" method="post" enctype="text/plain" class="animated-form">
+            <form action="https://api.web3forms.com/submit" method="POST" class="animated-form">
+                
+                <input type="hidden" name="access_key" value="03d6195d-837d-40f5-a089-2e83765052ec">
+                
                 <h3 class="form-title">Or Send a Message</h3>
                 
                 <div class="input-group">
                     <label for="usr-name">Full Name</label>
-                    <input type="text" id="usr-name" name="Name" placeholder="Your Name" required>
+                    <input type="text" id="usr-name" name="name" placeholder="John Doe" required>
                 </div>
 
                 <div class="input-group">
                     <label for="usr-email">Email Address</label>
-                    <input type="email" id="usr-email" name="Email" placeholder="you@example.com" required>
+                    <input type="email" id="usr-email" name="email" placeholder="you@example.com" required>
                 </div>
 
                 <div class="input-group">
                     <label for="usr-msg">Your Message</label>
-                    <textarea id="usr-msg" name="Message" placeholder="How can I help you today?" required></textarea>
+                    <textarea id="usr-msg" name="message" placeholder="How can I help you today?" required></textarea>
                 </div>
 
                 <button type="submit" class="animated-submit-btn">
