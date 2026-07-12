@@ -20,8 +20,8 @@
         }
 
         @keyframes glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(255, 0, 255, 0.2); }
-            50% { box-shadow: 0 0 40px rgba(0, 255, 255, 0.4); }
+            0%, 100% { box-shadow: 0 4px 20px rgba(124, 58, 237, 0.05); }
+            50% { box-shadow: 0 10px 30px rgba(0, 242, 254, 0.15); }
         }
 
         html, body {
@@ -29,7 +29,7 @@
             padding: 0;
             min-height: 100vh;
             font-family: 'Segoe UI', sans-serif;
-            color: white;
+            color: #1e293b; /* Adjusted dark gray text for great contrast */
         }
 /* Container to center the photo */
 .profile-container {
@@ -63,17 +63,18 @@
 .square-photo-wrapper:hover {
     transform: scale(1.05);
     animation: none; /* Stop pulsing on hover */
-    box-shadow: 0 0 30px rgba(0, 242, 254, 0.6);
+    box-shadow: 0 10px 30px rgba(0, 242, 254, 0.5);
 }
 
 /* Keyframes for the 'Breathing' Animation */
 @keyframes pulseGlow {
-    0%, 100% { box-shadow: 0 0 10px rgba(0, 242, 254, 0.3); }
-    50% { box-shadow: 0 0 25px rgba(255, 0, 193, 0.6); }
+    0%, 100% { box-shadow: 0 4px 15px rgba(0, 242, 254, 0.2); }
+    50% { box-shadow: 0 10px 25px rgba(255, 0, 193, 0.4); }
 }
 
         body {
-            background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e);
+            /* Smooth light abstract gradient movement */
+            background: linear-gradient(-45deg, #f8fafc, #f1f5f9, #e2e8f0);
             background-size: 400% 400%;
             animation: bgGradient 15s ease infinite;
             display: flex;
@@ -91,19 +92,21 @@
 
         /* 3. Cards & Icons */
         .card {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.02);
             padding: 30px;
             border-radius: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.06);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             transition: all 0.4s ease;
             animation: glow 4s infinite;
         }
 
         .card:hover {
             transform: scale(1.03) translateY(-5px);
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(0, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 1);
+            border: 1px solid rgba(0, 242, 254, 0.4);
+            box-shadow: 0 15px 35px rgba(0, 242, 254, 0.15);
         }
 
         .social-icon:hover {
@@ -114,9 +117,10 @@
         /* 4. Footer Styling */
         footer {
             width: 100%;
-            background: rgba(255, 255, 255, 0.75);
+            background: rgba(248, 250, 252, 0.85);
             backdrop-filter: blur(12px);
-            border-top: 1px solid rgba(0, 210, 255, 0.18);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(0, 210, 255, 0.15);
             padding: 28px 0;
             margin-top: auto;
         }
@@ -158,7 +162,7 @@
             <h1 style="font-size: 3.5rem; margin: 0; background: linear-gradient(to right, #00f2fe, #7c3aed, #ff00c1); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
                 Welcome, Audience!
             </h1>
-            <p style="color: #a5b4fc; margin-top: 10px; letter-spacing: 2px;">Step into the Digital Universe of Mr. Ujwal Subedi</p>
+            <p style="color: #4f46e5; margin-top: 10px; letter-spacing: 2px; font-weight: 500;">Step into the Digital Universe of Mr. Ujwal Subedi</p>
         </header>
                                 <div class="profile-container">
     <div class="square-photo-wrapper">
@@ -167,17 +171,17 @@
 </div>
 
         <main style="max-width: 900px; width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-           <section class="card" onclick="triggerMagic('about')" style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); transition: all 0.4s ease; animation: glow 4s infinite;">
-            <h2 style="color: #00f2fe; border-bottom: 2px solid #00f2fe; display: inline-block; padding-bottom: 5px;">About Me</h2>
-            <p style="line-height: 1.8; color: #cbd5e1; margin-top: 20px;">
+           <section class="card" onclick="triggerMagic('about')" style="background: rgba(0,0,0,0.02); padding: 30px; border-radius: 25px; border: 1px solid rgba(0,0,0,0.06); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: all 0.4s ease; animation: glow 4s infinite;">
+            <h2 style="color: #0284c7; border-bottom: 2px solid #0284c7; display: inline-block; padding-bottom: 5px;">About Me</h2>
+            <p style="line-height: 1.8; color: #475569; margin-top: 20px;">
                 I am a passionate creator and developer dedicated to pushing the boundaries of what's possible online. 
                 With a focus on clean aesthetics and functional code, I turn complex ideas into seamless digital experiences.
             </p>
         </section>
 
-             <section class="card" onclick="triggerMagic('page')" style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); transition: all 0.4s ease; animation: glow 4s infinite 1s;">
-            <h2 style="color: #ff00c1; border-bottom: 2px solid #ff00c1; display: inline-block; padding-bottom: 5px;">The Project</h2>
-            <p style="line-height: 1.8; color: #cbd5e1; margin-top: 20px;">
+             <section class="card" onclick="triggerMagic('page')" style="background: rgba(0,0,0,0.02); padding: 30px; border-radius: 25px; border: 1px solid rgba(0,0,0,0.06); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: all 0.4s ease; animation: glow 4s infinite 1s;">
+            <h2 style="color: #db2777; border-bottom: 2px solid #db2777; display: inline-block; padding-bottom: 5px;">The Project</h2>
+            <p style="line-height: 1.8; color: #475569; margin-top: 20px;">
                 This page serves as a hub for my latest experiments in web design. It is built using modern CSS architectures 
                 to demonstrate that "Perfect Code" can also be beautiful and highly interactive.
             </p>
@@ -186,7 +190,7 @@
 
       
 
-        <div id="status-msg" style="margin-top: 50px; color: #00f2fe; font-family: monospace; opacity: 0; transition: opacity 0.5s;">
+        <div id="status-msg" style="margin-top: 50px; color: #0284c7; font-family: monospace; opacity: 0; transition: opacity 0.5s; font-weight: bold;">
             System: Analyzing...
         </div>
     </div>
@@ -199,13 +203,11 @@
             <a href="terms.html">terms & condition</a>
             </div>
             <div class="footer-right">
-      <!-- Facebook Link -->
       <a href="https://www.facebook.com/Mr.ujwalsubedi" target="_blank" class="footer-icon fb" aria-label="Facebook">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
           <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
         </svg>
       </a>
-      <!-- YouTube Link -->
       <a href="https://www.youtube.com/@Mr.ujwalsubedi" target="_blank" class="footer-icon yt" aria-label="YouTube">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
           <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.516 0-9.387.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.507 9.386.507 9.386.507s7.517 0 9.387-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
