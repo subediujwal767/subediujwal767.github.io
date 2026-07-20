@@ -39,6 +39,71 @@
             text-align: center;
             animation: slideUp 0.8s ease-out forwards;
         }
+/* Elite Industrial/Legendary High-Tech Button */
+        .elite-btn {
+            position: relative;
+            background: #090d16;
+            color: #38bdf8;
+            border: none;
+            padding: 18px 42px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+            text-transform: uppercase;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(56, 189, 248, 0.15);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: inline-block;
+            z-index: 1;
+        }
+
+        /* Metallic mechanical corner brackets overlay */
+        .elite-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            border-radius: 12px;
+            pointer-events: none;
+            transition: all 0.4s ease;
+        }
+
+        /* Dynamic electric energy beam sweep on hover */
+        .elite-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(60deg, transparent 40%, rgba(56, 189, 248, 0.25) 50%, transparent 60%);
+            transform: translateX(-100%);
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: -1;
+        }
+
+        .elite-btn:hover {
+            color: #ffffff;
+            background: #0ea5e9;
+            box-shadow: 0 0 35px rgba(14, 165, 233, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.5);
+            transform: translateY(-3px);
+            letter-spacing: 3px;
+        }
+
+        .elite-btn:hover::before {
+            border-color: #ffffff;
+            box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+
+        .elite-btn:hover::after {
+            transform: translateX(100%);
+        }
+
+        .elite-btn:active {
+            transform: translateY(1px);
+        }
 
         /* 3. Animations */
         @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
