@@ -65,9 +65,9 @@
             gap: 24px;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px 24px 60px 24px;
+            padding: 0 24px 60px 24px;
             width: 100%;
-            align-items: start; /* Prevents cards from stretching unevenly */
+            align-items: stretch; /* Ensures cards match height perfectly */
         }
 
         /* PERFECTED LAYOUT CARD FRAMEWORK */
@@ -250,25 +250,22 @@
 
             <a href="post1.html" class="read-more-btn">Read Full Post</a>
         </article>
-     
-    </main>
- <main class="posts-container">
-        
+      
         <article class="post-block">
             <span class="post-category">Technology</span>
             <h2 class="post-title">How Wi-Fi Works: The Ultimate Guide to Wireless Connectivity</h2>
             
-            <div class="post-excerpt" id="excerpt-1">
-               Wi-Fi uses radio frequency bands to transmit data packets through the air...
+            <div class="post-excerpt" id="excerpt-2">
+                Wi-Fi uses radio frequency bands to transmit data packets through the air...
                 <span class="hidden-content" id="more-2">
-                   providing high-speed, local area network access without physical cables.
+                    providing high-speed, local area network access without physical cables.
                 </span>
                 <span class="see-more-link" onclick="toggleText(event, '2')">See More</span>
             </div>
 
             <a href="post2.html" class="read-more-btn">Read Full Post</a>
         </article>
-     
+
     </main>
 
     <footer>
