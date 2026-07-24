@@ -1,0 +1,279 @@
+
+        /* 1. Global Setup & Structural Layout */
+        * {
+            box-sizing: border-box;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Main view container to properly space content from footer */
+        .main-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            width: 100%;
+        }
+
+        /* 2. Contact Card Component Layout */
+        .contact-card-container {
+            max-width: 480px;
+            width: 100%;
+            padding: 35px;
+            background: #ffffff;
+            border-radius: 24px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Animations */
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2); }
+            50% { box-shadow: 0 4px 25px rgba(16, 185, 129, 0.45); }
+        }
+
+        @keyframes inputGlow {
+            0%, 100% { box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.08); }
+            50% { box-shadow: 0 0 0 4px rgba(0, 210, 255, 0.18); }
+        }
+
+        /* Direct Call Section */
+        .call-wrapper {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .call-wrapper p {
+            margin: 0 0 14px 0;
+            color: #64748b;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .animated-call-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 15px;
+            background-color: #10b981;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 14px;
+            animation: pulseGlow 2.5s infinite ease-in-out;
+        }
+
+        .animated-call-btn:hover {
+            transform: translateY(-3px);
+            background-color: #059669;
+            animation-play-state: paused;
+            box-shadow: 0 10px 25px rgba(5, 150, 105, 0.3);
+        }
+
+        .animated-call-btn svg {
+            transition: transform 0.3s ease;
+        }
+
+        .animated-call-btn:hover svg {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        /* Form Controls */
+        .animated-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-title {
+            margin: 0 0 5px 0;
+            font-size: 1.3rem;
+            color: #1e293b;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            position: relative;
+        }
+
+        .input-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #475569;
+        }
+
+        /* 3. Animated Text Box Logic */
+        .input-group input,
+        .input-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            color: #1e293b;
+            outline: none;
+            background: #f8fafc;
+            transition: border-color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Input Interaction Focus Animation */
+        .input-group input:focus,
+        .input-group textarea:focus {
+            border-color: #0284c7;
+            background: #ffffff;
+            transform: scale(1.015);
+            animation: inputGlow 2s infinite ease-in-out;
+        }
+
+        .input-group textarea {
+            resize: vertical;
+            min-height: 95px;
+        }
+
+        /* Submit Button */
+        .animated-submit-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 15px;
+            background-color: #0284c7;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 14px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.15);
+            margin-top: 5px;
+        }
+
+        .animated-submit-btn:hover {
+            transform: translateY(-3px);
+            background-color: #0369a1;
+            box-shadow: 0 10px 25px rgba(3, 105, 161, 0.25);
+        }
+
+        .animated-submit-btn svg {
+            transition: transform 0.3s ease;
+        }
+
+        .animated-submit-btn:hover svg {
+            transform: translateX(4px) scale(1.05);
+        }
+
+        /* 4. Complete Flexible Footer Layout */
+        footer { 
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85); 
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(0, 210, 255, 0.15);
+            padding: 25px 0;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-left { 
+            color: #64748b; 
+            font-size: 0.92rem; 
+            display: flex; 
+            align-items: center; 
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .footer-left a { 
+            color: #0284c7; 
+            text-decoration: none; 
+            font-weight: 500; 
+        }
+
+        .footer-left a:hover { 
+            text-decoration: underline; 
+            color: #0369a1;
+        }
+        
+        .footer-right { 
+            display: flex; 
+            gap: 14px; 
+        }
+
+        .footer-icon { 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            width: 42px; 
+            height: 42px; 
+            border-radius: 50%; 
+            color: white; 
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .footer-icon:hover { 
+            transform: translateY(-4px); 
+        }
+
+        .footer-icon.fb { background: #1877f2; box-shadow: 0 4px 10px rgba(24, 119, 242, 0.2); }
+        .footer-icon.yt { background: #ff0000; box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2); }
+
+        /* 5. Responsive Design Adaptations */
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 40px 16px;
+            }
+            .footer-inner {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .contact-card-container {
+                padding: 26px 20px;
+                border-radius: 20px;
+            }
+            .footer-inner { 
+                flex-direction: column-reverse; 
+                text-align: center; 
+                gap: 18px; 
+            }
+            .footer-left { 
+                flex-direction: column; 
+                gap: 8px;
+            }
+            /* Hide inline dividers on smaller mobile screens */
+            .footer-left span {
+                display: none;
+            }
+        }
+  
