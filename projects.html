@@ -1,0 +1,108 @@
+<html>
+<head>
+<title>projects and examples</title>
+<link rel="icon" type="image/png" href="pro.png">
+</head>
+<body>
+<section class="projects-section">
+    <div class="projects-container">
+        <h2 class="section-title">Projects & Examples</h2>
+        <h3>No copyright & Report for viewing & copy the source codes of this examples.</h3>
+        
+        <div class="projects-grid">
+            <!-- Project Card 1: School Website Example -->
+            <div class="project-card">
+                <div class="card-badge">Education</div>
+                <h3>Shree Jhiljhile Secondary School</h3>
+                <p>A responsive, card-layout school portal featuring modern design, admission details, and contact info.</p>
+                <a href="school.html" class="project-link">View Live Example &rarr;</a>
+            </div>
+
+            <!-- Project Card 2: Placeholder for Future Project -->
+            <div class="project-card">
+                <div class="card-badge">AI</div>
+                <h3>Web Development Showcase = Nepa Ai</h3>
+                <p>Explore upcoming own projects, custom UI layouts, and interactive components built with modern HTML & CSS & js & other.</p>
+                <a href="ai.html" class="project-link">Coming Soon &rarr;</a>
+            </div>
+        </div>
+    </div>
+  <!-- Project Card 2: Placeholder for Future Project -->
+            <div class="project-card">
+                <div class="card-badge">Form</div>
+                <h3>Web Development Showcase of html form</h3>
+                <p>Explore the form projects, custom UI layouts, and interactive components built with modern HTML & CSS  other.</p>
+                <a href="form.html" class="project-link">view the form project &rarr;</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Styling for the project blocks section */
+    .projects-section {
+        max-width: 1100px;
+        margin: 40px auto;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+    .section-title {
+        color: #1b4332;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #e9ecef;
+        padding-bottom: 10px;
+    }
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+    .project-card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 25px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05), 0 2px 6px rgba(0,0,0,0.08);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: transform 0.2s ease;
+    }
+    .project-card:hover {
+        transform: translateY(-5px);
+    }
+    .card-badge {
+        display: inline-block;
+        background: #e8f5e9;
+        color: #2d6a4f;
+        font-size: 0.8rem;
+        font-weight: 600;
+        padding: 4px 10px;
+        border-radius: 20px;
+        margin-bottom: 12px;
+        width: fit-content;
+    }
+    .project-card h3 {
+        color: #212529;
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 1.3rem;
+    }
+    .project-card p {
+        color: #6c757d;
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+        line-height: 1.5;
+    }
+    .project-link {
+        color: #0284c7;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+    }
+    .project-link:hover {
+        text-decoration: underline;
+    }
+</style>
+</body>
+</html>
