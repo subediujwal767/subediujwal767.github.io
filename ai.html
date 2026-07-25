@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nepa AI</title>
+    <link rel="icon" type="image/png" href="pro.png">
+</head>
+<body>
+<style>
+                              /* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    background:linear-gradient(135deg,#001B48,#003893,#00509D,#1E90FF);
+    color:white;
+}
+
+/* Header */
+
+.header{
+    width:100%;
+    padding:20px 40px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(12px);
+
+    box-shadow:0 5px 20px rgba(0,0,0,.25);
+}
+
+/* Nepal Flag */
+
+.flag{
+    width:60px;
+    height:75px;
+
+    background-image:url("https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg");
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:center;
+
+    transform-origin:left center;
+    animation:wave 2.5s ease-in-out infinite;
+}
+
+@keyframes wave{
+
+    0%{transform:rotate(-3deg);}
+    25%{transform:rotate(3deg);}
+    50%{transform:rotate(-2deg);}
+    75%{transform:rotate(2deg);}
+    100%{transform:rotate(-3deg);}
+}
+
+/* Title */
+
+h1{
+
+    font-size:48px;
+
+    color:#fff;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    text-shadow:
+    0 0 8px white,
+    0 0 20px #8fd3ff,
+    0 0 35px #4fc3f7;
+}
+
+/* Input */
+
+input{
+
+    width:550px;
+    max-width:90%;
+
+    margin-top:80px;
+
+    padding:16px;
+
+    border:none;
+    outline:none;
+
+    border-radius:12px;
+
+    font-size:18px;
+
+    color:white;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:0 0 15px rgba(255,255,255,.15);
+}
+
+input::placeholder{
+    color:#ddd;
+}
+
+/* Button */
+
+button{
+
+    margin-top:20px;
+
+    padding:15px 40px;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-size:18px;
+
+    background:#DC143C;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+button:hover{
+
+    background:white;
+
+    color:#003893;
+
+    transform:scale(1.05);
+}
+
+/* Response */
+
+#response{
+
+    width:700px;
+    max-width:90%;
+
+    min-height:180px;
+
+    margin-top:30px;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(15px);
+
+    color:white;
+
+    line-height:1.7;
+
+    box-shadow:0 0 20px rgba(255,255,255,.1);
+}
+</style>
+    <div class="header">
+        <div class="flag"></div>
+        <h1>Nepa AI</h1>
+    </div>
+    <input id="userInput" placeholder="Ask me anything...">
+    <button onclick="askNepa()">Send</button>
+    <p id="response"></p>
+
+    <script>
+        async function askNepa() {
+            const userInput = document.getElementById('userInput').value;
+            const responseElement = document.getElementById('response');
+            
+            responseElement.innerText = "Thinking...";
+
+            try {
+                const res = await fetch('http://localhost:3000/ask', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    // Changed 'message' to 'prompt' to match server.js
+                    body: JSON.stringify({ prompt: userInput }) 
+                });
+                
+                const data = await res.json();
+                
+                if (res.ok) {
+                    responseElement.innerText = data.reply;
+                } else {
+                    responseElement.innerText = "Error: " + data.error;
+                }
+            } catch (err) {
+                responseElement.innerText = "Error: Could not connect to server.";
+            }
+        }
+    </script>
+</body>
+</html>
