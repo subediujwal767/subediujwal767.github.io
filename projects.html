@@ -1,43 +1,221 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>projects and examples</title>
-<link rel="icon" type="image/png" href="pro.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>projects and examples</title>
+    <link rel="icon" type="image/png" href="pro.png">
+    <style>
+        /* Global Reset & Responsive Base */
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fafc;
+            color: #334155;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Projects Section Container */
+        .projects-section {
+            max-width: 1200px;
+            width: 100%;
+            margin: 40px auto;
+            padding: 0 20px;
+            flex: 1;
+        }
+        .section-title {
+            color: #1b4332;
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            margin-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 12px;
+        }
+        .subtitle-notice {
+            color: #64748b;
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        /* Fully Responsive Grid for Mobile, Laptop & Desktop */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        /* Project Card Styling */
+        .project-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 28px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05), 0 2px 6px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            border: 1px solid #e2e8f0;
+        }
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 35px rgba(0,0,0,0.08);
+        }
+        .card-badge {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2d6a4f;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 20px;
+            margin-bottom: 14px;
+            width: fit-content;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .project-card h3 {
+            color: #0f172a;
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1.35rem;
+        }
+        .project-card p {
+            color: #64748b;
+            font-size: 0.98rem;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+        .project-link {
+            color: #0284c7;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.98rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            width: fit-content;
+        }
+        .project-link:hover {
+            text-decoration: underline;
+            color: #0369a1;
+        }
+
+        /* Footer Styles (Unchanged structure) */
+        footer {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            border-top: 1px solid #e2e8f0;
+            padding: 24px 0;
+            margin-top: auto;
+        }
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #64748b;
+            font-size: 0.9rem;
+            flex-wrap: wrap;
+        }
+        .footer-left a {
+            color: #0284c7;
+            text-decoration: none;
+        }
+        .footer-left a:hover {
+            text-decoration: underline;
+        }
+        .footer-right {
+            display: flex;
+            gap: 12px;
+        }
+        .footer-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: transform 0.2s ease;
+        }
+        .footer-icon:hover {
+            transform: scale(1.1);
+        }
+        .footer-icon.fb { background: #1877f2; }
+        .footer-icon.yt { background: #ff0000; }
+
+        @media (max-width: 600px) {
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-left {
+                justify-content: center;
+            }
+            .projects-section {
+                margin: 20px auto;
+            }
+        }
+    </style>
 </head>
 <body>
-<section class="projects-section">
-    <div class="projects-container">
-        <h2 class="section-title">Projects & Examples</h2>
-        <h3>No copyright & Report for viewing & copy the source codes of this examples.</h3>
-        
-        <div class="projects-grid">
-            <!-- Project Card 1: School Website Example -->
-            <div class="project-card">
-                <div class="card-badge">Education</div>
-                <h3>Shree Jhiljhile Secondary School</h3>
-                <p>A responsive, card-layout school portal featuring modern design, admission details, and contact info.</p>
-                <a href="school.html" class="project-link">View Live Example &rarr;</a>
-            </div>
 
-            <!-- Project Card 2: Placeholder for Future Project -->
-            <div class="project-card">
-                <div class="card-badge">AI</div>
-                <h3>Web Development Showcase = Nepa Ai</h3>
-                <p>Explore upcoming own projects, custom UI layouts, and interactive components built with modern HTML & CSS & js & other.</p>
-                <a href="ai.html" class="project-link">Coming Soon &rarr;</a>
+    <section class="projects-section">
+        <div class="projects-container">
+            <h2 class="section-title">Projects & Examples</h2>
+            <h3 class="subtitle-notice">No copyright & Report for viewing & copy the source codes of this examples.</h3>
+            
+            <div class="projects-grid">
+                <!-- Project Card 1: School Website Example -->
+                <div class="project-card">
+                    <div>
+                        <div class="card-badge">Education</div>
+                        <h3>Shree Jhiljhile Secondary School</h3>
+                        <p>A responsive, card-layout school portal featuring modern design, admission details, and contact info.</p>
+                    </div>
+                    <a href="school.html" class="project-link">View Live Example &rarr;</a>
+                </div>
+
+                <!-- Project Card 2: Nepa AI Showcase -->
+                <div class="project-card">
+                    <div>
+                        <div class="card-badge">AI</div>
+                        <h3>Web Development Showcase = Nepa Ai</h3>
+                        <p>Explore upcoming own projects, custom UI layouts, and interactive components built with modern HTML & CSS & js & other.</p>
+                    </div>
+                    <a href="ai.html" class="project-link">Coming Soon &rarr;</a>
+                </div>
+
+                <!-- Project Card 3: Form Project -->
+                <div class="project-card">
+                    <div>
+                        <div class="card-badge">Form</div>
+                        <h3>Web Development Showcase of html form</h3>
+                        <p>Explore the form projects, custom UI layouts, and interactive components built with modern HTML & CSS other.</p>
+                    </div>
+                    <a href="form.html" class="project-link">View the form project &rarr;</a>
+                </div>
             </div>
         </div>
-    </div>
-  <!-- Project Card 2: Placeholder for Future Project -->
-            <div class="project-card">
-                <div class="card-badge">Form</div>
-                <h3>Web Development Showcase of html form</h3>
-                <p>Explore the form projects, custom UI layouts, and interactive components built with modern HTML & CSS  other.</p>
-                <a href="form.html" class="project-link">view the form project &rarr;</a>
-            </div>
-        </div>
-    </div>
-</section>
-     <!-- Footer (Unchanged URLs and structure as requested) -->
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="footer-inner">
             <div class="footer-left">
@@ -64,131 +242,5 @@
         </div>
     </footer>
 
-<style>
-    /* Styling for the project blocks section */
-    .projects-section {
-        max-width: 1100px;
-        margin: 40px auto;
-        padding: 0 20px;
-        box-sizing: border-box;
-    }
-    .section-title {
-        color: #1b4332;
-        font-size: 1.8rem;
-        margin-bottom: 20px;
-        border-bottom: 2px solid #e9ecef;
-        padding-bottom: 10px;
-    }
-    .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
-    }
-    .project-card {
-        background: #ffffff;
-        border-radius: 12px;
-        padding: 25px;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.05), 0 2px 6px rgba(0,0,0,0.08);
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        transition: transform 0.2s ease;
-    }
-    .project-card:hover {
-        transform: translateY(-5px);
-    }
-    .card-badge {
-        display: inline-block;
-        background: #e8f5e9;
-        color: #2d6a4f;
-        font-size: 0.8rem;
-        font-weight: 600;
-        padding: 4px 10px;
-        border-radius: 20px;
-        margin-bottom: 12px;
-        width: fit-content;
-    }
-    .project-card h3 {
-        color: #212529;
-        margin-top: 0;
-        margin-bottom: 10px;
-        font-size: 1.3rem;
-    }
-    .project-card p {
-        color: #6c757d;
-        font-size: 0.95rem;
-        margin-bottom: 20px;
-        line-height: 1.5;
-    }
-    .project-link {
-        color: #0284c7;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 0.95rem;
-    }
-    .project-link:hover {
-        text-decoration: underline;
-    }
-        /* Footer Styles (Unchanged as requested) */
-        footer {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.9);
-            border-top: 1px solid #e5e7eb;
-            padding: 20px 0;
-            margin-top: auto;
-        }
-
-        .footer-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .footer-left {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #64748b;
-            font-size: 0.9rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-left a {
-            color: #0284c7;
-            text-decoration: none;
-        }
-
-        .footer-right {
-            display: flex;
-            gap: 12px;
-        }
-
-        .footer-icon {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-        }
-        .footer-icon.fb { background: #1877f2; }
-        .footer-icon.yt { background: #ff0000; }
-
-        @media (max-width: 600px) {
-            .footer-inner {
-                flex-direction: column;
-                text-align: center;
-            }
-            .footer-left {
-                justify-content: center;
-            }
-        }
-</style>
 </body>
 </html>
