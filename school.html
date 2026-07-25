@@ -6,12 +6,284 @@
     <title>SHREE JHILJHILE SECONDARY SCHOOL</title>
     <link rel="stylesheet" href="school.css">
     <link rel="icon" type="image/png" href="pro.png">
+    <style>
+        /* Modern Dynamic Animated Background Styles */
+        :root {
+            --primary-color: #1b4332;
+            --secondary-color: #2d6a4f;
+            --accent-color: #d90429;
+            --card-bg: rgba(255, 255, 255, 0.92);
+            --text-main: #212529;
+            --text-muted: #6c757d;
+            --border-radius: 12px;
+            --shadow: 0 10px 30px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            color: var(--text-main);
+            
+            /* Animated Multi-Color Gradient Background */
+            background: linear-gradient(135deg, #1b4332, #0284c7, #4f46e5, #d90429);
+            background-size: 400% 400%;
+            animation: gradientBackground 15s ease infinite;
+        }
+
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Top Bar / Optional View Topic */
+        .top-navbar {
+            background-color: rgba(17, 17, 17, 0.85);
+            backdrop-filter: blur(8px);
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .top-navbar .view-links {
+            display: flex;
+            gap: 15px;
+        }
+        .top-navbar a {
+            color: #4ade80;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .top-navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header / Marquee */
+        .school-header {
+            background: rgba(27, 67, 50, 0.9);
+            backdrop-filter: blur(8px);
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .school-header h1 {
+            margin: 0;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            letter-spacing: 0.5px;
+        }
+        .school-header marquee {
+            font-size: 1.1rem;
+            color: #ffd166;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        /* Main Container for Card Layout */
+        .main-container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Card Component Layout with Frosted Glass Effect */
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: clamp(20px, 4vw, 40px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .card h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 12px;
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+        }
+
+        .card p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        /* Hero / Welcome Card Styling */
+        .welcome-card {
+            text-align: center;
+        }
+        .welcome-card h1 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+        }
+        .welcome-card h3 {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        /* Responsive Images */
+        .card-img-wrapper {
+            width: 100%;
+            margin: 20px 0;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .card-img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        .card-img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Admission Callout Card */
+        .admission-card {
+            background: linear-gradient(135deg, rgba(255, 245, 245, 0.95), rgba(255, 227, 227, 0.95));
+            border: 2px dashed var(--accent-color);
+            text-align: center;
+        }
+        .admission-card h2 {
+            color: var(--accent-color);
+            border-bottom: none;
+        }
+        .admission-dates {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #d97706;
+            margin: 15px 0;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .feature-item {
+            background: rgba(248, 249, 250, 0.9);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* Info Grid / Contact Card */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .info-box {
+            background: rgba(248, 249, 250, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .info-box h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        /* Footer Styles (Unchanged URLs and structure) */
+        footer {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-top: 1px solid #e5e7eb;
+            padding: 20px 0;
+            margin-top: auto;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #64748b;
+            font-size: 0.9rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-left a {
+            color: #0284c7;
+            text-decoration: none;
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: transform 0.2s ease;
+        }
+        .footer-icon:hover {
+            transform: scale(1.1);
+        }
+        .footer-icon.fb { background: #1877f2; }
+        .footer-icon.yt { background: #ff0000; }
+
+        @media (max-width: 600px) {
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-left {
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <!-- Optional View Topic Navbar on Top -->
     <div class="top-navbar">
-        <span>🏫 Official Portal Navigation</span>
+        <span>🏫 Example School Website Portal</span>
         <div class="view-links">
             <a href="#about">About</a>
             <a href="#admissions">Admissions</a>
@@ -31,7 +303,7 @@
 
         <!-- Welcome Card -->
         <div class="card welcome-card" id="about">
-            <h1>Welcome to Our Official Website</h1>
+            <h1>Welcome to Our Web Site</h1>
             <h3>Contact for joining with us</h3>
             <p>Our school is a place where learning, growth, and creativity come together. We are committed to providing a safe, supportive, and inspiring environment for every student. With a team of dedicated teachers and staff, we focus on both academic excellence and personal development.</p>
             <p>We believe that every child has unique talents and potential. Through engaging lessons, extracurricular activities, and modern facilities, we help students explore their interests and build confidence for the future.</p>
@@ -53,8 +325,8 @@
 
         <!-- Why Choose Us Card -->
         <div class="card" id="features">
-            <h2>Why Choose This School?</h2>
-            <p>At our school, we don’t just teach—we inspire, guide, and prepare students to face the future with confidence. Whether it's in the classroom, on the field, or beyond, we are committed to helping every child discover their strengths and reach their full potential.</p>
+            <h2>2. Why Choose This School:</h2>
+            <p>At our school, we don’t just teach we inspire, guide, and prepare students to face the future with confidence. Whether it's in the classroom, on the field, or beyond, we are committed to helping every child discover their strengths and reach their full potential.</p>
             
             <div class="features-grid">
                 <div class="feature-item">a. Quality Education</div>
@@ -78,7 +350,7 @@
             <div class="info-grid">
                 <div class="info-box">
                     <h3>📞 Get in Touch</h3>
-                    <p>Contact us to learn more or visit our campus. We’d love to welcome you to our school family!</p>
+                    <p>Contact us to learn more or visit our campus we’d love to welcome you to our school family!</p>
                     <p><strong>Contact Number:</strong> 9825926919</p>
                 </div>
                 <div class="info-box">
@@ -89,15 +361,11 @@
             </div>
 
             <p style="text-align: center; margin-top: 25px; font-weight: bold; color: var(--primary-color);">Together, we shape tomorrow’s leaders.</p>
-
-            <div class="btn-container">
-                <button onclick="history.back()" class="action-btn">Go Back</button>
-            </div>
         </div>
 
     </div>
 
-    <!-- Footer (Unchanged URLs and structure as requested) -->
+    <!-- Footer (Unchanged URLs and structure) -->
     <footer>
         <div class="footer-inner">
             <div class="footer-left">
