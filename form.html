@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+                              <link rel="icon" type="image/png" href="pro.png">
+</head>
+<body style="margin: 0; padding: 20px; font-family: 'Segoe UI', Arial, sans-serif; background: linear-gradient(135deg, #0f172a, #1e1b4b, #311042); background-size: 300% 300%; animation: bgAnimation 12s ease infinite; color: #ffffff; min-height: 100vh; display: flex; justify-content: center; align-items: center;">
+
+    <style>
+        @keyframes bgAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes fadeInCard {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+
+    <div style="background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(14px); border: 1px solid rgba(255, 255, 255, 0.15); padding: 35px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); width: 100%; max-width: 550px; animation: fadeInCard 0.8s ease-out; box-sizing: border-box;">
+        
+        <h1 style="text-align: center; color: #38bdf8; margin-top: 0; letter-spacing: 1px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">ADDMISSION FORM</h1>
+        <hr style="border: none; height: 3px; background: linear-gradient(90deg, #f43f5e, #fb7185); border-radius: 2px; margin-bottom: 25px;">
+        
+        <div style="font-family: 'Monotype Corsiva', cursive, serif; color: #fde047; font-size: 1.5rem; margin-bottom: 20px;">Please fill given data:</div>
+
+        <div style="margin-bottom: 15px;">
+            <label style="display: block; margin-bottom: 6px; font-weight: 600; color: #e2e8f0;">Enter your name:</label>
+            <input type="text" name="txt1" style="width: 100%; padding: 10px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.07); color: #fff; outline: none; box-sizing: border-box; transition: border-color 0.2s;" onfocus="this.style.borderColor='#38bdf8'" onblur="this.style.borderColor='rgba(255,255,255,0.2)'">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label style="display: block; margin-bottom: 6px; font-weight: 600; color: #e2e8f0;">Enter your address:</label>
+            <input type="text" name="txtadd" style="width: 100%; padding: 10px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.07); color: #fff; outline: none; box-sizing: border-box; transition: border-color 0.2s;" onfocus="this.style.borderColor='#38bdf8'" onblur="this.style.borderColor='rgba(255,255,255,0.2)'">
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <label style="display: block; margin-bottom: 6px; font-weight: 600; color: #e2e8f0;">Enter your phone no.:</label>
+            <input type="text" name="txtph" style="width: 100%; padding: 10px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.07); color: #fff; outline: none; box-sizing: border-box; transition: border-color 0.2s;" onfocus="this.style.borderColor='#38bdf8'" onblur="this.style.borderColor='rgba(255,255,255,0.2)'">
+        </div>
+
+        <h4 style="margin: 0 0 10px 0; color: #38bdf8; font-size: 1.1rem;">Gender:</h4>
+        <div style="margin-bottom: 20px; display: flex; gap: 20px;">
+            <label style="cursor: pointer; display: flex; align-items: center; gap: 6px;"><input type="radio" name="opt1" style="accent-color: #38bdf8;"> Male</label>
+            <label style="cursor: pointer; display: flex; align-items: center; gap: 6px;"><input type="radio" name="opt1" style="accent-color: #38bdf8;"> Female</label>
+        </div>
+
+        <h4 style="margin: 0 0 10px 0; color: #38bdf8; font-size: 1.1rem; text-decoration: underline;">Choose one course name:</h4>
+        <div style="margin-bottom: 20px; display: flex; flex-direction: column; gap: 8px;">
+            <label style="cursor: pointer; display: flex; align-items: center; gap: 8px;"><input type="checkbox" name="chk1" style="accent-color: #38bdf8;"> Basic</label>
+            <label style="cursor: pointer; display: flex; align-items: center; gap: 8px;"><input type="checkbox" name="chk2" style="accent-color: #38bdf8;"> Diploma in webpage designing</label>
+            <label style="cursor: pointer; display: flex; align-items: center; gap: 8px;"><input type="checkbox" name="chk3" style="accent-color: #38bdf8;"> Diploma in application programming</label>
+            <label style="cursor: pointer; display: flex; align-items: center; gap: 8px;"><input type="checkbox" name="chk4" style="accent-color: #38bdf8;"> Diploma in hardware and networking</label>
+        </div>
+
+        <h4 style="margin: 0 0 10px 0; color: #38bdf8; font-size: 1.1rem; text-decoration: underline;">Select your qualification:</h4>
+        <div style="margin-bottom: 25px;">
+            <select name="cbo1" style="width: 100%; padding: 10px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: #1e293b; color: #fff; outline: none; cursor: pointer;">
+                <option style="background: #1e293b; color: #fff;">Select</option>
+                <option style="background: #1e293b; color: #fff;">BBS</option>
+                <option style="background: #1e293b; color: #fff;">BBA</option>
+                <option style="background: #1e293b; color: #fff;">MBA</option>
+                <option style="background: #1e293b; color: #fff;">BCA</option>
+            </select>
+        </div>
+
+        <div style="display: flex; gap: 10px; justify-content: space-between; margin-bottom: 25px; flex-wrap: wrap;">
+            <input type="button" name="btn2" value="Submit" style="flex: 1; padding: 10px; background: #0ea5e9; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#0284c7'" onmouseout="this.style.background='#0ea5e9'">
+            <input type="button" name="btn3" value="Clear" style="flex: 1; padding: 10px; background: #64748b; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#475569'" onmouseout="this.style.background='#64748b'">
+            <input type="button" name="btn4" value="OK" style="flex: 1; padding: 10px; background: #10b981; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#059669'" onmouseout="this.style.background='#10b981'">
+            <input type="button" name="btn5" value="Help" style="flex: 1; padding: 10px; background: #f59e0b; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#d97706'" onmouseout="this.style.background='#f59e0b'">
+        </div>
+        
+        <hr style="border: none; height: 1px; background: rgba(255,255,255,0.2); margin-bottom: 20px;">
+        
+        <div style="text-align: center;">
+            <a href="file:///home/chronos/u-c4682678a69a2531f457596659c63ba0ec2090b4/MyFiles/HTML%20DOCUMENTS/DOCTYPE.html" style="color: #38bdf8; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: color 0.2s;" onmouseover="this.style.color='#7dd3fc'" onmouseout="this.style.color='#38bdf8'">GO BACK</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
