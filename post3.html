@@ -306,76 +306,40 @@
             100% { width: 140%; height: 150%; opacity: 0; }
         }
 
-        /* Footer Styling */
-        footer {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(12px);
-            border-top: 1px solid rgba(0, 210, 255, 0.18);
-            padding: 28px 0;
-            margin-top: auto;
-        }
+         /* FULL-WIDTH BREAKOUT FOOTER SYSTEM */
+    footer { 
+      width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw;
+      background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid #e2e8f0; padding: 40px 0; margin-top: 100px;
+    }
+    .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .footer-left { color: #64748b; font-size: 0.95rem; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-weight: 400; }
+    .footer-left a { color: #4f46e5; text-decoration: none; font-weight: 600; transition: color 0.2s ease; }
+    .footer-left a:hover { text-decoration: underline; color: #3730a3; }
+    .footer-right { display: flex; gap: 15px; }
+    .footer-icon { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; color: white; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    .footer-icon:hover { transform: translateY(-4px) scale(1.05); }
+    .footer-icon.fb { background: #1877f2; box-shadow: 0 8px 20px rgba(24, 119, 242, 0.2); }
+    .footer-icon.yt { background: #ff0000; box-shadow: 0 8px 20px rgba(255, 0, 0, 0.2); }
 
-        .footer-inner {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 18px;
-        }
+    #topBtn { position: fixed; bottom: 30px; right: 30px; border-radius: 50%; width: 52px; height: 52px; display: none; background: #0f172a; color: white; border: none; cursor: pointer; z-index: 14000; box-shadow: 0 8px 24px rgba(15,23,42,0.2); font-size: 1.2rem; font-weight: bold; transition: all 0.2s ease; }
+    #topBtn:hover { background: #4f46e5; transform: translateY(-3px); }
 
-        .footer-left { display: flex; align-items: center; gap: 10px; color: #64748b; font-size: 0.95rem; }
-        .footer-left a { color: #0284c7; text-decoration: none; font-weight: 500; }
-        .footer-right { display: flex; gap: 14px; }
-        
-        .footer-icon {
-            width: 42px; height: 42px; border-radius: 50%; display: flex;
-            align-items: center; justify-content: center; color: white;
-            transition: transform 0.2s ease;
-        }
-        .footer-icon:hover { transform: translateY(-3px) scale(1.05); }
-        .footer-icon.fb { background: #1877f2; }
-        .footer-icon.yt { background: #ff0000; }
-
-        @media (max-width: 600px) {
-            .flow-container { 
-                flex-direction: column; 
-                gap: 20px; 
-            }
-            .signal-path { 
-                width: 4px; 
-                height: 60px; 
-                margin: 10px auto; 
-                flex-grow: 0;
-            }
-            .signal-dot { 
-                top: 0; 
-                left: -6px; 
-                animation: moveSignalVertical 2s infinite ease-in-out; 
-            }
-            
-            @keyframes moveSignalVertical {
-                0% { top: 0; opacity: 0; transform: scale(0.5); }
-                20% { opacity: 1; transform: scale(1); }
-                80% { opacity: 1; transform: scale(1); }
-                100% { top: calc(100% - 16px); opacity: 0; transform: scale(0.5); }
-            }
-            
-            .footer-inner { flex-direction: column; text-align: center; }
-            .footer-left { flex-direction: column; gap: 6px; }
-            
-            .author-meta span:not(:last-child):not(:first-child) {
-                display: none;
-            }
-            .author-meta span.badge {
-                width: 100%;
-                text-align: center;
-                margin-top: 5px;
-            }
-        }
+    /* HIGH END ECO RESPONSIVE SYSTEM MEDIA BREAKPOINTS */
+    @media (max-width: 968px) {
+      .hero-container { grid-template-columns: 1fr; gap: 40px; margin-top: 110px; padding: 0 24px; text-align: center; }
+      .hero-image-block { order: -1; }
+      .pro-pic-square { width: 250px; border-radius: 24px; }
+      h2::after { left: 50%; transform: translateX(-50%); }
+      section { padding: 35px 24px; margin: 30px 16px; border-radius: 24px; }
+      .footer-inner { padding: 0 24px; }
+    }
+    @media (max-width: 600px) {
+      .top-right-auth { top: 20px; right: 20px; gap: 10px; }
+      .footer-inner { flex-direction: column-reverse; text-align: center; gap: 24px; }
+      .footer-left { flex-direction: column; gap: 8px; }
+      .footer-left span:nth-of-type(2) { display: none; }
+    }
     </style>
 </head>
 <body>
