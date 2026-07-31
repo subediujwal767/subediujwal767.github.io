@@ -3,24 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="CUhHpxU7GvBj4afy13xxqSG-assstntsEF9IXBotIX8" />
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2333822171566185"
-     crossorigin="anonymous"></script>
+  <meta name="google-site-verification" content="CUhHpxU7GvBj4afy13xxqSG-assstntsEF9IXBotIX8" />
   <title>Ujwal Subedi - Personal Website</title>
-<meta property="og:title" content="Ujwal Subedi">
-<link rel="canonical" href="https://subediujwal767.github.io/" />
-<script src="https://accounts.google.com/gsi/client" async defer></script>
+  <meta property="og:title" content="Ujwal Subedi">
+  <link rel="canonical" href="https://subediujwal767.github.io/" />
   <link rel="icon" type="image/png" href="pro.png">
-  <meta name="description" content= "Meet Ujwal Subedi, a web developer & creator building scalable digital experiences. Discover my latest web development projects, skills, and insights. ">
- 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2333822171566185"
-     crossorigin="anonymous"></script>
-   <!-- PREMIUM GOOGLE FONTS INTEGRATION -->
+  <meta name="description" content="Meet Ujwal Subedi, a web developer & creator building scalable digital experiences. Discover my latest web development projects, skills, and insights.">
+
+  <!-- SCRIPTS & FONTS -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2333822171566185" crossorigin="anonymous"></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
-</head>
+
   <style>
     /* PREMIUM KEYFRAMES & MATRIX ANIMATIONS */
     @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
@@ -250,11 +246,64 @@
     /* SKILLS INTERACTIVE CARDS */
     ul { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
     li { background: white; padding: 20px 24px; border-radius: 18px; border: 1px solid #e2e8f0; color: #334155; font-size: 1.05rem; font-weight: 600; letter-spacing: -0.2px; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
-    li:hover { border-color: #4f46e5; transform: scale(1.03) translateY(-2px) ; box-shadow: 0 12px 24px rgba(79, 70, 229, 0.08); color: #4f46e5; }
+    li:hover { border-color: #4f46e5; transform: scale(1.03) translateY(-2px); box-shadow: 0 12px 24px rgba(79, 70, 229, 0.08); color: #4f46e5; }
 
     /* ACTION BUTTON CONTROLS */
     button { background: #0f172a; color: white; border: none; padding: 15px 38px; border-radius: 50px; cursor: pointer; font-weight: 600; font-size: 14px; font-family: inherit; letter-spacing: -0.1px; margin-top: 24px; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(15, 23, 42, 0.15); }
     button:hover { background: #4f46e5; transform: translateY(-2px); box-shadow: 0 12px 28px rgba(79, 70, 229, 0.3); }
+
+    /* BLOG / POSTS SECTION */
+    .posts-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 40px;
+    }
+    .post-block {
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 30px;
+      border-radius: 24px;
+      margin-top: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.01);
+    }
+    .post-category {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #4f46e5;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+    .post-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 15px;
+      letter-spacing: -0.5px;
+    }
+    .post-excerpt {
+      color: #475569;
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+    .hidden-content { display: none; }
+    .see-more-link { color: #4f46e5; cursor: pointer; font-weight: 600; margin-left: 5px; }
+    .see-more-link:hover { text-decoration: underline; }
+    .read-more-btn {
+      display: inline-block;
+      background: #0f172a;
+      color: white;
+      text-decoration: none;
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 13px;
+      transition: all 0.3s ease;
+    }
+    .read-more-btn:hover { background: #4f46e5; transform: translateY(-2px); }
 
     /* FULL-WIDTH BREAKOUT FOOTER SYSTEM */
     footer { 
@@ -281,7 +330,7 @@
       .hero-image-block { order: -1; }
       .pro-pic-square { width: 250px; border-radius: 24px; }
       h2::after { left: 50%; transform: translateX(-50%); }
-      section { padding: 35px 24px; margin: 30px 16px; border-radius: 24px; }
+      section, .posts-container { padding: 35px 24px; margin: 30px 16px; border-radius: 24px; }
       .footer-inner { padding: 0 24px; }
     }
     @media (max-width: 600px) {
@@ -291,12 +340,12 @@
       .footer-left span:nth-of-type(2) { display: none; }
     }
   </style>
+</head>
 <body>
 <div id="progress"></div>
 
 <!-- NAVIGATION CONSOLE PORTAL INTERFACE CONTROL -->
 <div class="top-right-auth">
-  
   <!-- A SIDE: MENU TRIGGER CONTAINER -->
   <div class="menu-trigger-container">
     <div class="menu-trigger" id="menu-trigger-btn">
@@ -328,7 +377,6 @@
       <button class="logout-btn" id="logout-btn">Sign out</button>
     </div>
   </div>
-
 </div>
 
 <!-- PROFESSIONAL TWO-COLUMN SPLIT HERO MATRIX SECTION -->
@@ -369,32 +417,47 @@
     <li>📁 Office Package</li>
   </ul>
 </section>
+<section id="postes">
+<main class="posts-container">
+  <a href="https://subediujwal767.github.io/blog.html" style="font-weight: 700; text-decoration: none; color: #4f46e5; font-size: 1.25rem;">Posts &rarr;</a>
+  
+  <article class="post-block">
+    <span class="post-category">Technology</span>
+    <h2 class="post-title">How Bluetooth Works: The Ultimate Guide to Wireless Connectivity</h2>
+    
+    <div class="post-excerpt" id="excerpt-1">
+      Bluetooth uses rapid frequency-hopping across the 2.4 GHz spectrum to maintain a secure, interference-resistant connection between devices...
+      <span class="hidden-content" id="more-1">
+        It is a standardized, short-range protocol engineered specifically for low-power, direct wireless communication without the need for a central network.
+      </span>
+      <span class="see-more-link" onclick="toggleText(event, '1')">See More</span>
+    </div>
 
+    <a href="post1.html" class="read-more-btn">Read Full Post</a>
+  </article>
+
+        <article class="post-block">
+            <span class="post-category">Technology</span>
+            <h2 class="post-title">How Wi-Fi Works: The Ultimate Guide to Wireless Connectivity</h2>
+            
+            <div class="post-excerpt" id="excerpt-2">
+                Wi-Fi uses radio frequency bands to transmit data packets through the air...
+                <span class="hidden-content" id="more-2">
+                    providing high-speed, local area network access without physical cables.
+                </span>
+                
+                <span class="see-more-link" onclick="toggleText(event, '2')">See More</span>
+            </div>
+
+            <a href="post2.html" class="read-more-btn">Read Full Post</a>
+        </article>
+</main>
+</section>
 <section id="contact">
   <h2>Contact</h2>
   <p style="margin-bottom: 8px;">📧 Email: <strong style="color: #0f172a;">subediujwal767@gmail.com</strong></p>
   <p>📞 Contact: <strong style="color: #0f172a;">9825926919</strong></p>
 </section>
-      <main class="posts-container">
-  <a href="https://subediujwal767.github.io/blog.html">Posts</a><br>
-  <br>        
-        <article class="post-block">
-            <span class="post-category">Technology</span>
-            <h2 class="post-title">How Bluetooth Works: The Ultimate Guide to Wireless Connectivity</h2>
-            
-            <div class="post-excerpt" id="excerpt-1">
-                Bluetooth uses rapid frequency-hopping across the 2.4 GHz spectrum to maintain a secure, interference-resistant connection between devices...
-                <span class="hidden-content" id="more-1">
-                    It is a standardized, short-range protocol engineered specifically for low-power, direct wireless communication without the need for a central network.
-                </span>
-                
-                <span class="see-more-link" onclick="toggleText(event, '1')">See More</span>
-
-            <a href="post1.html" class="read-more-btn">Read Full Post</a>
-        </article>
-  </div>
-      </main>
-
 <!-- FULL WIDTH SECURE FOOTER STRUCTURE -->
 <footer>
   <div class="footer-inner">
@@ -402,7 +465,7 @@
       <span>© 2026 Ujwal web development & creation</span>
       <span>|</span>
       <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">terms & condition</a>
+      <a href="terms.html">Terms & Conditions</a>
     </div>
     
     <div class="footer-right">
