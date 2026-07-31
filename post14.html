@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Cybersecurity in the Era of Quantum Threats: Safeguarding Digital Infrastructure</title>
+    <link rel="icon" type="image/png" href="pro.png">
+    <style>
+        /* Modern CSS Reset and Variables */
+        :root {
+            --primary-color: #DC2626;
+            --secondary-color: #EF4444;
+            --accent-color: #F59E0B;
+            --text-main: #1F2937;
+            --text-muted: #4B5563;
+            --bg-color: #F8FAFC;
+            --card-bg: #FFFFFF;
+            --border-color: #E2E8F0;
+            --font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            --border-radius: 16px;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-family);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            font-size: clamp(16px, 1.5vw, 18px);
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: clamp(20px, 4vw, 40px) clamp(15px, 3vw, 20px);
+        }
+
+        /* Typography & Layout */
+        h1 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            line-height: 1.2;
+            font-weight: 800;
+            color: #111827;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            color: var(--primary-color);
+            margin: clamp(30px, 6vw, 50px) 0 20px;
+            font-weight: 700;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            color: #374151;
+            margin: 30px 0 15px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 24px;
+            color: var(--text-muted);
+        }
+
+        strong {
+            color: #111827;
+            font-weight: 600;
+        }
+
+        /* Author Meta */
+        .author-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: clamp(8px, 2vw, 15px);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: clamp(20px, 5vw, 40px);
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .author-meta span.badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        /* Images */
+        .hero-img, .content-img {
+            width: 100%;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+
+        .hero-img { 
+            height: clamp(250px, 40vw, 450px); 
+        }
+        
+        .content-img { 
+            height: clamp(200px, 35vw, 350px); 
+            margin: 30px 0; 
+        }
+        
+        @media (hover: hover) {
+            .content-img:hover { 
+                transform: scale(1.01); 
+                box-shadow: var(--shadow-hover); 
+            }
+        }
+
+        /* Tables with responsive scrolling wrapper */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 40px 0;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        table {
+            width: 100%;
+            min-width: 600px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 16px 24px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        tr:last-child td { border-bottom: none; }
+        tr:nth-child(even) { background-color: #F1F5F9; }
+        
+        @media (hover: hover) {
+            tr:hover td { background-color: #FEE2E2; transition: background 0.2s; }
+        }
+
+        /* Lists */
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+
+        ul li {
+            position: relative;
+            margin-bottom: 15px;
+            color: var(--text-muted);
+            transition: var(--transition);
+            background: var(--card-bg);
+            padding: clamp(12px, 3vw, 15px) clamp(15px, 3vw, 15px) clamp(12px, 3vw, 15px) clamp(40px, 5vw, 45px);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        
+        @media (hover: hover) {
+            ul li:hover {
+                transform: translateX(5px);
+                border-color: var(--secondary-color);
+                box-shadow: var(--shadow-sm);
+            }
+        }
+
+        ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Animated Interactive Flowchart Component */
+        .interactive-flow {
+            background: linear-gradient(135deg, #ffffff, #fef2f2);
+            border: 1px solid #fecaca;
+            border-radius: var(--border-radius);
+            padding: clamp(30px, 5vw, 50px) clamp(15px, 3vw, 30px);
+            margin: clamp(30px, 6vw, 50px) 0;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flow-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .flow-node {
+            background: white;
+            padding: clamp(15px, 4vw, 20px) clamp(20px, 5vw, 30px);
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(220,38,38, 0.15);
+            z-index: 2;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            min-width: 140px;
+        }
+
+        @media (hover: hover) {
+            .flow-node:hover {
+                transform: translateY(-8px);
+                border-color: var(--primary-color);
+                box-shadow: 0 20px 25px -5px rgba(220,38,38, 0.25);
+            }
+        }
+
+        .flow-node .icon { font-size: clamp(32px, 6vw, 40px); margin-bottom: 10px; }
+        .flow-node h3 { margin: 0; font-size: 1.2rem; color: var(--primary-color); }
+        .flow-node p { margin: 5px 0 0; font-size: 0.9rem; color: var(--text-muted); }
+
+        /* Animation Keyframes */
+        .signal-path {
+            flex-grow: 1;
+            height: 4px;
+            background: #E2E8F0;
+            position: relative;
+            margin: 0 15px;
+            z-index: 1;
+            border-radius: 2px;
+        }
+
+        .signal-dot {
+            position: absolute;
+            top: -6px;
+            left: 0;
+            width: 16px;
+            height: 16px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-color);
+            animation: moveSignal 2s infinite ease-in-out;
+        }
+
+        @keyframes moveSignal {
+            0% { left: 0; opacity: 0; transform: scale(0.5); }
+            20% { opacity: 1; transform: scale(1); }
+            80% { opacity: 1; transform: scale(1); }
+            100% { left: calc(100% - 16px); opacity: 0; transform: scale(0.5); }
+        }
+
+        /* Pulsing Rings around nodes */
+        .pulse-wrapper { position: relative; }
+        .pulse-wrapper::before, .pulse-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            background: rgba(220, 38, 38, 0.15);
+            z-index: 0;
+            animation: pulse-ring 3s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        .pulse-wrapper::after { animation-delay: 1.5s; }
+
+        @keyframes pulse-ring {
+            0% { width: 100%; height: 100%; opacity: 1; }
+            100% { width: 140%; height: 150%; opacity: 0; }
+        }
+
+       /* FULL-WIDTH BREAKOUT FOOTER SYSTEM */
+    footer { 
+      width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw;
+      background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid #e2e8f0; padding: 40px 0; margin-top: 100px;
+    }
+    .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .footer-left { color: #64748b; font-size: 0.95rem; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-weight: 400; }
+    .footer-left a { color: #DC2626; text-decoration: none; font-weight: 600; transition: color 0.2s ease; }
+    .footer-left a:hover { text-decoration: underline; color: #B91C1C; }
+    .footer-right { display: flex; gap: 15px; }
+    .footer-icon { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; color: white; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    .footer-icon:hover { transform: translateY(-4px) scale(1.05); }
+    .footer-icon.fb { background: #1877f2; box-shadow: 0 8px 20px rgba(24, 119, 242, 0.2); }
+    .footer-icon.yt { background: #ff0000; box-shadow: 0 8px 20px rgba(255, 0, 0, 0.2); }
+
+    /* HIGH END ECO RESPONSIVE SYSTEM MEDIA BREAKPOINTS */
+    @media (max-width: 968px) {
+      .hero-container { grid-template-columns: 1fr; gap: 40px; margin-top: 110px; padding: 0 24px; text-align: center; }
+      .hero-image-block { order: -1; }
+      .pro-pic-square { width: 250px; border-radius: 24px; }
+      h2::after { left: 50%; transform: translateX(-50%); }
+      section { padding: 35px 24px; margin: 30px 16px; border-radius: 24px; }
+      .footer-inner { padding: 0 24px; }
+    }
+    @media (max-width: 600px) {
+      .top-right-auth { top: 20px; right: 20px; gap: 10px; }
+      .footer-inner { flex-direction: column-reverse; text-align: center; gap: 24px; }
+      .footer-left { flex-direction: column; gap: 8px; }
+      .footer-left span:nth-of-type(2) { display: none; }
+    }
+    </style>
+</head>
+<body>
+
+<article class="container">
+    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200" alt="Cybersecurity lock and digital firewall network matrix background visualization" class="hero-img">
+    
+    <h1>Cybersecurity in the Era of Quantum Threats: Safeguarding Digital Infrastructure</h1>
+    
+    <div class="author-meta">
+        <strong>Ujwal Subedi</strong> 
+        <strong>|</strong>
+        <strong>July 31, 2026</strong>
+        <span>|</span>
+        <span class="badge">Cybersecurity & Encryption Guide</span>
+    </div>
+
+    <p>Modern global digital security relies heavily on standard public-key cryptography—such as RSA and Elliptic Curve Cryptography—to protect sensitive financial transactions, government communications, and enterprise databases. However, the rapid advancement of quantum computing threatens to render these traditional algorithms obsolete.</p>
+
+    <p>How will powerful quantum computers break conventional encryption standards using mathematical algorithms like Shor's? What active measures are standardizing post-quantum cryptography, and how can system architects future-proof network protocols against looming quantum decryption threats?</p>
+
+    <p>In this technical breakdown, we will examine the intersection of quantum mechanics and cybersecurity. As a developer and tech creator, I will walk you through vulnerability matrices, lattice-based cryptography, and actionable protocols for securing modern digital infrastructure.</p>
+
+    <h2>The Quantum Threat to Encryption: Understanding Shor's Algorithm</h2>
+    
+    <p>Traditional cryptographic systems derive their security from the extreme difficulty classical computers face when attempting to factor massive prime numbers or calculate discrete logarithms. Tasks that would take a classical supercomputer millions of years can be solved exponentially faster by a quantum computer running Shor's algorithm.</p>
+
+    <p>This vulnerability exposes a major cyber threat known as "Harvest Now, Decrypt Later," where malicious actors intercept and store encrypted data today with the intent of breaking it once scalable quantum hardware becomes fully operational.</p>
+
+    <h2>The Underlying Mechanics: Lattice-Based Cryptography and Key Encapsulation</h2>
+    
+    <p>To defend against quantum decryption, the cybersecurity industry is actively shifting toward mathematical problems that remain computationally hard for both classical and quantum computers.</p>
+
+    <h3>The Core Pillars: Post-Quantum Standards, Lattice Encryption, and Zero Trust</h3>
+    <p>Next-generation secure network architectures depend on distinct defensive engineering milestones:</p>
+    
+    <ul>
+        <li><strong>Lattice-Based Cryptography:</strong> Utilizing complex multi-dimensional geometric grid problems that resist subatomic factorization shortcuts.</li>
+        <li><strong>Post-Quantum Key Encapsulation (KEM):</strong> Standardized cryptographic protocols designed to establish secure communication channels immune to quantum attacks.</li>
+        <li><strong>Zero Trust Frameworks:</strong> Enforcing strict continuous authentication across every network layer to minimize damage if an initial perimeter breach occurs.</li>
+    </ul>
+
+    <h2>The Quantum Security Transition Pipeline Visualized</h2>
+    <p>When migrating an organization to quantum-safe defenses, systems must progress through vulnerability auditing, cryptographic agility integration, and full algorithm deployment. Below is an interactive flow representing this security migration path.</p>
+
+    <!-- Animated CSS Interactive Component -->
+    <div class="interactive-flow">
+        <h3 style="margin-top: 0; margin-bottom: 30px;">The Quantum-Safe Migration Pipeline</h3>
+        <div class="flow-container">
+            <div class="pulse-wrapper">
+                <div class="flow-node">
+                    <div class="icon">🔍</div>
+                    <h3>Vulnerability Audit</h3>
+                    <p>Asset & algorithm scanning</p>
+                </div>
+            </div>
+            
+            <div class="signal-path">
+                <div class="signal-dot"></div>
+            </div>
+            
+            <div class="pulse-wrapper">
+                <div class="flow-node">
+                    <div class="icon">🛡️</div>
+                    <h3>Post-Quantum Deployment</h3>
+                    <p>Lattice-based encryption sync</p>
+                </div>
+            </div>
+        </div>
+        <p style="margin-top: 30px; font-weight: 500; color: var(--primary-color);">Data secured across resilient cryptographic layers resistant to subatomic decryption.</p>
+    </div>
+
+    <h2>Encryption Paradigm Comparison: Classical vs. Post-Quantum Standards</h2>
+    
+    <p>Cryptographic standards are undergoing a generational overhaul to counter advancing computing threats. Here is how modern encryption frameworks compare:</p>
+
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Cryptographic Standard</th>
+                    <th>Underlying Mathematical Basis</th>
+                    <th>Quantum Vulnerability</th>
+                    <th>Implementation Readiness</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>RSA (Rivest-Shamir-Adleman)</strong></td>
+                    <td>Prime number factorization</td>
+                    <td>High (Broken by Shor's algorithm)</td>
+                    <td>Legacy systems (Phasing out)</td>
+                </tr>
+                <tr>
+                    <td><strong>ECC (Elliptic Curve Cryptography)</strong></td>
+                    <td>Discrete logarithms on curves</td>
+                    <td>High (Vulnerable to quantum attacks)</td>
+                    <td>Widespread current usage</td>
+                </tr>
+                <tr>
+                    <td><strong>NIST Post-Quantum (Lattice-based)</strong></td>
+                    <td>Shortest vector problems in lattices</td>
+                    <td>Resistant to quantum processing</td>
+                    <td>Active global standardization</td>
+                </tr>
+                <tr>
+                    <td><strong>Quantum Key Distribution (QKD)</strong></td>
+                    <td>Laws of quantum mechanics</td>
+                    <td> intrinsically secure</td>
+                    <td>Specialized high-security deployments</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p>Continuous updates to global cryptographic guidelines ensure that enterprises can transition smoothly without disrupting day-to-day digital operations.</p>
+
+    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200" alt="Abstract digital security shield and encrypted data stream visualization" class="content-img">
+
+    <h2>Expert Guidelines: Securing Infrastructure Against Quantum Threats</h2>
+    
+    <p>While quantum decryption is an evolving frontier, proactive preparation is vital for enterprise survival. Follow these practices for comprehensive protection:</p>
+
+    <ul>
+        <li><strong>Perform Cryptographic Discovery:</strong> Audit all software dependencies, databases, and APIs across your infrastructure to identify vulnerable legacy encryption keys.</li>
+        <li><strong>Adopt Cryptographic Agility:</strong> Build software architectures that allow seamless swapping of encryption algorithms without requiring full core system rewrites.</li>
+        <li><strong>Prioritize Hybrid Encryption:</strong> Implement dual-layer security protocols combining classical algorithms with post-quantum standards during the transition phase.</li>
+    </ul>
+
+    <h2>Conclusion: Defending the Digital Horizon</h2>
+    
+    <p>The shift toward quantum-resistant cybersecurity marks a critical turning point in technological history, protecting our global digital infrastructure against tomorrow's computing capabilities. Understanding these defensive protocols empowers you to build safer, future-proof systems.</p>
+
+</article>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-left">
+            <span>© 2026 Ujwal web development & creation</span>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">terms & condition</a>
+        </div>
+        <div class="footer-right">
+            <!-- Facebook Link -->
+            <a href="https://www.facebook.com/Mr.ujwalsubedi" target="_blank" class="footer-icon fb" aria-label="Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                    <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
+                </svg>
+            </a>
+            <!-- YouTube Link -->
+            <a href="https://www.youtube.com/@Mr.ujwalsubedi" target="_blank" class="footer-icon yt" aria-label="YouTube">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                    <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.516 0-9.387.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.507 9.386.507 9.386.507s7.517 0 9.387-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</footer>
+    <script>document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
+document.addEventListener('keydown', function(e) {
+    // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+    if (
+        e.key === 'F12' || 
+        (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) || 
+        (e.ctrlKey && e.key === 'u')
+    ) {
+        e.preventDefault();
+        return false;
+    }
+});</script>
+</body>
+</html>
