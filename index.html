@@ -421,36 +421,43 @@
 <main class="posts-container">
   <a href="https://subediujwal767.github.io/blog.html" style="font-weight: 700; text-decoration: none; color: #4f46e5; font-size: 1.25rem;">Posts &rarr;</a>
   
-  <article class="post-block">
+  <!-- Post 1 -->
+  <article class="post-block" style="cursor: pointer;" onclick="window.location.href='post1.html';">
     <span class="post-category">Technology</span>
-    <h2 class="post-title">How Bluetooth Works: The Ultimate Guide to Wireless Connectivity</h2>
+    <h2 class="post-title">
+      <a href="post1.html" style="text-decoration: none; color: inherit;">How Bluetooth Works: The Ultimate Guide to Wireless Connectivity</a>
+    </h2>
     
-    <div class="post-excerpt" id="excerpt-1">
+    <div class="post-excerpt" id="excerpt-1" onclick="event.stopPropagation();">
       Bluetooth uses rapid frequency-hopping across the 2.4 GHz spectrum to maintain a secure, interference-resistant connection between devices...
       <span class="hidden-content" id="more-1">
         It is a standardized, short-range protocol engineered specifically for low-power, direct wireless communication without the need for a central network.
       </span>
+      
       <span class="see-more-link" onclick="toggleText(event, '1')">See More</span>
     </div>
 
-    <a href="post1.html" class="read-more-btn">Read Full Post</a>
+    <a href="post1.html" class="read-more-btn" onclick="event.stopPropagation();">Read Full Post</a>
   </article>
 
-        <article class="post-block">
-            <span class="post-category">Technology</span>
-            <h2 class="post-title">How Wi-Fi Works: The Ultimate Guide to Wireless Connectivity</h2>
-            
-            <div class="post-excerpt" id="excerpt-2">
-                Wi-Fi uses radio frequency bands to transmit data packets through the air...
-                <span class="hidden-content" id="more-2">
-                    providing high-speed, local area network access without physical cables.
-                </span>
-                
-                <span class="see-more-link" onclick="toggleText(event, '2')">See More</span>
-            </div>
+  <!-- Post 2 -->
+  <article class="post-block" style="cursor: pointer;" onclick="window.location.href='post2.html';">
+    <span class="post-category">Technology</span>
+    <h2 class="post-title">
+      <a href="post2.html" style="text-decoration: none; color: inherit;">How Wi-Fi Works: The Ultimate Guide to Wireless Connectivity</a>
+    </h2>
+    
+    <div class="post-excerpt" id="excerpt-2" onclick="event.stopPropagation();">
+      Wi-Fi uses radio frequency bands to transmit data packets through the air...
+      <span class="hidden-content" id="more-2">
+        providing high-speed, local area network access without physical cables.
+      </span>
+      
+      <span class="see-more-link" onclick="toggleText(event, '2')">See More</span>
+    </div>
 
-            <a href="post2.html" class="read-more-btn">Read Full Post</a>
-        </article>
+    <a href="post2.html" class="read-more-btn" onclick="event.stopPropagation();">Read Full Post</a>
+  </article>
 </main>
 </section>
 <section id="contact">
