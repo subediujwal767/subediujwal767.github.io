@@ -607,6 +607,18 @@ document.addEventListener('keydown', function(e) {
         return false;
     }
 });
+   function toggleText(event, id) {
+            var moreText = document.getElementById("more-" + id);
+            var linkText = event.target;
+
+            if (moreText.style.display === "inline") {
+                moreText.style.display = "none";
+                linkText.innerHTML = "See More";
+            } else {
+                moreText.style.display = "inline";
+                linkText.innerHTML = "See Less";
+            }
+        }
 </script>
 </body>
 </html>
