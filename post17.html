@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>The Architecture of Quantum Computing: Beyond Binary Bits</title>
+    <link rel="icon" type="image/png" href="pro.png">
+    <style>
+        /* Modern CSS Reset and Variables */
+        :root {
+            --primary-color: #0056D2;
+            --secondary-color: #0088FF;
+            --accent-color: #FF5A5F;
+            --text-main: #1F2937;
+            --text-muted: #4B5563;
+            --bg-color: #F9FAFB;
+            --card-bg: #FFFFFF;
+            --border-color: #E5E7EB;
+            --font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            --border-radius: 16px;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-family);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            font-size: clamp(16px, 1.5vw, 18px);
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: clamp(20px, 4vw, 40px) clamp(15px, 3vw, 20px);
+        }
+
+        /* Typography & Layout */
+        h1 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            line-height: 1.2;
+            font-weight: 800;
+            color: #111827;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            color: var(--primary-color);
+            margin: clamp(30px, 6vw, 50px) 0 20px;
+            font-weight: 700;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            color: #374151;
+            margin: 30px 0 15px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 24px;
+            color: var(--text-muted);
+        }
+
+        strong {
+            color: #111827;
+            font-weight: 600;
+        }
+
+        /* Author Meta */
+        .author-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: clamp(8px, 2vw, 15px);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: clamp(20px, 5vw, 40px);
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .author-meta span.badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        /* Images */
+        .hero-img, .content-img {
+            width: 100%;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+
+        .hero-img { 
+            height: clamp(250px, 40vw, 450px); 
+        }
+        
+        .content-img { 
+            height: clamp(200px, 35vw, 350px); 
+            margin: 30px 0; 
+        }
+        
+        @media (hover: hover) {
+            .content-img:hover { 
+                transform: scale(1.01); 
+                box-shadow: var(--shadow-hover); 
+            }
+        }
+
+        /* Tables with responsive scrolling wrapper */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 40px 0;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        table {
+            width: 100%;
+            min-width: 600px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 16px 24px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        tr:last-child td { border-bottom: none; }
+        tr:nth-child(even) { background-color: #F3F4F6; }
+        
+        @media (hover: hover) {
+            tr:hover td { background-color: #E0E7FF; transition: background 0.2s; }
+        }
+
+        /* Lists */
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+
+        ul li {
+            position: relative;
+            margin-bottom: 15px;
+            color: var(--text-muted);
+            transition: var(--transition);
+            background: var(--card-bg);
+            padding: clamp(12px, 3vw, 15px) clamp(15px, 3vw, 15px) clamp(12px, 3vw, 15px) clamp(40px, 5vw, 45px);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        
+        @media (hover: hover) {
+            ul li:hover {
+                transform: translateX(5px);
+                border-color: var(--secondary-color);
+                box-shadow: var(--shadow-sm);
+            }
+        }
+
+        ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Animated Interactive Flowchart Component */
+        .interactive-flow {
+            background: linear-gradient(135deg, #ffffff, #f0f7ff);
+            border: 1px solid #cce4ff;
+            border-radius: var(--border-radius);
+            padding: clamp(30px, 5vw, 50px) clamp(15px, 3vw, 30px);
+            margin: clamp(30px, 6vw, 50px) 0;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flow-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .flow-node {
+            background: white;
+            padding: clamp(15px, 4vw, 20px) clamp(20px, 5vw, 30px);
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0,136,255, 0.2);
+            z-index: 2;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            min-width: 140px;
+        }
+
+        @media (hover: hover) {
+            .flow-node:hover {
+                transform: translateY(-8px);
+                border-color: var(--primary-color);
+                box-shadow: 0 20px 25px -5px rgba(0,136,255, 0.3);
+            }
+        }
+
+        .flow-node .icon { font-size: clamp(32px, 6vw, 40px); margin-bottom: 10px; }
+        .flow-node h3 { margin: 0; font-size: 1.2rem; color: var(--primary-color); }
+        .flow-node p { margin: 5px 0 0; font-size: 0.9rem; color: var(--text-muted); }
+
+        /* Animation Keyframes */
+        .signal-path {
+            flex-grow: 1;
+            height: 4px;
+            background: #E5E7EB;
+            position: relative;
+            margin: 0 15px;
+            z-index: 1;
+            border-radius: 2px;
+        }
+
+        .signal-dot {
+            position: absolute;
+            top: -6px;
+            left: 0;
+            width: 16px;
+            height: 16px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-color);
+            animation: moveSignal 2s infinite ease-in-out;
+        }
+
+        @keyframes moveSignal {
+            0% { left: 0; opacity: 0; transform: scale(0.5); }
+            20% { opacity: 1; transform: scale(1); }
+            80% { opacity: 1; transform: scale(1); }
+            100% { left: calc(100% - 16px); opacity: 0; transform: scale(0.5); }
+        }
+
+        /* Pulsing Rings around nodes */
+        .pulse-wrapper { position: relative; }
+        .pulse-wrapper::before, .pulse-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            background: rgba(0, 136, 255, 0.2);
+            z-index: 0;
+            animation: pulse-ring 3s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        .pulse-wrapper::after { animation-delay: 1.5s; }
+
+        @keyframes pulse-ring {
+            0% { width: 100%; height: 100%; opacity: 1; }
+            100% { width: 140%; height: 150%; opacity: 0; }
+        }
+
+        /* FULL-WIDTH BREAKOUT FOOTER SYSTEM */
+        footer { 
+            width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw;
+            background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border-top: 1px solid #e2e8f0; padding: 40px 0; margin-top: 100px;
+        }
+        .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .footer-left { color: #64748b; font-size: 0.95rem; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-weight: 400; }
+        .footer-left a { color: #4f46e5; text-decoration: none; font-weight: 600; transition: color 0.2s ease; }
+        .footer-left a:hover { text-decoration: underline; color: #3730a3; }
+        .footer-right { display: flex; gap: 15px; }
+        .footer-icon { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; color: white; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .footer-icon:hover { transform: translateY(-4px) scale(1.05); }
+        .footer-icon.fb { background: #1877f2; box-shadow: 0 8px 20px rgba(24, 119, 242, 0.2); }
+        .footer-icon.yt { background: #ff0000; box-shadow: 0 8px 20px rgba(255, 0, 0, 0.2); }
+
+        #topBtn { position: fixed; bottom: 30px; right: 30px; border-radius: 50%; width: 52px; height: 52px; display: none; background: #0f172a; color: white; border: none; cursor: pointer; z-index: 14000; box-shadow: 0 8px 24px rgba(15,23,42,0.2); font-size: 1.2rem; font-weight: bold; transition: all 0.2s ease; }
+        #topBtn:hover { background: #4f46e5; transform: translateY(-3px); }
+
+        /* HIGH END ECO RESPONSIVE SYSTEM MEDIA BREAKPOINTS */
+        @media (max-width: 968px) {
+            .hero-container { grid-template-columns: 1fr; gap: 40px; margin-top: 110px; padding: 0 24px; text-align: center; }
+            .hero-image-block { order: -1; }
+            .pro-pic-square { width: 250px; border-radius: 24px; }
+            h2::after { left: 50%; transform: translateX(-50%); }
+            section { padding: 35px 24px; margin: 30px 16px; border-radius: 24px; }
+            .footer-inner { padding: 0 24px; }
+        }
+        @media (max-width: 600px) {
+            .top-right-auth { top: 20px; right: 20px; gap: 10px; }
+            .footer-inner { flex-direction: column-reverse; text-align: center; gap: 24px; }
+            .footer-left { flex-direction: column; gap: 8px; }
+            .footer-left span:nth-of-type(2) { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<article class="container">
+    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=1200" alt="Futuristic quantum computer processor and advanced data qubits visualization" class="hero-img">
+    
+    <h1>The Architecture of Quantum Computing: Beyond Binary Bits</h1>
+    
+    <div class="author-meta">
+        <strong>Ujwal Subedi</strong> 
+        <strong>|</strong>
+        <strong>August 2, 2026</strong>
+        <span>|</span>
+        <span class="badge">Tech Deep Dive & Quantum Mechanics Guide</span>
+    </div>
+
+    <p>For decades, classical computing has driven the digital age using a straightforward language: bits that represent either a 0 or a 1. But as we approach the physical limits of silicon transistors, a revolutionary paradigm is taking shape. <strong>Quantum computing</strong> trades classical predictability for the counterintuitive laws of quantum mechanics.</p>
+
+    <p>Welcome to the deep dive into quantum architectures, where information processing moves past binary barriers into the realms of superposition and entanglement.</p>
+
+    <p>In this comprehensive guide, we will explore the core mechanics of qubits, examine how quantum gates manipulate probability states, compare leading hardware models, and analyze the real-world cryptographic implications of scaling quantum hardware.</p>
+
+    <h2>What Is a Qubit? Superposition and Entanglement</h2>
+    
+    <p>Unlike a traditional bit that is definitively 0 or 1, a quantum bit—or <strong>qubit</strong>—can exist in a linear combination of both states simultaneously. This phenomenon is known as <strong>superposition</strong>.</p>
+
+    <p>When multiple qubits become <strong>entangled</strong>, the quantum state of each particle cannot be described independently of the state of the others. Measuring one entangled qubit instantly influences its paired counterpart, regardless of physical distance, allowing quantum systems to process vast combinations of variables in parallel.</p>
+
+    <h2>The Underlying Science: Quantum States and Decoherence</h2>
+    
+    <p>Quantum processing requires maintaining extremely delicate subatomic states while executing complex mathematical algorithms.</p>
+
+    <h3>Core Pillars of Quantum Systems</h3>
+    <p>Building a functional quantum computer relies on managing three critical components:</p>
+    
+    <ul>
+        <li><strong>Superposition Control:</strong> Manipulating probability amplitudes using quantum logic gates to evaluate multiple problem paths at once.</li>
+        <li><strong>Cryogenic Isolation:</strong> Maintaining near-absolute zero temperatures inside dilution refrigerators to prevent thermal noise from destroying fragile quantum states.</li>
+        <li><strong>Quantum Error Correction:</strong> Implementing redundant physical qubits to form stable logical qubits, mitigating the effects of environmental decoherence.</li>
+    </ul>
+
+    <h2>The Quantum Processing Workflow Visualized</h2>
+    <p>When a quantum algorithm runs, initialization prepares qubits in superposition, quantum gates manipulate their probability waves, and final measurement collapses the state into a classical solution. Below is an interactive visualization of this execution cycle.</p>
+
+    <!-- Animated CSS Interactive Component -->
+    <div class="interactive-flow">
+        <h3 style="margin-top: 0; margin-bottom: 30px;">The Quantum Processing Cycle</h3>
+        <div class="flow-container">
+            <div class="pulse-wrapper">
+                <div class="flow-node">
+                    <div class="icon">⚛️</div>
+                    <h3>Superposition</h3>
+                    <p>Qubit Initialization</p>
+                </div>
+            </div>
+            
+            <div class="signal-path">
+                <div class="signal-dot"></div>
+            </div>
+            
+            <div class="pulse-wrapper">
+                <div class="flow-node">
+                    <div class="icon">💻</div>
+                    <h3>Measurement</h3>
+                    <p>State Collapse</p>
+                </div>
+            </div>
+        </div>
+        <p style="margin-top: 30px; font-weight: 500; color: var(--primary-color);">Processing data via multi-state quantum interference.</p>
+    </div>
+
+    <h2>Hardware Approaches Compared: Superconducting vs. Trapped Ions</h2>
+    
+    <p>Different technology companies and research labs are pursuing distinct physical mediums to build stable quantum processors. Here is how the approaches stack up:</p>
+
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Architecture</th>
+                    <th>Core Technology</th>
+                    <th>Operating Environment</th>
+                    <th>Primary Advantage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Superconducting Circuits</strong></td>
+                    <td>Circuits with Josephson junctions</td>
+                    <td>Millikelvin Cryostats</td>
+                    <td>Fast gate operations and scalable manufacturing</td>
+                </tr>
+                <tr>
+                    <td><strong>Trapped Ions</strong></td>
+                    <td>Charged atoms suspended in electromagnetic fields</td>
+                    <td>Ultra-high vacuum & lasers</td>
+                    <td>High qubit fidelity and long coherence times</td>
+                </tr>
+                <tr>
+                    <td><strong>Photonic Quantum</strong></td>
+                    <td>Light particles guided through optical chips</td>
+                    <td>Room temperature</td>
+                    <td>Minimal decoherence and easy network integration</td>
+                </tr>
+                <tr>
+                    <td><strong>Neutral Atoms</strong></td>
+                    <td>Arrays of atoms held by optical tweezers</td>
+                    <td>Vacuum chambers</td>
+                    <td>Flexible reconfiguration and high entanglement density</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p>Modern quantum platforms utilize advanced algorithms like <strong>VQE (Variational Quantum Eigensolver)</strong> to bridge NISQ (Noisy Intermediate-Scale Quantum) devices with practical chemistry and materials science simulations.</p>
+
+    <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=1200" alt="Abstract glowing quantum matrix and complex data visualization concept" class="content-img">
+
+    <h2>Expert Tips: Preparing for the Post-Quantum Era</h2>
+    
+    <p>As quantum processing capabilities advance, traditional asymmetric cryptography faces unprecedented vulnerability. Implement these steps to safeguard infrastructure:</p>
+
+    <ul>
+        <li><strong>Post-Quantum Cryptography (PQC):</strong> Audit current encryption algorithms and begin planning the transition to NIST-standardized quantum-resistant cryptographic protocols.</li>
+        <li><strong>Quantum Algorithm Literacy:</strong> Encourage development teams to study quantum-native algorithms like Shor's and Grover's to understand optimization boundaries.</li>
+        <li><strong>Hybrid Security Frameworks:</strong> Deploy dual-encryption schemes combining classical and post-quantum layers to secure sensitive data against store-now-decrypt-later attacks.</li>
+    </ul>
+
+    <h2>Conclusion: The Future of High-Performance Computing</h2>
+    
+    <p>Quantum computing represents a profound leap in computational philosophy, transforming how we approach complex optimization, molecular modeling, and system simulation. Understanding quantum architecture empowers engineers and developers to stay ahead of the next major technological revolution.</p>
+
+</article>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-left">
+           <span>© 2026 Ujwal web development & creation</span>
+           <a href="privacy.html">Privacy Policy</a>
+           <a href="terms.html">terms & condition</a>
+        </div>
+        <div class="footer-right">
+            <!-- Facebook Link -->
+            <a href="https://www.facebook.com/Mr.ujwalsubedi" target="_blank" class="footer-icon fb" aria-label="Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                    <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
+                </svg>
+            </a>
+            <!-- YouTube Link -->
+            <a href="https://www.youtube.com/@Mr.ujwalsubedi" target="_blank" class="footer-icon yt" aria-label="YouTube">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                    <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.516 0-9.387.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.507 9.386.507 9.386.507s7.517 0 9.387-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</footer>
+    <script>
+        document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
+document.addEventListener('keydown', function(e) {
+    // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+    if (
+        e.key === 'F12' || 
+        (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) || 
+        (e.ctrlKey && e.key === 'u')
+    ) {
+        e.preventDefault();
+        return false;
+    }
+});
+    </script>
+</body>
+</html>
