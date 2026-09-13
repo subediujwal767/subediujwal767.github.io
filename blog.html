@@ -1,657 +1,2483 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ujwal Tric & Blog Posts</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="pro.png">
-    <style>
-        /* LUXURY SYSTEM DESIGN RESET */
-        * { 
-            box-sizing: border-box; 
-            margin: 0; 
-            padding: 0; 
-        }
-        
-        html, body {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        body {
-            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-            background: linear-gradient(135deg, #f8fafc, #f1f5f9, #e2e8f0);
-            color: #0f172a;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
+<title>Ujwal Tric & Blog Posts</title>
 
-        /* HEADER PLATFORM */
-        header { 
-            text-align: center; 
-            padding: 50px 20px 30px 20px; 
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-        }
-        
-        header h1 {
-            font-size: clamp(2.2rem, 6vw, 3.5rem);
-            font-weight: 800;
-            letter-spacing: -1.5px;
-            background: linear-gradient(90deg, #2563eb, #db2777, #06b6d4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 12px;
-            line-height: 1.2;
-        }
-        
-        header p.subtitle { 
-            color: #475569; 
-            font-size: clamp(1rem, 2vw, 1.15rem); 
-            font-weight: 500;
-            letter-spacing: -0.2px;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        /* LIQUID RESPONSIVE GRID WRAPPER */
-        .posts-container {
-            flex: 1; 
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 24px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px 60px 24px;
-            width: 100%;
-            align-items: stretch; /* Ensures cards match height perfectly */
-        }
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-        /* PERFECTED LAYOUT CARD FRAMEWORK */
-        .post-block {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 28px;
-            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.03);
-            border: 1px solid rgba(15, 23, 42, 0.06);
-            display: flex;
-            flex-direction: column;
-            height: 100%; /* Ensures beautiful card matching */
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
-        }
-        
-        .post-block:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 35px rgba(15, 23, 42, 0.08);
-            border-color: rgba(37, 99, 235, 0.2);
-        }
+<link rel="icon" type="image/png" href="pro.png">
 
-        .post-category { 
-            font-size: 0.75rem; 
-            text-transform: uppercase; 
-            color: #2563eb; 
-            font-weight: 700; 
-            letter-spacing: 0.8px;
-            margin-bottom: 10px; 
-        }
-        
-        .post-title { 
-            font-size: 1.35rem; 
-            font-weight: 700;
-            margin-bottom: 12px; 
-            color: #0f172a; 
-            line-height: 1.4; 
-            letter-spacing: -0.3px;
-        }
+<style>
 
-        .post-excerpt { 
-            color: #475569; 
-            font-size: 0.98rem; 
-            margin-bottom: 24px; 
-            flex-grow: 1; 
-        }
-        
-        .hidden-content { 
-            display: none; 
-        }
-        
-        .see-more-link {
-            color: #2563eb;
-            cursor: pointer;
-            font-weight: 700;
-            text-decoration: none;
-            margin-left: 4px;
-            display: inline-block;
-        }
-        
-        .see-more-link:hover {
-            text-decoration: underline;
-        }
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
 
-        .read-more-btn {
-            align-self: flex-start;
-            background-color: #0f172a;
-            color: #ffffff;
-            padding: 10px 22px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 0.88rem;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
-        
-        .read-more-btn:hover {
-            background-color: #2563eb;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        /* ADAPTIVE STICKY FOOTER FRAMEWORK */
-        footer {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-top: 1px solid rgba(15, 23, 42, 0.06);
-            padding: 24px 0;
-            margin-top: auto;
-        }
+html{
+    scroll-behavior:smooth;
+}
 
-        .footer-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
+body{
+    min-height:100vh;
+    font-family:"Plus Jakarta Sans",system-ui,sans-serif;
+    color:#0f172a;
+    background:
+        radial-gradient(circle at 10% 10%,rgba(37,99,235,.09),transparent 30%),
+        radial-gradient(circle at 90% 20%,rgba(124,58,237,.08),transparent 28%),
+        radial-gradient(circle at 50% 100%,rgba(6,182,212,.07),transparent 30%),
+        linear-gradient(135deg,#f8fafc,#eef2f7,#f8fafc);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+}
 
-        .footer-left { 
-            display: flex; 
-            align-items: center; 
-            gap: 14px; 
-            color: #64748b; 
-            font-size: 0.9rem; 
-            flex-wrap: wrap;
-        }
-        
-        .footer-left a { 
-            color: #2563eb; 
-            text-decoration: none; 
-            font-weight: 600; 
-        }
-        
-        .footer-left a:hover {
-            text-decoration: underline;
-        }
-        
-        .footer-right { 
-            display: flex; 
-            gap: 12px; 
-        }
-        
-        .footer-icon {
-            width: 40px; 
-            height: 40px; 
-            border-radius: 50%; 
-            display: flex;
-            align-items: center; 
-            justify-content: center; 
-            color: #ffffff;
-            transition: transform 0.2s ease;
-        }
-        
-        .footer-icon:hover { 
-            transform: translateY(-3px); 
-        }
-        
-        .footer-icon.fb { background: #1877f2; }
-        .footer-icon.yt { background: #ff0000; }
+/* =========================================================
+   TOP HEADER
+   MAIN TITLE IS PRESERVED
+========================================================= */
 
-        /* MULTI-DEVICE GRID BREAKPOINTS */
-        @media (min-width: 680px) { 
-            .posts-container { grid-template-columns: repeat(2, 1fr); } 
-        }
-        @media (min-width: 992px) { 
-            .posts-container { grid-template-columns: repeat(3, 1fr); } 
-        }
-        @media (max-width: 679px) {
-            header { padding: 35px 20px 15px 20px; }
-            .post-block { padding: 22px; border-radius: 14px; }
-            .footer-inner { flex-direction: column-reverse; text-align: center; gap: 20px; }
-            .footer-left { flex-direction: column; gap: 6px; }
-        }
-    </style>
+header{
+    width:100%;
+    max-width:1250px;
+    margin:auto;
+    text-align:center;
+    padding:70px 20px 35px;
+    position:relative;
+}
+
+header::before{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    left:50%;
+    top:20px;
+    transform:translateX(-50%);
+    background:rgba(37,99,235,.08);
+    filter:blur(60px);
+    border-radius:50%;
+    pointer-events:none;
+}
+
+header h1{
+    position:relative;
+    z-index:1;
+
+    font-family:"Outfit",sans-serif;
+    font-size:clamp(2.25rem,6vw,4.4rem);
+    line-height:1.05;
+    font-weight:900;
+    letter-spacing:-2.5px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #0f172a 5%,
+            #2563eb 35%,
+            #7c3aed 58%,
+            #db2777 80%,
+            #06b6d4
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    animation:titleReveal 1s cubic-bezier(.16,1,.3,1) both;
+}
+
+header p.subtitle{
+    position:relative;
+    z-index:1;
+
+    margin-top:15px;
+
+    color:#64748b;
+    font-size:clamp(.9rem,2vw,1.1rem);
+    font-weight:600;
+    letter-spacing:.2px;
+
+    animation:subtitleReveal 1s .15s cubic-bezier(.16,1,.3,1) both;
+}
+
+@keyframes titleReveal{
+    from{
+        opacity:0;
+        transform:translateY(25px) scale(.97);
+        filter:blur(8px);
+    }
+    to{
+        opacity:1;
+        transform:none;
+        filter:blur(0);
+    }
+}
+
+@keyframes subtitleReveal{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+
+/* =========================================================
+   POSTS AREA
+========================================================= */
+
+.posts-container{
+    width:100%;
+    max-width:1280px;
+    margin:0 auto;
+
+    padding:
+        20px 24px 75px;
+
+    display:grid;
+
+    grid-template-columns:1fr;
+
+    gap:25px;
+
+    position:relative;
+    isolation:isolate;
+}
+
+/* FLOATING BACKGROUND LIGHTS */
+
+.posts-container::before,
+.posts-container::after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:-1;
+    animation:ambientFloat 8s ease-in-out infinite alternate;
+}
+
+.posts-container::before{
+    width:400px;
+    height:400px;
+    left:-230px;
+    top:100px;
+    background:radial-gradient(
+        circle,
+        rgba(37,99,235,.12),
+        transparent 68%
+    );
+}
+
+.posts-container::after{
+    width:450px;
+    height:450px;
+    right:-250px;
+    bottom:100px;
+    background:radial-gradient(
+        circle,
+        rgba(219,39,119,.10),
+        transparent 68%
+    );
+    animation-delay:2s;
+}
+
+@keyframes ambientFloat{
+    from{
+        transform:translate3d(0,0,0) scale(1);
+    }
+    to{
+        transform:translate3d(0,-35px,0) scale(1.08);
+    }
+}
+
+/* =========================================================
+   PREMIUM POST CARD
+========================================================= */
+
+.post-block{
+    position:relative;
+    overflow:hidden;
+    isolation:isolate;
+
+    min-width:0;
+    min-height:350px;
+
+    display:flex;
+    flex-direction:column;
+
+    padding:29px;
+
+    border-radius:26px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.98),
+            rgba(248,250,252,.91)
+        );
+
+    border:1px solid rgba(148,163,184,.20);
+
+    box-shadow:
+        0 15px 40px rgba(15,23,42,.055),
+        0 3px 8px rgba(15,23,42,.035);
+
+    opacity:0;
+    transform:translateY(55px) scale(.97);
+
+    transition:
+        transform .55s cubic-bezier(.16,1,.3,1),
+        box-shadow .55s ease,
+        border-color .4s ease,
+        background .4s ease;
+}
+
+/* SCROLL REVEAL */
+
+.post-block.visible{
+    opacity:1;
+    transform:translateY(0) scale(1);
+}
+
+/* TOP LIGHT LINE */
+
+.post-block::before{
+    content:"";
+
+    position:absolute;
+    left:0;
+    top:0;
+
+    width:100%;
+    height:4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #7c3aed,
+            #db2777,
+            #06b6d4
+        );
+
+    background-size:250% 100%;
+
+    transform:scaleX(0);
+    transform-origin:left;
+
+    transition:transform .7s cubic-bezier(.16,1,.3,1);
+
+    animation:gradientMove 5s linear infinite;
+}
+
+@keyframes gradientMove{
+    0%{background-position:0% 50%}
+    100%{background-position:250% 50%}
+}
+
+/* CARD GLOW */
+
+.post-block::after{
+    content:"";
+
+    position:absolute;
+
+    width:230px;
+    height:230px;
+
+    right:-125px;
+    top:-125px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(37,99,235,.14),
+            transparent 68%
+        );
+
+    z-index:-1;
+
+    transition:
+        transform .7s ease,
+        opacity .7s ease;
+}
+
+.post-block:hover{
+    transform:translateY(-10px) scale(1.012);
+
+    border-color:rgba(37,99,235,.28);
+
+    box-shadow:
+        0 30px 70px rgba(15,23,42,.12),
+        0 8px 25px rgba(37,99,235,.08);
+}
+
+.post-block:hover::before{
+    transform:scaleX(1);
+}
+
+.post-block:hover::after{
+    transform:scale(1.8);
+    opacity:.8;
+}
+
+/* =========================================================
+   POST TOP
+========================================================= */
+
+.post-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:14px;
+
+    margin-bottom:21px;
+}
+
+/* CATEGORY */
+
+.post-category{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    max-width:calc(100% - 52px);
+
+    padding:7px 12px;
+
+    border-radius:999px;
+
+    color:#2563eb;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37,99,235,.09),
+            rgba(6,182,212,.06)
+        );
+
+    border:1px solid rgba(37,99,235,.13);
+
+    font-size:.67rem;
+    font-weight:800;
+    letter-spacing:.75px;
+    text-transform:uppercase;
+
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+
+    transition:
+        transform .35s ease,
+        background .35s ease,
+        box-shadow .35s ease;
+}
+
+.post-category::before{
+    content:"";
+
+    width:7px;
+    height:7px;
+
+    flex:0 0 7px;
+
+    border-radius:50%;
+
+    background:currentColor;
+
+    box-shadow:
+        0 0 0 4px rgba(37,99,235,.08);
+
+    animation:dotPulse 2s ease-in-out infinite;
+}
+
+@keyframes dotPulse{
+    0%,100%{
+        transform:scale(1);
+        opacity:1;
+    }
+    50%{
+        transform:scale(.7);
+        opacity:.55;
+    }
+}
+
+/* NUMBER */
+
+.post-number{
+    width:40px;
+    height:40px;
+
+    flex:0 0 40px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:13px;
+
+    color:#2563eb;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(37,99,235,.09),
+            rgba(124,58,237,.07)
+        );
+
+    border:1px solid rgba(37,99,235,.12);
+
+    font-family:"Outfit",sans-serif;
+    font-size:.8rem;
+    font-weight:800;
+
+    transition:
+        transform .4s cubic-bezier(.16,1,.3,1),
+        color .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
+}
+
+.post-block:hover .post-number{
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    transform:
+        rotate(-6deg)
+        scale(1.1);
+
+    box-shadow:
+        0 8px 20px rgba(37,99,235,.25);
+}
+
+/* =========================================================
+   POST TITLE
+========================================================= */
+
+.post-title{
+    margin-bottom:15px;
+
+    font-family:"Outfit",sans-serif;
+
+    font-size:
+        clamp(
+            1.2rem,
+            1.7vw,
+            1.48rem
+        );
+
+    line-height:1.3;
+
+    font-weight:800;
+
+    letter-spacing:-.55px;
+
+    color:#0f172a;
+
+    transition:
+        color .3s ease,
+        transform .3s ease;
+}
+
+.post-block:hover .post-title{
+    color:#1d4ed8;
+    transform:translateX(2px);
+}
+
+/* =========================================================
+   EXCERPT
+========================================================= */
+
+.post-excerpt{
+    flex:1;
+
+    margin-bottom:25px;
+
+    color:#64748b;
+
+    font-size:.91rem;
+
+    line-height:1.75;
+}
+
+.hidden-content{
+    display:none;
+    animation:textReveal .35s ease both;
+}
+
+@keyframes textReveal{
+    from{
+        opacity:0;
+        transform:translateY(5px);
+    }
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+
+/* SEE MORE */
+
+.see-more-link{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+
+    margin-left:4px;
+
+    color:#2563eb;
+
+    font-size:.83rem;
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:
+        color .25s ease,
+        transform .25s ease;
+}
+
+.see-more-link::after{
+    content:"→";
+
+    transition:
+        transform .25s ease;
+}
+
+.see-more-link:hover{
+    color:#7c3aed;
+    transform:translateX(3px);
+}
+
+.see-more-link:hover::after{
+    transform:translateX(4px);
+}
+
+/* =========================================================
+   POST BOTTOM
+========================================================= */
+
+.post-bottom{
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    gap:15px;
+
+    padding-top:19px;
+
+    border-top:
+        1px solid rgba(148,163,184,.17);
+}
+
+.post-label{
+    color:#94a3b8;
+
+    font-family:"Outfit",sans-serif;
+
+    font-size:.69rem;
+    font-weight:800;
+
+    letter-spacing:.65px;
+
+    max-width:55%;
+
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+/* =========================================================
+   READ BUTTON
+========================================================= */
+
+.read-more-btn{
+    position:relative;
+    overflow:hidden;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+
+    flex-shrink:0;
+
+    padding:11px 17px;
+
+    min-height:42px;
+
+    border-radius:13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #1e293b
+        );
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:.77rem;
+    font-weight:800;
+
+    box-shadow:
+        0 7px 18px rgba(15,23,42,.13);
+
+    transition:
+        transform .35s cubic-bezier(.16,1,.3,1),
+        background .35s ease,
+        box-shadow .35s ease;
+}
+
+.read-more-btn::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-130%;
+
+    width:80%;
+    height:100%;
+
+    transform:skewX(-20deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.28),
+            transparent
+        );
+
+    transition:left .65s ease;
+}
+
+.read-more-btn::after{
+    content:"→";
+
+    font-size:1rem;
+
+    transition:transform .3s ease;
+}
+
+.read-more-btn:hover{
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 12px 28px rgba(37,99,235,.25);
+}
+
+.read-more-btn:hover::before{
+    left:140%;
+}
+
+.read-more-btn:hover::after{
+    transform:translateX(4px);
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width:680px){
+
+    .posts-container{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+}
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width:1050px){
+
+    .posts-container{
+        grid-template-columns:
+            repeat(3,minmax(0,1fr));
+
+        gap:28px;
+    }
+
+}
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width:1450px){
+
+    .posts-container{
+        max-width:1400px;
+        gap:30px;
+    }
+
+    .post-block{
+        min-height:365px;
+        padding:32px;
+    }
+
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width:679px){
+
+    header{
+        padding:
+            48px 18px 25px;
+    }
+
+    header h1{
+        letter-spacing:-1.5px;
+    }
+
+    header p.subtitle{
+        margin-top:12px;
+    }
+
+    .posts-container{
+        padding:
+            12px 15px 50px;
+
+        gap:18px;
+    }
+
+    .post-block{
+        min-height:0;
+
+        padding:
+            22px 20px;
+
+        border-radius:22px;
+
+        transform:
+            translateY(35px)
+            scale(.98);
+    }
+
+    .post-block:hover{
+        transform:
+            translateY(-4px)
+            scale(1.005);
+    }
+
+    .post-top{
+        margin-bottom:17px;
+    }
+
+    .post-number{
+        width:36px;
+        height:36px;
+        flex-basis:36px;
+
+        border-radius:11px;
+    }
+
+    .post-category{
+        font-size:.61rem;
+        padding:6px 10px;
+    }
+
+    .post-title{
+        font-size:1.16rem;
+        line-height:1.36;
+        letter-spacing:-.35px;
+    }
+
+    .post-excerpt{
+        font-size:.86rem;
+        line-height:1.72;
+    }
+
+    .post-bottom{
+        flex-direction:column;
+        align-items:stretch;
+
+        gap:12px;
+    }
+
+    .post-label{
+        display:none;
+    }
+
+    .read-more-btn{
+        width:100%;
+        min-height:45px;
+        padding:12px 15px;
+    }
+
+}
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width:390px){
+
+    header{
+        padding-top:40px;
+    }
+
+    .posts-container{
+        padding-left:11px;
+        padding-right:11px;
+    }
+
+    .post-block{
+        padding:
+            19px 17px;
+
+        border-radius:20px;
+    }
+
+    .post-title{
+        font-size:1.08rem;
+    }
+
+    .post-excerpt{
+        font-size:.83rem;
+    }
+
+}
+
+/* =========================================================
+   LANDSCAPE PHONES
+========================================================= */
+
+@media (max-height:500px) and (orientation:landscape){
+
+    header{
+        padding-top:30px;
+        padding-bottom:20px;
+    }
+
+    .posts-container{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+    }
+
+}
+
+/* =========================================================
+   FOOTER
+   PRESERVED
+========================================================= */
+
+footer{
+    width:100%;
+
+    background:
+        rgba(255,255,255,.82);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border-top:
+        1px solid rgba(15,23,42,.07);
+
+    padding:24px 0;
+
+    margin-top:auto;
+}
+
+.footer-inner{
+    max-width:1200px;
+
+    margin:0 auto;
+
+    padding:
+        0 24px;
+
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:16px;
+}
+
+.footer-left{
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    color:#64748b;
+
+    font-size:.9rem;
+
+    flex-wrap:wrap;
+}
+
+.footer-left a{
+    color:#2563eb;
+
+    text-decoration:none;
+
+    font-weight:600;
+}
+
+.footer-left a:hover{
+    text-decoration:underline;
+}
+
+.footer-right{
+    display:flex;
+    gap:12px;
+}
+
+.footer-icon{
+    width:40px;
+    height:40px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:white;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.footer-icon:hover{
+    transform:
+        translateY(-4px)
+        scale(1.06);
+
+    box-shadow:
+        0 8px 18px rgba(15,23,42,.16);
+}
+
+.footer-icon.fb{
+    background:#1877f2;
+}
+
+.footer-icon.yt{
+    background:#ff0000;
+}
+
+@media (max-width:679px){
+
+    .footer-inner{
+        flex-direction:column-reverse;
+
+        text-align:center;
+
+        gap:20px;
+    }
+
+    .footer-left{
+        flex-direction:column;
+
+        gap:6px;
+    }
+
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion:reduce){
+
+    html{
+        scroll-behavior:auto;
+    }
+
+    *,
+    *::before,
+    *::after{
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:.01ms !important;
+    }
+
+    .post-block{
+        opacity:1;
+        transform:none;
+    }
+
+}
+
+</style>
 </head>
+
+
 <body>
 
-    <header>
-        <h1>Ujwal Tric & Blog Posts</h1>
-        <p class="subtitle">Latest Updates & Insights</p>
-    </header>
+<!-- =========================================================
+     HEADER
+========================================================= -->
 
-    <main class="posts-container">
-        
-        <article class="post-block">
-            <span class="post-category">Technology</span>
-            <h2 class="post-title">How Bluetooth Works: The Ultimate Guide to Wireless Connectivity</h2>
-            
-            <div class="post-excerpt" id="excerpt-1">
-                Bluetooth uses rapid frequency-hopping across the 2.4 GHz spectrum to maintain a secure, interference-resistant connection between devices...
-                <span class="hidden-content" id="more-1">
-                    It is a standardized, short-range protocol engineered specifically for low-power, direct wireless communication without the need for a central network.
-                </span>
-                
-                <span class="see-more-link" onclick="toggleText(event, '1')">See More</span>
-            </div>
+<header>
 
-            <a href="post1.html" class="read-more-btn">Read Full Post</a>
-        </article>
-      
-        <article class="post-block">
-            <span class="post-category">Technology</span>
-            <h2 class="post-title">How Wi-Fi Works: The Ultimate Guide to Wireless Connectivity</h2>
-            
-            <div class="post-excerpt" id="excerpt-2">
-                Wi-Fi uses radio frequency bands to transmit data packets through the air...
-                <span class="hidden-content" id="more-2">
-                    providing high-speed, local area network access without physical cables.
-                </span>
-                
-                <span class="see-more-link" onclick="toggleText(event, '2')">See More</span>
-            </div>
+    <h1>Ujwal Tric & Blog Posts</h1>
 
-            <a href="post2.html" class="read-more-btn">Read Full Post</a>
-        </article>
+    <p class="subtitle">
+        Latest Updates & Insights
+    </p>
 
-        <article class="post-block">
-            <span class="post-category">Technology</span>
-            <h2 class="post-title">How 5G Works: The Ultimate Guide to Cellular Connectivity</h2>
-            
-            <div class="post-excerpt" id="excerpt-3">
-                5G uses high-frequency millimeter waves and advanced beamforming...
-                <span class="hidden-content" id="more-3">
-                    to deliver lightning-fast mobile internet speeds and ultra-low latency worldwide.
-                </span>
-                
-                <span class="see-more-link" onclick="toggleText(event, '3')">See More</span>
-            </div>
+</header>
 
-            <a href="post3.html" class="read-more-btn">Read Full Post</a>
-        </article>
-        <article class="post-block">
-            <span class="post-category">Technology</span>
-            <h2 class="post-title">How USB-C Works: The Ultimate Guide to Universal Connectivity</h2>
-            
-            <div class="post-excerpt" id="excerpt-5">
-                USB-C uses a symmetrical 24-pin connector layout that delivers high-speed data transfer, power delivery...
-                <span class="hidden-content" id="more-4">
-                    and high-resolution video output all through a single, reversible cable standard.
-                </span>
-                
-                <span class="see-more-link" onclick="toggleText(event, '4')">See More</span>
-            </div>
 
-            <a href="post4.html" class="read-more-btn">Read Full Post</a>
-        </article>
-        <article class="post-block">
-    <span class="post-category">Technology</span>
-    <h2 class="post-title">How SSDs Work: The Ultimate Guide to Modern Data Storage</h2>
-    
-    <div class="post-excerpt" id="excerpt-ssds">
-        Solid-State Drives (SSDs) use microscopic NAND flash memory grids and high-speed controllers to deliver lightning-fast data retrieval...
-        <span class="hidden-content" id="more-5">
-            and high-bandwidth NVMe performance, completely replacing mechanical parts with advanced semiconductor storage.
-        </span>
-        
-        <span class="see-more-link" onclick="toggleText(event, '5')">See More</span>
-    </div>
+<!-- =========================================================
+     POSTS
+========================================================= -->
 
-    <a href="post5.html" class="read-more-btn">Read Full Post</a>
+<main class="posts-container">
+
+
+<!-- POST 01 -->
+
+<article class="post-block">
+
+<div class="post-top">
+
+<span class="post-category">
+Technology
+</span>
+
+<span class="post-number">
+01
+</span>
+
+</div>
+
+<h2 class="post-title">
+How Bluetooth Works: The Ultimate Guide to Wireless Connectivity
+</h2>
+
+<div class="post-excerpt">
+
+Bluetooth uses rapid frequency-hopping across the 2.4 GHz spectrum to maintain a secure, interference-resistant connection between devices...
+
+<span class="hidden-content" id="more-1">
+It is a standardized, short-range protocol engineered specifically for low-power, direct wireless communication without the need for a central network.
+</span>
+
+<span class="see-more-link" onclick="toggleText(event,'1')">
+See More
+</span>
+
+</div>
+
+<div class="post-bottom">
+
+<span class="post-label">
+TECH GUIDE
+</span>
+
+<a href="post1.html" class="read-more-btn">
+Read Full Post
+</a>
+
+</div>
+
 </article>
-        <article class="post-block">
-    <span class="post-category">AI & Tech</span>
-    <h2 class="post-title">The Ultimate Guide: How Artificial Intelligence Works and Powers Our Intelligent Future</h2>
-    
-    <div class="post-excerpt" id="excerpt-ai">
-        Artificial intelligence transforms unstructured raw data into actionable insights by ingesting massive datasets to identify statistical patterns...
-        <span class="hidden-content" id="more-6">
-            Using multi-layered artificial neural networks and advanced transformer attention architectures, modern AI models can process natural language, synthesize images, and execute complex reasoning tasks.
-        </span>
-        
-        <span class="see-more-link" onclick="toggleText(event, '6')">See More</span>
-    </div>
 
-    <a href="post6.html" class="read-more-btn">Read Full Post</a>
+
+<!-- POST 02 -->
+
+<article class="post-block">
+
+<div class="post-top">
+
+<span class="post-category">
+Technology
+</span>
+
+<span class="post-number">
+02
+</span>
+
+</div>
+
+<h2 class="post-title">
+How Wi-Fi Works: The Ultimate Guide to Wireless Connectivity
+</h2>
+
+<div class="post-excerpt">
+
+Wi-Fi uses radio frequency bands to transmit data packets through the air...
+
+<span class="hidden-content" id="more-2">
+providing high-speed, local area network access without physical cables.
+</span>
+
+<span class="see-more-link" onclick="toggleText(event,'2')">
+See More
+</span>
+
+</div>
+
+<div class="post-bottom">
+
+<span class="post-label">
+TECH GUIDE
+</span>
+
+<a href="post2.html" class="read-more-btn">
+Read Full Post
+</a>
+
+</div>
+
 </article>
- <article class="post-block">
-    <span class="post-category">Cybersecurity</span>
-    <h2 class="post-title">The Ultimate Guide: How End-to-End Encryption Secures Your Digital Communication</h2>
-    
-    <div class="post-excerpt" id="excerpt-crypto">
-        End-to-end encryption ensures that only communicating users can read messages, completely shielding data from intermediaries and third-party servers...
-        <span class="hidden-content" id="more-7">
-            By utilizing complex asymmetric cryptographic keys generated directly on user devices, messages are locked securely before transmission and can only be unlocked with the intended recipient's private key.
-        </span>
-        
-        <span class="see-more-link" onclick="toggleText(event, '7')">See More</span>
-    </div>
 
-    <a href="post.7.html" class="read-more-btn">Read Full Post</a>
+
+<!-- POST 03 -->
+
+<article class="post-block">
+
+<div class="post-top">
+
+<span class="post-category">
+Technology
+</span>
+
+<span class="post-number">
+03
+</span>
+
+</div>
+
+<h2 class="post-title">
+How 5G Works: The Ultimate Guide to Cellular Connectivity
+</h2>
+
+<div class="post-excerpt">
+
+5G uses high-frequency millimeter waves and advanced beamforming...
+
+<span class="hidden-content" id="more-3">
+to deliver lightning-fast mobile internet speeds and ultra-low latency worldwide.
+</span>
+
+<span class="see-more-link" onclick="toggleText(event,'3')">
+See More
+</span>
+
+</div>
+
+<div class="post-bottom">
+
+<span class="post-label">
+NETWORKING
+</span>
+
+<a href="post3.html" class="read-more-btn">
+Read Full Post
+</a>
+
+</div>
+
 </article>
-        <article class="post-block">
-    <span class="post-category">Artificial Intelligence</span>
-    <h2 class="post-title">The Future of Artificial Intelligence: Understanding Large Language Models and Neural Networks</h2>
-    
-    <div class="post-excerpt" id="excerpt-ai">
-        Generative artificial intelligence and deep neural networks are transforming global industries by predicting statistical patterns, analyzing complex contexts, and synthesizing human-like text...
-        <span class="hidden-content" id="more-8">
-            By leveraging advanced Transformer architectures and multi-head self-attention mechanisms, modern models evaluate entire sequences simultaneously to understand rich semantic relationships.
-        </span>
-        
-        <span class="see-more-link" onclick="toggleText(event, '8')">See More</span>
-    </div>
 
-    <a href="post8.html" class="read-more-btn">Read Full Post</a>
+
+<!-- POST 04 -->
+
+<article class="post-block">
+
+<div class="post-top">
+
+<span class="post-category">
+Technology
+</span>
+
+<span class="post-number">
+04
+</span>
+
+</div>
+
+<h2 class="post-title">
+How USB-C Works: The Ultimate Guide to Universal Connectivity
+</h2>
+
+<div class="post-excerpt">
+
+USB-C uses a symmetrical 24-pin connector layout that delivers high-speed data transfer, power delivery...
+
+<span class="hidden-content" id="more-4">
+and high-resolution video output all through a single, reversible cable standard.
+</span>
+
+<span class="see-more-link" onclick="toggleText(event,'4')">
+See More
+</span>
+
+</div>
+
+<div class="post-bottom">
+
+<span class="post-label">
+HARDWARE
+</span>
+
+<a href="post4.html" class="read-more-btn">
+Read Full Post
+</a>
+
+</div>
+
 </article>
-        <article class="post-block">
-    <span class="post-category">Web Development</span>
-    <h2 class="post-title">Mastering Web Development: Essential Modern Frontend Architecture and Best Practices</h2>
-    
-    <div class="post-excerpt" id="excerpt-web">
-        Modern frontend development requires a delicate balance of scalable component architecture, high-performance optimization, and robust user-centric design principles...
-        <span class="hidden-content" id="more-9">
-            By utilizing component-driven development, CSS custom properties, and optimized asset delivery, developers can build lightning-fast, reactive web applications.
-        </span>
-        
-        <span class="see-more-link" onclick="toggleText(event, '9')">See More</span>
-    </div>
 
-    <a href="post9.html" class="read-more-btn">Read Full Post</a>
+
+<!-- POST 05 -->
+
+<article class="post-block">
+
+<div class="post-top">
+
+<span class="post-category">
+Technology
+</span>
+
+<span class="post-number">
+05
+</span>
+
+</div>
+
+<h2 class="post-title">
+How SSDs Work: The Ultimate Guide to Modern Data Storage
+</h2>
+
+<div class="post-excerpt">
+
+Solid-State Drives (SSDs) use microscopic NAND flash memory grids and high-speed controllers to deliver lightning-fast data retrieval...
+
+<span class="hidden-content" id="more-5">
+and high-bandwidth NVMe performance, completely replacing mechanical parts with advanced semiconductor storage.
+</span>
+
+<span class="see-more-link" onclick="toggleText(event,'5')">
+See More
+</span>
+
+</div>
+
+<div class="post-bottom">
+
+<span class="post-label">
+STORAGE
+</span>
+
+<a href="post5.html" class="read-more-btn">
+Read Full Post
+</a>
+
+</div>
+
 </article>
-        <article class="post-block">
-    <span class="post-category">Quantum Computing</span>
-    <h2 class="post-title">The Quantum Leap: Understanding Qubits, Superposition, and the Future of Cryptography</h2>
-    
-    <div class="post-excerpt" id="excerpt-quantum">
-        Quantum computing promises to revolutionize processing power by harnessing the principles of quantum mechanics to solve problems unsolvable by classical supercomputers...
-        <span class="hidden-content" id="more-10">
-            By utilizing qubits that exist in states of superposition and entanglement, quantum systems can perform parallel calculations, threatening current cryptographic standards while enabling breakthroughs in material science and drug discovery.
-        </span>
-        
-        <!-- Note: Ensure a global toggleText function exists in your JS for this to work -->
-        <span class="see-more-link" onclick="toggleText(event, '10')">See More</span>
-    </div>
 
-    <a href="post10.html" class="read-more-btn">Read Full Post</a>
+
+<!-- POST 06 -->
+
+<article class="post-block">
+
+<div class="post-top">
+
+<span class="post-category">
+AI & Tech
+</span>
+
+<span class="post-number">
+06
+</span>
+
+</div>
+
+<h2 class="post-title">
+The Ultimate Guide: How Artificial Intelligence Works and Powers Our Intelligent Future
+</h2>
+
+<div class="post-excerpt">
+
+Artificial intelligence transforms unstructured raw data into actionable insights by ingesting massive datasets to identify statistical patterns...
+
+<span class="hidden-content" id="more-6">
+Using multi-layered artificial neural networks and advanced transformer attention architectures, modern AI models can process natural language, synthesize images, and execute complex reasoning tasks.
+</span>
+
+<span class="see-more-link" onclick="toggleText(event,'6')">
+See More
+</span>
+
+</div>
+
+<div class="post-bottom">
+
+<span class="post-label">
+ARTIFICIAL INTELLIGENCE
+</span>
+
+<a href="post6.html" class="read-more-btn">
+Read Full Post
+</a>
+
+</div>
+
 </article>
-        <article class="post-block">
-    <span class="post-category">Blockchain Technology</span>
-    <h2 class="post-title">Demystifying Blockchain Architecture: Consensus, Smart Contracts, and Decentralization</h2>
-    
-    <div class="post-excerpt" id="excerpt-blockchain">
-        Blockchain technology is fundamentally transforming how we conceptualize digital trust, moving beyond cryptocurrency into secure, transparent, and immutable decentralized ecosystems...
-        <span class="hidden-content" id="more-11">
-            By utilizing cryptographic hashing and distributed consensus mechanisms like Proof of Work or Stake, blockchain architecture ensures data integrity without relying on central authorities, powering the next generation of Web3 applications.
-        </span>
-        
-        <!-- Note: Ensure a global toggleText function exists in your JS for this to work -->
-        <span class="see-more-link" onclick="toggleText(event, '11')">See More</span>
-    </div>
 
-    <a href="post11.html" class="read-more-btn">Read Full Post</a>
+
+<!-- POST 07 -->
+
+<article class="post-block">
+
+<div class="post-top">
+
+<span class="post-category">
+Cybersecurity
+</span>
+
+<span class="post-number">
+07
+</span>
+
+</div>
+
+<h2 class="post-title">
+The Ultimate Guide: How End-to-End Encryption Secures Your Digital Communication
+</h2>
+
+<div class="post-excerpt">
+
+End-to-end encryption ensures that only communicating users can read messages, completely shielding data from intermediaries and third-party servers...
+
+<span class="hidden-content" id="more-7">
+By utilizing complex asymmetric cryptographic keys generated directly on user devices, messages are locked securely before transmission and can only be unlocked with the intended recipient's private key.
+</span>
+
+<span class="see-more-link" onclick="toggleText(event,'7')">
+See More
+</span>
+
+</div>
+
+<div class="post-bottom">
+
+<span class="post-label">
+SECURITY
+</span>
+
+<a href="post.7.html" class="read-more-btn">
+Read Full Post
+</a>
+
+</div>
+
 </article>
-        <article class="post-block">
-    <span class="post-category">Cybersecurity</span>
-    <h2 class="post-title">The Rise of Cybersecurity Engineering: Zero Trust Architecture and Modern Threat Defense</h2>
-    
-    <div class="post-excerpt" id="excerpt-cybersecurity">
-        Modern enterprise infrastructure requires a shift away from traditional perimeter defenses toward proactive, resilient frameworks that protect critical assets...
-        <span class="hidden-content" id="more-12">
-            By implementing Zero Trust architecture, continuous identity verification, and automated threat intelligence, organizations can isolate risks and mitigate sophisticated cyber attacks in real time.
-        </span>
-        
-        <!-- Note: Ensure a global toggleText function exists in your JS for this to work -->
-        <span class="see-more-link" onclick="toggleText(event, '12')">See More</span>
-    </div>
 
-    <a href="post12.html" class="read-more-btn">Read Full Post</a>
+
+<!-- POST 08 -->
+
+<article class="post-block">
+
+<div class="post-top">
+
+<span class="post-category">
+Artificial Intelligence
+</span>
+
+<span class="post-number">
+08
+</span>
+
+</div>
+
+<h2 class="post-title">
+The Future of Artificial Intelligence: Understanding Large Language Models and Neural Networks
+</h2>
+
+<div class="post-excerpt">
+
+Generative artificial intelligence and deep neural networks are transforming global industries by predicting statistical patterns, analyzing complex contexts, and synthesizing human-like text...
+
+<span class="hidden-content" id="more-8">
+By leveraging advanced Transformer architectures and multi-head self-attention mechanisms, modern models evaluate entire sequences simultaneously to understand rich semantic relationships.
+</span>
+
+<span class="see-more-link" onclick="toggleText(event,'8')">
+See More
+</span>
+
+</div>
+
+<div class="post-bottom">
+
+<span class="post-label">
+AI FUTURE
+</span>
+
+<a href="post8.html" class="read-more-btn">
+Read Full Post
+</a>
+
+</div>
+
 </article>
-        <article class="post-block">
-    <span class="post-category">Edge Computing & IoT</span>
-    <h2 class="post-title">The Neural Horizon: Edge AI, IoT, and Distributed Intelligence Systems</h2>
-    
-    <div class="post-excerpt" id="excerpt-edge">
-        Traditional cloud-based artificial intelligence relies on centralized data centers, but the rise of the Internet of Things demands ultra-low latency, shifting intelligence directly to local edge devices...
-        <span class="hidden-content" id="more-13">
-            By deploying quantized machine learning models onto dedicated neural processing units (NPUs), local hardware achieves microsecond response times and full offline autonomy.
-        </span>
-        
-        <span class="see-more-link" onclick="toggleText(event, '13')">See More</span>
-    </div>
 
-    <a href="post13.html" class="read-more-btn">Read Full Post</a>
+
+<!-- POST 09 -->
+
+<article class="post-block">
+
+<div class="post-top">
+
+<span class="post-category">
+Web Development
+</span>
+
+<span class="post-number">
+09
+</span>
+
+</div>
+
+<h2 class="post-title">
+Mastering Web Development: Essential Modern Frontend Architecture and Best Practices
+</h2>
+
+<div class="post-excerpt">
+
+Modern frontend development requires a delicate balance of scalable component architecture, high-performance optimization, and robust user-centric design principles...
+
+<span class="hidden-content" id="more-9">
+By utilizing component-driven development, CSS custom properties, and optimized asset delivery, developers can build lightning-fast, reactive web applications.
+</span>
+
+<span class="see-more-link" onclick="toggleText(event,'9')">
+See More
+</span>
+
+</div>
+
+<div class="post-bottom">
+
+<span class="post-label">
+DEVELOPMENT
+</span>
+
+<a href="post9.html" class="read-more-btn">
+Read Full Post
+</a>
+
+</div>
+
 </article>
-        <article class="post-block">
-    <span class="post-category">Cybersecurity & Encryption</span>
-    <h2 class="post-title">Cybersecurity in the Era of Quantum Threats: Safeguarding Digital Infrastructure</h2>
-    
-    <div class="post-excerpt" id="excerpt-quantum">
-        Modern global digital security relies heavily on standard public-key cryptography to protect sensitive data, but the rapid advancement of quantum computing threatens to render traditional algorithms obsolete...
-        <span class="hidden-content" id="more-14">
-            By utilizing complex lattice-based cryptography and post-quantum key encapsulation mechanisms, modern security frameworks defend against Shor's algorithm and "Harvest Now, Decrypt Later" attacks.
-        </span>
-        
-        <span class="see-more-link" onclick="toggleText(event, '14')">See More</span>
-    </div>
 
-    <a href="post14.html" class="read-more-btn">Read Full Post</a>
+
+<!-- POST 10 -->
+
+<article class="post-block">
+
+<div class="post-top">
+
+<span class="post-category">
+Quantum Computing
+</span>
+
+<span class="post-number">
+10
+</span>
+
+</div>
+
+<h2 class="post-title">
+The Quantum Leap: Understanding Qubits, Superposition, and the Future of Cryptography
+</h2>
+
+<div class="post-excerpt">
+
+Quantum computing promises to revolutionize processing power by harnessing the principles of quantum mechanics to solve problems unsolvable by classical supercomputers...
+
+<span class="hidden-content" id="more-10">
+By utilizing qubits that exist in states of superposition and entanglement, quantum systems can perform parallel calculations, threatening current cryptographic standards while enabling breakthroughs in material science and drug discovery.
+</span>
+
+<span class="see-more-link" onclick="toggleText(event,'10')">
+See More
+</span>
+
+</div>
+
+<div class="post-bottom">
+
+<span class="post-label">
+QUANTUM TECH
+</span>
+
+<a href="post10.html" class="read-more-btn">
+Read Full Post
+</a>
+
+</div>
+
 </article>
-        <article class="post-block">
-    <span class="post-category">Autonomous Systems & Robotics</span>
-    <h2 class="post-title">The Architecture of Autonomous Systems: Robotics, Swarm Intelligence, and Spatial Computing</h2>
-    
-    <div class="post-excerpt" id="excerpt-autonomous">
-        Modern automation has evolved far beyond rigid factory assembly lines into dynamic environments where self-governing machines perceive, reason, and adapt in real-time...
-        <span class="hidden-content" id="more-15">
-            By leveraging simultaneous localization and mapping (SLAM), multi-sensor fusion, and decentralized swarm intelligence, autonomous robots navigate unstructured physical spaces with zero manual intervention.
-        </span>
-        
-        <span class="see-more-link" onclick="toggleText(event, '15')">See More</span>
-    </div>
 
-    <a href="post15.html" class="read-more-btn">Read Full Post</a>
+
+<!-- POST 11 -->
+
+<article class="post-block">
+
+<div class="post-top">
+
+<span class="post-category">
+Blockchain Technology
+</span>
+
+<span class="post-number">
+11
+</span>
+
+</div>
+
+<h2 class="post-title">
+Demystifying Blockchain Architecture: Consensus, Smart Contracts, and Decentralization
+</h2>
+
+<div class="post-excerpt">
+
+Blockchain technology is fundamentally transforming how we conceptualize digital trust, moving beyond cryptocurrency into secure, transparent, and immutable decentralized ecosystems...
+
+<span class="hidden-content" id="more-11">
+By utilizing cryptographic hashing and distributed consensus mechanisms like Proof of Work or Stake, blockchain architecture ensures data integrity without relying on central authorities, powering the next generation of Web3 applications.
+</span>
+
+<span class="see-more-link" onclick="toggleText(event,'11')">
+See More
+</span>
+
+</div>
+
+<div class="post-bottom">
+
+<span class="post-label">
+WEB3
+</span>
+
+<a href="post11.html" class="read-more-btn">
+Read Full Post
+</a>
+
+</div>
+
 </article>
-        <article class="post-block">
-    <span class="post-category">Physical AI & Robotics</span>
-    <h2 class="post-title">The Rise of Physical AI: When Code Steps Into the Real World</h2>
-    
-    <div class="post-excerpt" id="excerpt-physical-ai">
-        Physical AI bridges the virtual mind and the physical world, allowing advanced machine learning to power robots and automated hardware...
-        <span class="hidden-content" id="more-16">
-            By integrating real-time spatial awareness, edge computing, and adaptive actuation, intelligent systems can navigate and manipulate dynamic environments without human hand-holding.
-        </span>
-        
-        <span class="see-more-link" onclick="toggleText(event, '16')">See More</span>
-    </div>
 
-    <a href="post16.html" class="read-more-btn">Read Full Post</a>
+
+<!-- POST 12 -->
+
+<article class="post-block">
+
+<div class="post-top">
+
+<span class="post-category">
+Cybersecurity
+</span>
+
+<span class="post-number">
+12
+</span>
+
+</div>
+
+<h2 class="post-title">
+The Rise of Cybersecurity Engineering: Zero Trust Architecture and Modern Threat Defense
+</h2>
+
+<div class="post-excerpt">
+
+Modern enterprise infrastructure requires a shift away from traditional perimeter defenses toward proactive, resilient frameworks that protect critical assets...
+
+<span class="hidden-content" id="more-12">
+By implementing Zero Trust architecture, continuous identity verification, and automated threat intelligence, organizations can isolate risks and mitigate sophisticated cyber attacks in real time.
+</span>
+
+<span class="see-more-link" onclick="toggleText(event,'12')">
+See More
+</span>
+
+</div>
+
+<div class="post-bottom">
+
+<span class="post-label">
+CYBER DEFENSE
+</span>
+
+<a href="post12.html" class="read-more-btn">
+Read Full Post
+</a>
+
+</div>
+
 </article>
-        <article class="post-block">
-    <span class="post-category">Quantum Computing</span>
-    <h2 class="post-title">The Architecture of Quantum Computing: Beyond Binary Bits</h2>
-    
-    <div class="post-excerpt" id="excerpt-quantum">
-        Quantum computing trades classical predictability for the counterintuitive laws of quantum mechanics, moving past binary limits...
-        <span class="hidden-content" id="more-17">
-            By utilizing qubits in superposition and entangled states, quantum systems evaluate complex multi-variable problems simultaneously across advanced cryogenic hardware.
-        </span>
-        
-        <span class="see-more-link" onclick="toggleText(event, '17')">See More</span>
-    </div>
 
-    <a href="post17.html" class="read-more-btn">Read Full Post</a>
+
+<!-- POST 13 -->
+
+<article class="post-block">
+
+<div class="post-top">
+
+<span class="post-category">
+Edge Computing & IoT
+</span>
+
+<span class="post-number">
+13
+</span>
+
+</div>
+
+<h2 class="post-title">
+The Neural Horizon: Edge AI, IoT, and Distributed Intelligence Systems
+</h2>
+
+<div class="post-excerpt">
+
+Traditional cloud-based artificial intelligence relies on centralized data centers, but the rise of the Internet of Things demands ultra-low latency, shifting intelligence directly to local edge devices...
+
+<span class="hidden-content" id="more-13">
+By deploying quantized machine learning models onto dedicated neural processing units (NPUs), local hardware achieves microsecond response times and full offline autonomy.
+</span>
+
+<span class="see-more-link" onclick="toggleText(event,'13')">
+See More
+</span>
+
+</div>
+
+<div class="post-bottom">
+
+<span class="post-label">
+EDGE AI
+</span>
+
+<a href="post13.html" class="read-more-btn">
+Read Full Post
+</a>
+
+</div>
+
 </article>
-        <article class="post-block">
-    <span class="post-category">National Tech Strategy</span>
-    <h2 class="post-title">The Future of Technology in Nepal: Digital Transformation and Innovation</h2>
-    
-    <div class="post-excerpt" id="excerpt-nepal-tech">
-        Nepal stands at a critical juncture in its economic and technological evolution, expanding fiber networks and scaling startups...
-        <span class="hidden-content" id="more-18">
-            By accelerating digital financial ecosystems, expanding broadband infrastructure across rugged terrains, and empowering a young software engineering workforce, Nepal is positioning itself as a rising digital hub.
-        </span>
-        
-        <span class="see-more-link" onclick="toggleText(event, '18')">See More</span>
-    </div>
 
-    <a href="post18.html" class="read-more-btn">Read Full Post</a>
+
+<!-- POST 14 -->
+
+<article class="post-block">
+
+<div class="post-top">
+
+<span class="post-category">
+Cybersecurity & Encryption
+</span>
+
+<span class="post-number">
+14
+</span>
+
+</div>
+
+<h2 class="post-title">
+Cybersecurity in the Era of Quantum Threats: Safeguarding Digital Infrastructure
+</h2>
+
+<div class="post-excerpt">
+
+Modern global digital security relies heavily on standard public-key cryptography to protect sensitive data, but the rapid advancement of quantum computing threatens to render traditional algorithms obsolete...
+
+<span class="hidden-content" id="more-14">
+By utilizing complex lattice-based cryptography and post-quantum key encapsulation mechanisms, modern security frameworks defend against Shor's algorithm and "Harvest Now, Decrypt Later" attacks.
+</span>
+
+<span class="see-more-link" onclick="toggleText(event,'14')">
+See More
+</span>
+
+</div>
+
+<div class="post-bottom">
+
+<span class="post-label">
+POST-QUANTUM
+</span>
+
+<a href="post14.html" class="read-more-btn">
+Read Full Post
+</a>
+
+</div>
+
 </article>
-        <article class="post-block">
-    <span class="post-category">Geography & Culture Guide</span>
-    <h2 class="post-title">The Heart of the Himalayas: Exploring the Majesty, Culture, and Geography of Nepal</h2>
-    
-    <div class="post-excerpt" id="excerpt-nepal-geography">
-        Nestled in the majestic embrace of South Asia, Nepal is a sovereign landlocked country renowned for its breathtaking Himalayan landscapes...
-        <span class="hidden-content" id="more-19">
-            From the tropical lowland plains of the Terai to the towering icy summits of the high Himalayas, Nepal packs an astonishing variety of ecosystems, ethnic diversity, and rich spiritual heritage into a compact geographic area.
-        </span>
-        
-        <span class="see-more-link" onclick="toggleText(event, '19')">See More</span>
-    </div>
 
-    <a href="post19.html" class="read-more-btn">Read Full Post</a>
+
+<!-- POST 15 -->
+
+<article class="post-block">
+
+<div class="post-top">
+
+<span class="post-category">
+Autonomous Systems & Robotics
+</span>
+
+<span class="post-number">
+15
+</span>
+
+</div>
+
+<h2 class="post-title">
+The Architecture of Autonomous Systems: Robotics, Swarm Intelligence, and Spatial Computing
+</h2>
+
+<div class="post-excerpt">
+
+Modern automation has evolved far beyond rigid factory assembly lines into dynamic environments where self-governing machines perceive, reason, and adapt in real-time...
+
+<span class="hidden-content" id="more-15">
+By leveraging simultaneous localization and mapping (SLAM), multi-sensor fusion, and decentralized swarm intelligence, autonomous robots navigate unstructured physical spaces with zero manual intervention.
+</span>
+
+<span class="see-more-link" onclick="toggleText(event,'15')">
+See More
+</span>
+
+</div>
+
+<div class="post-bottom">
+
+<span class="post-label">
+ROBOTICS
+</span>
+
+<a href="post15.html" class="read-more-btn">
+Read Full Post
+</a>
+
+</div>
+
 </article>
-        <article class="post-block">
-    <span class="post-category">National Tech Strategy</span>
-    <h2 class="post-title">The Rise of Digital Nepal: Fintech, Startups, and the Tech Ecosystem</h2>
-    
-    <div class="post-excerpt" id="excerpt-nepal-digital">
-        Nepal stands at a critical juncture in its economic and technological evolution, accelerating digital financial ecosystems...
-        <span class="hidden-content" id="more-20">
-            By expanding broadband infrastructure across rugged terrains, scaling mobile payment gateways, and empowering a young software engineering workforce, the nation is positioning itself as a rising digital hub in South Asia.
-        </span>
-        
-        <span class="see-more-link" onclick="toggleText(event, '20')">See More</span>
-    </div>
 
-    <a href="post20.html" class="read-more-btn">Read Full Post</a>
+
+<!-- POST 16 -->
+
+<article class="post-block">
+
+<div class="post-top">
+
+<span class="post-category">
+Physical AI & Robotics
+</span>
+
+<span class="post-number">
+16
+</span>
+
+</div>
+
+<h2 class="post-title">
+The Rise of Physical AI: When Code Steps Into the Real World
+</h2>
+
+<div class="post-excerpt">
+
+Physical AI bridges the virtual mind and the physical world, allowing advanced machine learning to power robots and automated hardware...
+
+<span class="hidden-content" id="more-16">
+By integrating real-time spatial awareness, edge computing, and adaptive actuation, intelligent systems can navigate and manipulate dynamic environments without human hand-holding.
+</span>
+
+<span class="see-more-link" onclick="toggleText(event,'16')">
+See More
+</span>
+
+</div>
+
+<div class="post-bottom">
+
+<span class="post-label">
+PHYSICAL AI
+</span>
+
+<a href="post16.html" class="read-more-btn">
+Read Full Post
+</a>
+
+</div>
+
 </article>
-        <article class="post-block">
-    <span class="post-category">Renewable Energy Strategy</span>
-    <h2 class="post-title">Hydropower and Renewable Energy in Nepal: Powering Sustainable Growth</h2>
-    
-    <div class="post-excerpt" id="excerpt-nepal-hydro">
-        Endowed with thousands of fast-flowing, glacier-fed river systems originating in the Himalayas, Nepal possesses...
-        <span class="hidden-content" id="more-21">
-            one of the richest hydroelectric potentials in the world. Tapping into this immense natural asset is transforming domestic electrification and opening up regional energy trade opportunities across South Asia.
-        </span>
-        
-        <span class="see-more-link" onclick="toggleText(event, '21')">See More</span>
-    </div>
 
-    <a href="post21.html" class="read-more-btn">Read Full Post</a>
+
+<!-- POST 17 -->
+
+<article class="post-block">
+
+<div class="post-top">
+
+<span class="post-category">
+Quantum Computing
+</span>
+
+<span class="post-number">
+17
+</span>
+
+</div>
+
+<h2 class="post-title">
+The Architecture of Quantum Computing: Beyond Binary Bits
+</h2>
+
+<div class="post-excerpt">
+
+Quantum computing trades classical predictability for the counterintuitive laws of quantum mechanics, moving past binary limits...
+
+<span class="hidden-content" id="more-17">
+By utilizing qubits in superposition and entangled states, quantum systems evaluate complex multi-variable problems simultaneously across advanced cryogenic hardware.
+</span>
+
+<span class="see-more-link" onclick="toggleText(event,'17')">
+See More
+</span>
+
+</div>
+
+<div class="post-bottom">
+
+<span class="post-label">
+QUANTUM TECH
+</span>
+
+<a href="post17.html" class="read-more-btn">
+Read Full Post
+</a>
+
+</div>
+
 </article>
-        <article class="post-block">
-    <span class="post-category">Artificial Intelligence</span>
-    <h2 class="post-title">Artificial Intelligence and Software Engineering: The Next Frontier of Tech Development</h2>
-    
-    <div class="post-excerpt" id="excerpt-ai-software">
-        The integration of artificial intelligence into software engineering marks a profound paradigm shift in how digital solutions...
-        <span class="hidden-content" id="more-22">
-            are architected, tested, and deployed. Generative models and automated coding assistants are redefining developers' workflows, shifting focus from boilerplate syntax writing to high-level system design and creative problem-solving.
-        </span>
-        
-        <span class="see-more-link" onclick="toggleText(event, '22')">See More</span>
-    </div>
 
-    <a href="post22.html" class="read-more-btn">Read Full Post</a>
+
+<!-- POST 18 -->
+
+<article class="post-block">
+
+<div class="post-top">
+
+<span class="post-category">
+National Tech Strategy
+</span>
+
+<span class="post-number">
+18
+</span>
+
+</div>
+
+<h2 class="post-title">
+The Future of Technology in Nepal: Digital Transformation and Innovation
+</h2>
+
+<div class="post-excerpt">
+
+Nepal stands at a critical juncture in its economic and technological evolution, expanding fiber networks and scaling startups...
+
+<span class="hidden-content" id="more-18">
+By accelerating digital financial ecosystems, expanding broadband infrastructure across rugged terrains, and empowering a young software engineering workforce, Nepal is positioning itself as a rising digital hub.
+</span>
+
+<span class="see-more-link" onclick="toggleText(event,'18')">
+See More
+</span>
+
+</div>
+
+<div class="post-bottom">
+
+<span class="post-label">
+NEPAL TECH
+</span>
+
+<a href="post18.html" class="read-more-btn">
+Read Full Post
+</a>
+
+</div>
+
 </article>
-        <article class="post-block">
-    <span class="post-category">Cybersecurity</span>
-    <h2 class="post-title">Cybersecurity in the Modern Era: Safeguarding Digital Infrastructure</h2>
-    
-    <div class="post-excerpt" id="excerpt-cybersecurity">
-        As organizations and governments accelerate digital migration, the attack surface for malicious actors expands exponentially...
-        <span class="hidden-content" id="more-23">
-            Implementing robust cybersecurity protocols, proactive threat intelligence, and zero-trust architectures has become an absolute necessity for defending sensitive data and critical infrastructure against sophisticated modern cyber threats.
-        </span>
-        
-        <span class="see-more-link" onclick="toggleText(event, '23')">See More</span>
-    </div>
 
-    <a href="post23.html" class="read-more-btn">Read Full Post</a>
+
+<!-- POST 19 -->
+
+<article class="post-block">
+
+<div class="post-top">
+
+<span class="post-category">
+Geography & Culture Guide
+</span>
+
+<span class="post-number">
+19
+</span>
+
+</div>
+
+<h2 class="post-title">
+The Heart of the Himalayas: Exploring the Majesty, Culture, and Geography of Nepal
+</h2>
+
+<div class="post-excerpt">
+
+Nestled in the majestic embrace of South Asia, Nepal is a sovereign landlocked country renowned for its breathtaking Himalayan landscapes...
+
+<span class="hidden-content" id="more-19">
+From the tropical lowland plains of the Terai to the towering icy summits of the high Himalayas, Nepal packs an astonishing variety of ecosystems, ethnic diversity, and rich spiritual heritage into a compact geographic area.
+</span>
+
+<span class="see-more-link" onclick="toggleText(event,'19')">
+See More
+</span>
+
+</div>
+
+<div class="post-bottom">
+
+<span class="post-label">
+NEPAL GUIDE
+</span>
+
+<a href="post19.html" class="read-more-btn">
+Read Full Post
+</a>
+
+</div>
+
 </article>
-        <article class="post-block">
-    <span class="post-category">Nepal Tech</span>
-    <h2 class="post-title">Digital Transformation in Nepal: Bridging the Tech Gap and Fueling Innovation</h2>
-    
-    <div class="post-excerpt" id="excerpt-nepal-tech">
-        Nepal’s technology landscape is undergoing a remarkable evolution. Driven by rising internet penetration, expanding mobile networks...
-        <span class="hidden-content" id="more-24">
-            and a vibrant community of young tech entrepreneurs, the country is rapidly transitioning from a traditional economy into a digitally empowered ecosystem, advancing fintech, e-governance, and software exports.
-        </span>
-        
-        <span class="see-more-link" onclick="toggleText(event, '24')">See More</span>
-    </div>
 
-    <a href="post24.html" class="read-more-btn">Read Full Post</a>
+
+<!-- POST 20 -->
+
+<article class="post-block">
+
+<div class="post-top">
+
+<span class="post-category">
+National Tech Strategy
+</span>
+
+<span class="post-number">
+20
+</span>
+
+</div>
+
+<h2 class="post-title">
+The Rise of Digital Nepal: Fintech, Startups, and the Tech Ecosystem
+</h2>
+
+<div class="post-excerpt">
+
+Nepal stands at a critical juncture in its economic and technological evolution, accelerating digital financial ecosystems...
+
+<span class="hidden-content" id="more-20">
+By expanding broadband infrastructure across rugged terrains, scaling mobile payment gateways, and empowering a young software engineering workforce, the nation is positioning itself as a rising digital hub in South Asia.
+</span>
+
+<span class="see-more-link" onclick="toggleText(event,'20')">
+See More
+</span>
+
+</div>
+
+<div class="post-bottom">
+
+<span class="post-label">
+DIGITAL NEPAL
+</span>
+
+<a href="post20.html" class="read-more-btn">
+Read Full Post
+</a>
+
+</div>
+
 </article>
-    </main>
 
-    <footer>
-        <div class="footer-inner">
-            <div class="footer-left">
-                <span>© 2026 Ujwal web development & creation</span>
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms & Conditions</a>
-            </div>
-            <div class="footer-right">
-                <a href="https://www.facebook.com/Mr.ujwalsubedi" target="_blank" class="footer-icon fb" aria-label="Facebook">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                        <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
-                    </svg>
-                </a>
-                <a href="https://www.youtube.com/@Mr.ujwalsubedi" target="_blank" class="footer-icon yt" aria-label="YouTube">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                        <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.516 0-9.387.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.507 9.386.507 9.386.507s7.517 0 9.387-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </footer>
 
-    <script>
-        function toggleText(event, id) {
-            var moreText = document.getElementById("more-" + id);
-            var linkText = event.target;
+<!-- POST 21 -->
 
-            if (moreText.style.display === "inline") {
-                moreText.style.display = "none";
-                linkText.innerHTML = "See More";
-            } else {
-                moreText.style.display = "inline";
-                linkText.innerHTML = "See Less";
-            }
-        }
-        document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-});
-document.addEventListener('keydown', function(e) {
-    // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
-    if (
-        e.key === 'F12' || 
-        (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) || 
-        (e.ctrlKey && e.key === 'u')
-    ) {
-        e.preventDefault();
-        return false;
+<article class="post-block">
+
+<div class="post-top">
+
+<span class="post-category">
+Renewable Energy Strategy
+</span>
+
+<span class="post-number">
+21
+</span>
+
+</div>
+
+<h2 class="post-title">
+Hydropower and Renewable Energy in Nepal: Powering Sustainable Growth
+</h2>
+
+<div class="post-excerpt">
+
+Endowed with thousands of fast-flowing, glacier-fed river systems originating in the Himalayas, Nepal possesses...
+
+<span class="hidden-content" id="more-21">
+one of the richest hydroelectric potentials in the world. Tapping into this immense natural asset is transforming domestic electrification and opening up regional energy trade opportunities across South Asia.
+</span>
+
+<span class="see-more-link" onclick="toggleText(event,'21')">
+See More
+</span>
+
+</div>
+
+<div class="post-bottom">
+
+<span class="post-label">
+RENEWABLE ENERGY
+</span>
+
+<a href="post21.html" class="read-more-btn">
+Read Full Post
+</a>
+
+</div>
+
+</article>
+
+
+<!-- POST 22 -->
+
+<article class="post-block">
+
+<div class="post-top">
+
+<span class="post-category">
+Artificial Intelligence
+</span>
+
+<span class="post-number">
+22
+</span>
+
+</div>
+
+<h2 class="post-title">
+Artificial Intelligence and Software Engineering: The Next Frontier of Tech Development
+</h2>
+
+<div class="post-excerpt">
+
+The integration of artificial intelligence into software engineering marks a profound paradigm shift in how digital solutions...
+
+<span class="hidden-content" id="more-22">
+are architected, tested, and deployed. Generative models and automated coding assistants are redefining developers' workflows, shifting focus from boilerplate syntax writing to high-level system design and creative problem-solving.
+</span>
+
+<span class="see-more-link" onclick="toggleText(event,'22')">
+See More
+</span>
+
+</div>
+
+<div class="post-bottom">
+
+<span class="post-label">
+AI DEVELOPMENT
+</span>
+
+<a href="post22.html" class="read-more-btn">
+Read Full Post
+</a>
+
+</div>
+
+</article>
+
+
+<!-- POST 23 -->
+
+<article class="post-block">
+
+<div class="post-top">
+
+<span class="post-category">
+Cybersecurity
+</span>
+
+<span class="post-number">
+23
+</span>
+
+</div>
+
+<h2 class="post-title">
+Cybersecurity in the Modern Era: Safeguarding Digital Infrastructure
+</h2>
+
+<div class="post-excerpt">
+
+As organizations and governments accelerate digital migration, the attack surface for malicious actors expands exponentially...
+
+<span class="hidden-content" id="more-23">
+Implementing robust cybersecurity protocols, proactive threat intelligence, and zero-trust architectures has become an absolute necessity for defending sensitive data and critical infrastructure against sophisticated modern cyber threats.
+</span>
+
+<span class="see-more-link" onclick="toggleText(event,'23')">
+See More
+</span>
+
+</div>
+
+<div class="post-bottom">
+
+<span class="post-label">
+CYBERSECURITY
+</span>
+
+<a href="post23.html" class="read-more-btn">
+Read Full Post
+</a>
+
+</div>
+
+</article>
+
+
+<!-- POST 24 -->
+
+<article class="post-block">
+
+<div class="post-top">
+
+<span class="post-category">
+Nepal Tech
+</span>
+
+<span class="post-number">
+24
+</span>
+
+</div>
+
+<h2 class="post-title">
+Digital Transformation in Nepal: Bridging the Tech Gap and Fueling Innovation
+</h2>
+
+<div class="post-excerpt">
+
+Nepal’s technology landscape is undergoing a remarkable evolution. Driven by rising internet penetration, expanding mobile networks...
+
+<span class="hidden-content" id="more-24">
+and a vibrant community of young tech entrepreneurs, the country is rapidly transitioning from a traditional economy into a digitally empowered ecosystem, advancing fintech, e-governance, and software exports.
+</span>
+
+<span class="see-more-link" onclick="toggleText(event,'24')">
+See More
+</span>
+
+</div>
+
+<div class="post-bottom">
+
+<span class="post-label">
+NEPAL TECH
+</span>
+
+<a href="post24.html" class="read-more-btn">
+Read Full Post
+</a>
+
+</div>
+
+</article>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER — PRESERVED
+========================================================= -->
+
+<footer>
+
+<div class="footer-inner">
+
+<div class="footer-left">
+
+<span>
+© 2026 Ujwal web development & creation
+</span>
+
+<a href="privacy.html">
+Privacy Policy
+</a>
+
+<a href="terms.html">
+Terms & Conditions
+</a>
+
+</div>
+
+
+<div class="footer-right">
+
+<a
+href="https://www.facebook.com/Mr.ujwalsubedi"
+target="_blank"
+class="footer-icon fb"
+aria-label="Facebook"
+>
+
+<svg
+xmlns="http://www.w3.org/2000/svg"
+viewBox="0 0 24 24"
+width="20"
+height="20"
+fill="currentColor"
+>
+
+<path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
+
+</svg>
+
+</a>
+
+
+<a
+href="https://www.youtube.com/@Mr.ujwalsubedi"
+target="_blank"
+class="footer-icon yt"
+aria-label="YouTube"
+>
+
+<svg
+xmlns="http://www.w3.org/2000/svg"
+viewBox="0 0 24 24"
+width="20"
+height="20"
+fill="currentColor"
+>
+
+<path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.516 0-9.387.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.507 9.386.507 9.386.507s7.517 0 9.387-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+
+</svg>
+
+</a>
+
+</div>
+
+</div>
+
+</footer>
+
+
+<script>
+
+/* =========================================================
+   SEE MORE / SEE LESS
+========================================================= */
+
+function toggleText(event,id){
+
+    event.preventDefault();
+
+    const moreText =
+        document.getElementById("more-"+id);
+
+    const link =
+        event.currentTarget;
+
+    if(!moreText) return;
+
+    const visible =
+        moreText.style.display === "inline";
+
+    if(visible){
+
+        moreText.style.display="none";
+
+        link.innerHTML="See More";
+
+    }else{
+
+        moreText.style.display="inline";
+
+        link.innerHTML="See Less";
+
     }
-});
-    </script>
+
+}
+
+
+/* =========================================================
+   SCROLL REVEAL ANIMATION
+========================================================= */
+
+const cards =
+    document.querySelectorAll(".post-block");
+
+
+const observer =
+    new IntersectionObserver(
+        (entries)=>{
+            
+            entries.forEach(
+                (entry)=>{
+
+                    if(entry.isIntersecting){
+
+                        entry.target.classList.add("visible");
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold:.10,
+            rootMargin:"0px 0px -45px 0px"
+        }
+    );
+
+
+cards.forEach(
+    card=>observer.observe(card)
+);
+
+
+/* =========================================================
+   STAGGERED CARD DELAY
+========================================================= */
+
+cards.forEach(
+    (card,index)=>{
+
+        const delay =
+            (index % 6) * 70;
+
+        card.style.transitionDelay =
+            delay + "ms";
+
+    }
+);
+
+
+/* =========================================================
+   PREVENT CONTEXT MENU
+========================================================= */
+
+document.addEventListener(
+    "contextmenu",
+    function(e){
+        e.preventDefault();
+    }
+);
+
+
+/* =========================================================
+   DISABLE COMMON DEVTOOLS SHORTCUTS
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(e){
+
+        if(
+
+            e.key === "F12"
+
+            ||
+
+            (
+                e.ctrlKey &&
+                e.shiftKey &&
+                (
+                    e.key === "I" ||
+                    e.key === "J" ||
+                    e.key === "C"
+                )
+            )
+
+            ||
+
+            (
+                e.ctrlKey &&
+                e.key.toLowerCase() === "u"
+            )
+
+        ){
+
+            e.preventDefault();
+
+            return false;
+
+        }
+
+    }
+);
+
+</script>
+
 </body>
 </html>
