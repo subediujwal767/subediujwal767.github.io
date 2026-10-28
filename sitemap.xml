@@ -1,16 +1,31 @@
-<!-- Language & Localization Tags for Google Indexer -->
-<xhtml:link 
-  rel="alternate" 
-  hreflang="x-default" 
-  href="https://subediujwal767.github.io/" />
-<xhtml:link 
-  rel="alternate" 
-  hreflang="en" 
-  href="https://subediujwal767.github.io/" />
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Main Homepage -->
+  <url>
+    <loc>https://subediujwal767.github.io/</loc>
+    <lastmod>2026-10-28T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
 
-<!-- Google Image Search Optimization -->
-<image:image>
-  <image:loc>https://subediujwal767.github.io/</image:loc>
-  <image:title>Ujwal Subedi - Web Developer &amp; Creator</image:title>
-  <image:caption>Meet Ujwal Subedi, a web developer &amp; creator building scalable digital experiences. Discover latest web development projects, skills, and insights.</image:caption>
-</image:image>
+    <!-- Language & Localization Tags for Google Indexer -->
+    <xhtml:link 
+      rel="alternate" 
+      hreflang="x-default" 
+      href="https://subediujwal767.github.io/" />
+    <xhtml:link 
+      rel="alternate" 
+      hreflang="en" 
+      href="https://subediujwal767.github.io/" />
+
+    <!-- Google Image Search Optimization -->
+    <image:image>
+      <image:loc>https://subediujwal767.github.io/</image:loc>
+      <image:title>Ujwal Subedi - Web Developer &amp; Creator</image:title>
+      <image:caption>Meet Ujwal Subedi, a web developer &amp; creator building scalable digital experiences. Discover latest web development projects, skills, and insights.</image:caption>
+    </image:image>
+  </url>
+
+</urlset>
