@@ -40,7 +40,7 @@
     <priority>0.9</priority>
   </url>
 
-  <!-- 3. Legal / Trust Pages (Important for AdSense) -->
+  <!-- 3. Legal / Trust Pages -->
   <url>
     <loc>https://subediujwal767.github.io/privacy.html</loc>
     <lastmod>2026-10-28T12:00:00+00:00</lastmod>
@@ -50,17 +50,9 @@
 
   <url>
     <loc>https://subediujwal767.github.io/terms.html</loc>
-    <lastmod>2026-10-28T12:00:00+00:00</lastond>
+    <lastmod>2026-10-28T12:00:00+00:00</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
-  <!-- 4. Sample Blog Posts (Add post1.html through post24.html like this) -->
-  <url>
-    <loc>https://subediujwal767.github.io/post1.html</loc>
-    <lastmod>2026-10-28T12:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
 </urlset>
