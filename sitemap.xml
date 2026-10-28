@@ -3,29 +3,64 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
-  <!-- Main Homepage -->
+  <!-- 1. Main Homepage -->
   <url>
     <loc>https://subediujwal767.github.io/</loc>
     <lastmod>2026-10-28T12:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-
-    <!-- Language & Localization Tags for Google Indexer -->
-    <xhtml:link 
-      rel="alternate" 
-      hreflang="x-default" 
-      href="https://subediujwal767.github.io/" />
-    <xhtml:link 
-      rel="alternate" 
-      hreflang="en" 
-      href="https://subediujwal767.github.io/" />
-
-    <!-- Google Image Search Optimization -->
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subediujwal767.github.io/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subediujwal767.github.io/" />
     <image:image>
       <image:loc>https://subediujwal767.github.io/</image:loc>
       <image:title>Ujwal Subedi - Web Developer &amp; Creator</image:title>
-      <image:caption>Meet Ujwal Subedi, a web developer &amp; creator building scalable digital experiences. Discover latest web development projects, skills, and insights.</image:caption>
+      <image:caption>Meet Ujwal Subedi, a web developer &amp; creator building scalable digital experiences.</image:caption>
     </image:image>
   </url>
 
+  <!-- 2. Core Navigation Pages -->
+  <url>
+    <loc>https://subediujwal767.github.io/about.html</loc>
+    <lastmod>2026-10-28T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://subediujwal767.github.io/projects.html</loc>
+    <lastmod>2026-10-28T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://subediujwal767.github.io/blog.html</loc>
+    <lastmod>2026-10-28T12:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 3. Legal / Trust Pages (Important for AdSense) -->
+  <url>
+    <loc>https://subediujwal767.github.io/privacy.html</loc>
+    <lastmod>2026-10-28T12:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://subediujwal767.github.io/terms.html</loc>
+    <lastmod>2026-10-28T12:00:00+00:00</lastond>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- 4. Sample Blog Posts (Add post1.html through post24.html like this) -->
+  <url>
+    <loc>https://subediujwal767.github.io/post1.html</loc>
+    <lastmod>2026-10-28T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
 </urlset>
