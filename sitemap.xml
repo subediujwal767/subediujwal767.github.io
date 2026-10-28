@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!-- Language & Localization Tags for Google Indexer -->
+<xhtml:link 
+  rel="alternate" 
+  hreflang="x-default" 
+  href="https://subediujwal767.github.io/" />
+<xhtml:link 
+  rel="alternate" 
+  hreflang="en" 
+  href="https://subediujwal767.github.io/" />
 
-  <!-- Main Homepage -->
-  <url>
-    <loc>https://subediujwal767.github.io/</loc>
-    <lastmod>2026-05-27</lastmod>
-    <priority>1.0</priority>
-  </url>
-
-</urlset>
+<!-- Google Image Search Optimization -->
+<image:image>
+  <image:loc>https://subediujwal767.github.io/</image:loc>
+  <image:title>Ujwal Subedi - Web Developer &amp; Creator</image:title>
+  <image:caption>Meet Ujwal Subedi, a web developer &amp; creator building scalable digital experiences. Discover latest web development projects, skills, and insights.</image:caption>
+</image:image>
