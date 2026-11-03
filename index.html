@@ -1272,98 +1272,123 @@ button:hover{
   color:#fff;
 }
 
-  /* Animated Footer Styles as requested */
-        .animated-footer {
-            background-color: #ffffff;
-            background-image: radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.04) 0px, transparent 50%),
-                              radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.04) 0px, transparent 50%);
-        }
+/* ==========================================================================
+   ANIMATED WHITE FOOTER STYLES
+   ========================================================================== */
 
-        .footer-blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.6;
-            pointer-events: none;
-            animation: floatBlob 10s infinite ease-in-out alternate;
-        }
+/* Main Footer Container */
+.animated-footer {
+  background-color: #ffffff;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(79, 70, 229, 0.05) 0px, transparent 50%);
+  position: relative;
+  overflow: hidden;
+}
 
-        .blob-1 {
-            width: 250px;
-            height: 250px;
-            background: rgba(59, 130, 246, 0.12);
-            top: -50px;
-            left: -50px;
-        }
+/* Floating Light Gradient Blobs */
+.footer-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.65;
+  pointer-events: none;
+  animation: floatFooterBlob 12s infinite ease-in-out alternate;
+}
 
-        .blob-2 {
-            width: 300px;
-            height: 300px;
-            background: rgba(99, 102, 241, 0.1);
-            bottom: -100px;
-            right: -50px;
-            animation-delay: -5s;
-        }
+.blob-1 {
+  width: 280px;
+  height: 280px;
+  background: rgba(37, 99, 235, 0.12); /* Soft Blue Glow */
+  top: -60px;
+  left: -60px;
+}
 
-        .brand-logo {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .brand-logo:hover {
-            transform: scale(1.08) rotate(-3deg);
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
-        }
+.blob-2 {
+  width: 320px;
+  height: 320px;
+  background: rgba(79, 70, 229, 0.10); /* Soft Indigo Glow */
+  bottom: -100px;
+  right: -60px;
+  animation-delay: -6s;
+}
 
-        .animated-link {
-            display: inline-block;
-            position: relative;
-            transition: color 0.3s ease, transform 0.2s ease;
-        }
+@keyframes floatFooterBlob {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(25px, 20px) scale(1.08);
+  }
+  100% {
+    transform: translate(-15px, 30px) scale(0.95);
+  }
+}
 
-        .animated-link span {
-            position: relative;
-            z-index: 1;
-        }
+/* Brand Logo Hover Animation */
+.brand-logo {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
 
-        .animated-link::after {
-            content: '';
-            position: absolute;
-            width: 0%;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background: linear-gradient(90deg, #2563eb, #4f46e5);
-            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border-radius: 2px;
-        }
+.brand-logo:hover {
+  transform: scale(1.1) rotate(-4deg);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+}
 
-        .animated-link:hover {
-            color: #2563eb;
-            transform: translateX(4px);
-        }
+/* Animated Links with Sliding Underline & Shift */
+.animated-link {
+  display: inline-block;
+  position: relative;
+  transition: color 0.3s ease, transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
 
-        .animated-link:hover::after {
-            width: 100%;
-        }
+.animated-link span {
+  position: relative;
+  z-index: 1;
+}
 
-        .social-btn {
-            width: 38px;
-            height: 38px;
-            border-radius: 10px;
-            border: 1px solid #e5e7eb;
-            background-color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
-        }
+.animated-link::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: linear-gradient(90deg, #2563eb, #4f46e5);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 2px;
+}
 
-        .social-btn:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-        }
-    
+.animated-link:hover {
+  color: #2563eb;
+  transform: translateX(5px);
+}
+
+.animated-link:hover::after {
+  width: 100%;
+}
+
+/* Social Icon Buttons */
+.social-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  text-decoration: none;
+}
+
+.social-btn:hover {
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
 /* =========================================================
    TOP BUTTON
 ========================================================= */
